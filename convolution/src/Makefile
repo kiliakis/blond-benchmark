@@ -27,4 +27,4 @@ $(LIB_BASE).so: $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ -I../$(INC_DIR)
 
 clean:
-	rm $(TARGET_LIB) $(OBJS)
+	rm -f $(TARGET_LIB) $(OBJS)

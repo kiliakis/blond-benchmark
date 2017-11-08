@@ -10,18 +10,18 @@ LIBS += -Lsrc -l$(BASE) -L/afs/cern.ch/work/k/kiliakis/install/lib -lpapiprof
 
 default: all
 
-all: $(PROGS) $(LIB) $(OBJS)
+all: base $(PROGS) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
 
-$(LIB):
+base:
 	$(MAKE) -C src --no-print-directory
 
-%: %.o $(LIB)
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+%: %.o base
+	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@ -I$(INC_DIR)
 
 clean:
-	rm $(PROGS) $(OBJS)
+	rm -f $(PROGS) $(OBJS)
 	$(MAKE) -C src clean --no-print-directory
