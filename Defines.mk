@@ -1,12 +1,12 @@
-BENCH_DIRS := interp-kick-n-drift
-			  # convolution \
-			  # histogram \
-			  # fft-convolution \
-			  # synchrotron-radiation
+BENCH_DIRS := interp-kick-n-drift \
+			  convolution \
+			  histogram \
+			  fft-convolution \
+			  synchrotron-radiation
 
 CC = g++
-CFLAGS = -std=c++11 -g -O3 -Wall -Wno-unknown-pragmas
-LDFLAGS = 
+CFLAGS = -std=c++11 -g -O3 -fopenmp
+LDFLAGS = -lpapiprof
 INC_DIR = include
 
 AR = ar

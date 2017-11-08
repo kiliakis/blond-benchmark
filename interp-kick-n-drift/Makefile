@@ -5,7 +5,7 @@ include $(HOME)/Defines.mk
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=}
-LIBS += -Lsrc -l$(BASE)
+LIBS += -Lsrc -l$(BASE) -L/afs/cern.ch/work/k/kiliakis/install/lib -lpapiprof
 .PHONY: default all clean
 
 default: all
@@ -14,7 +14,7 @@ all: $(PROGS) $(LIB) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
 
 $(LIB):
-	$(MAKE) -C src
+	$(MAKE) -C src --no-print-directory
 
 %: %.o $(LIB)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
