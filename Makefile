@@ -10,8 +10,9 @@ all: benches
 
 benches:
 	@$(foreach BENCH, $(BENCH_DIRS), \
+		$(MAKE) -C $(BENCH)/src; \
 		$(MAKE) -C $(BENCH);)
  
 clean:
 	@$(foreach BENCH, $(BENCH_DIRS), \
-		$(MAKE) -C $(BENCH) clean;)
+		$(MAKE) -C $(BENCH) clean --no-print-directory;)
