@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "interp_kick.h"
+#include "drift.h"
 #include "utils.h"
 #include <vector>
 #include <random>
@@ -11,14 +11,14 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int n_turns = 50000;
+    int n_turns = 5000;
     int n_particles = 1000000;
-    int n_slices = 1000;
+    int alpha_order = 0;
     int n_threads = 1;
 
     if (argc > 1) n_turns = atoi(argv[1]);
     if (argc > 2) n_particles = atoi(argv[2]);
-    if (argc > 3) n_slices = atoi(argv[3]);
+    if (argc > 3) alpha_order = atoi(argv[3]);
     if (argc > 4) n_threads = atoi(argv[4]);
     omp_set_num_threads(n_threads);
 
@@ -28,39 +28,27 @@ int main(int argc, char const *argv[])
 
     // initialize variables
     vector<double> dE, dt;
-    vector<double> voltage, edges, bin_centers;
-    double cut_left, cut_right, acc_kick;
+    double T0, length_ratio, eta0, eta1, eta2;
+    double beta, energy;
 
     dE.resize(n_particles); dt.resize(n_particles);
     for (int i = 0; i < n_particles; ++i) {
         dE[i] = 10e6 * d(gen);
         dt[i] = 10e-6 * d(gen);
     }
-
-    voltage.resize(n_slices);
-    for (int i = 0; i < n_slices; ++i) {
-        voltage[i] = d(gen);
-    }
-    cut_left = dt[rand() % n_slices];
-    cut_right = dt[rand() % n_slices];
-    acc_kick = 10e6 * d(gen);
-    if (cut_left > cut_right) swap(cut_left, cut_right);
-
-    edges.resize(n_slices);
-    linspace(cut_left, cut_right, n_slices + 1, edges.data());
-
-    bin_centers.resize(n_slices);
-    for (int i = 0; i < n_slices; ++i) {
-        bin_centers[i] = (edges[i] + edges[i + 1]) / 2.;
-    }
-
+    T0 = d(gen);
+    length_ratio = d(gen);
+    eta0 = d(gen); eta1 = d(gen); eta2 = d(gen);
+    beta = d(gen); energy = d(gen);
+    const char *solver = alpha_order > 0 ? "full" : "simple";
     auto papiprof = new PAPIProf();
-    papiprof->start_counters("interp_kick");
+    papiprof->start_counters("drift");
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        linear_interp_kick_v0(dt.data(), dE.data(), voltage.data(),
-                              bin_centers.data(), n_slices, n_particles,
-                              acc_kick);
+        drift_v0(dt.data(), dE.data(), solver,
+                 T0, length_ratio, alpha_order, eta0,
+                 eta1, eta2, beta, energy,
+                 n_particles);
     }
     papiprof->stop_counters();
     papiprof->report_timing();
