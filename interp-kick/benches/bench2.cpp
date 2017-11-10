@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
     papiprof->start_counters("interp_kick");
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        linear_interp_kick_v0(dt.data(), dE.data(), voltage.data(),
+        linear_interp_kick_v4(dt.data(), dE.data(), voltage.data(),
                               bin_centers.data(), n_slices, n_particles,
                               acc_kick);
     }

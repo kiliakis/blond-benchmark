@@ -1,11 +1,15 @@
-BENCH_DIRS := interp-kick-n-drift \
+HOME = \"/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/\"
+
+BENCH_DIRS := interp-kick \
 			  convolution \
 			  histogram \
+			  kick \
+			  drift \
 			  fft-convolution \
 			  synchrotron-radiation
 
 CC = g++
-CFLAGS = -std=c++11 -g -O3 -fopenmp
+CFLAGS = -std=c++11 -g -O3 -fopenmp -DHOME=$(HOME)
 LDFLAGS = -lpapiprof
 INC_DIR = include
 

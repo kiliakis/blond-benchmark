@@ -7,7 +7,8 @@
 #include <chrono>
 #include <PAPIProf.h>
 #include <omp.h>
-
+#include <string>
+#include <algorithm>
 using namespace std;
 
 int main(int argc, char const *argv[])
@@ -27,17 +28,17 @@ int main(int argc, char const *argv[])
     uniform_real_distribution<double> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> dt;
+    vector<double> dt, dE;
     vector<double> profile;
+    string input = HOME "/input_files/distribution_10M_particles.txt";
+    read_distribution(input, n_particles, dt, dE);
     double cut_left, cut_right;
     profile.resize(n_slices);
-    dt.resize(n_particles);
-    for (int i = 0; i < n_particles; ++i) {
-        dt[i] = 10e-6 * d(gen);
-    }
 
-    cut_left = dt[rand() % n_slices];
-    cut_right = dt[rand() % n_slices];
+    cut_left = 1.05 * (*min_element(dt.begin(), dt.end()));
+    cut_right = 0.95 * (*max_element(dt.begin(), dt.end()));
+    // cut_left = dt[rand() % n_slices];
+    // cut_right = dt[rand() % n_slices];
     if (cut_left > cut_right) swap(cut_left, cut_right);
 
     auto papiprof = new PAPIProf();

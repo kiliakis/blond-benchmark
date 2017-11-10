@@ -55,7 +55,7 @@ void histogram_v6(const double *__restrict__ input,
         // memset(histo[id], 0., n_slices * sizeof(double));
         for (int i = 0; i < n_slices; ++i) histo[id][i] = 0.0;
 
-        int fbin[STEP];
+        unsigned int fbin[STEP];
         #pragma omp for
         for (int i = 0; i < n_macroparticles; i += STEP) {
 
@@ -63,12 +63,13 @@ void histogram_v6(const double *__restrict__ input,
                                    STEP : n_macroparticles - i;
 
             for (int j = 0; j < loop_count; j++) {
-                fbin[j] = (int) floor((input[i + j] - cut_left) * inv_bin_width);
+                fbin[j] = (unsigned int) floor((input[i + j] - cut_left) * inv_bin_width);
             }
 
             for (int j = 0; j < loop_count; j++) {
                 // const int bin  = (int) floor(fbin[j]);
-                if (fbin[j] >= 0 && fbin[j] < n_slices)
+                // if (fbin[j] >= 0 && fbin[j] < n_slices)
+                if (fbin[j] < n_slices)
                     histo[id][fbin[j]] += 1.;
             }
         }
