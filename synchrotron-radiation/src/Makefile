@@ -7,6 +7,7 @@ OBJS := ${SRCS:.cpp=.o}
 
 INCDIRS += -I../include
 LIBS = -lm
+CFLAGS += -DUSE_BOOST
 
 ifeq ($(LINKAGE), dynamic)
 CFLAGS += -fPIC

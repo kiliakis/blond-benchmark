@@ -13,17 +13,17 @@ INCDIRS += -Iinclude
 
 default: all
 
-all: base $(PROGS) $(OBJS)
+all: $(TARGET_LIB) $(PROGS) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
 
-base:
+$(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
-%: %.o base
+%: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@ -I$(INC_DIR)
+	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
 	rm -f $(PROGS) $(OBJS)
