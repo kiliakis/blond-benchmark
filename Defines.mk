@@ -9,14 +9,14 @@ BENCH_DIRS := interp-kick \
 			  synchrotron-radiation
 
 CC = g++
-CFLAGS = -std=c++11 -g -O3 -fopenmp -DHOME=$(HOME)
-LDFLAGS = -lpapiprof
-INC_DIR = include
+CFLAGS = -std=c++11 -g -Ofast -fopenmp -DHOME=$(HOME)
+LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
+INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include
 
 AR = ar
 RANLIB = ranlib
 
-LINKAGE = static
+LINKAGE = dynamic
 BASE = base
 LIB_BASE = libbase
 

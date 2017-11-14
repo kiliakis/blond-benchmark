@@ -5,7 +5,16 @@ include $(HOME)/Defines.mk
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=}
-LIBS += -Lsrc -l$(BASE) -L/afs/cern.ch/work/k/kiliakis/install/lib -lpapiprof
+LDFLAGS += -Lsrc -Wl,-rpath=src
+LIBS += -l$(BASE) -lpapiprof
+INCDIRS += -Iinclude
+
+# ifeq ($(LINKAGE), dynamic)
+# CFLAGS += -fPIC
+# LDFLAGS += -shared
+# endif
+
+
 .PHONY: default all clean
 
 default: all
@@ -17,10 +26,10 @@ base:
 	$(MAKE) -C src --no-print-directory
 
 %: %.o base
-	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ -I$(INC_DIR)
+	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
 	rm -f $(PROGS) $(OBJS)
