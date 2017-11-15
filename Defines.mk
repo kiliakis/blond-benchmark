@@ -9,7 +9,7 @@ BENCH_DIRS := interp-kick \
 			  synchrotron-radiation
 
 CC = g++
-OPTFLAGS = -Ofast -qopt-report -qopt-report-filter=synchrotron_radiation.cpp
+OPTFLAGS = -Ofast
 CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
 LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
 INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include

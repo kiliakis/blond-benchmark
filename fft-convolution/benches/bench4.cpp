@@ -8,6 +8,7 @@
 #include <omp.h>
 #include "fft.h"
 #include <iostream>
+#include <mkl_vsl.h>
 
 using namespace std;
 
@@ -19,6 +20,27 @@ void print_vector(vector<T> &v) {
 template <typename T>
 void print_vector(T *v, int n) {
     for (int i = 0; i < n; i++) cout << v[i] << "\n";
+}
+
+void fft_convolution_mkl(const double * __restrict__ signal,
+                         const int signalLen,
+                         const double * __restrict__ kernel,
+                         const int kernelLen,
+                         double * __restrict__ result,
+                         const int threads = 1)
+{
+    static VSLConvTaskPtr task = nullptr;
+    int status;
+    // VSL_CONV_MODE_DIRECT compute convolution directly
+    // VSL_CONV_MODE_FFT use FFT
+    // VSL_CONV_MODE_AUTO FFT or directly
+    if (!task) {
+        vsldConvNewTask1D(&task, VSL_CONV_MODE_FFT,
+                          signalLen, kernelLen,
+                          signalLen + kernelLen - 1);
+    }
+    status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
+    // vslConvDeleteTask(&task);
 }
 
 
@@ -53,21 +75,20 @@ int main(int argc, char const *argv[])
         kernel[i] = d(gen);
     }
 
-    fft_convolution(signal.data(), n_signal,
-                    kernel.data(), n_kernel,
-                    result.data(), n_threads);
+    fft_convolution_mkl(signal.data(), n_signal,
+                        kernel.data(), n_kernel,
+                        result.data(), n_threads);
 
     auto papiprof = new PAPIProf();
     // main loop
-    papiprof->start_counters("fft_convolution");
+    papiprof->start_counters("fft_convolution_mkl");
     for (int i = 0; i < n_turns; ++i) {
-        fft_convolution(signal.data(), n_signal,
-                        kernel.data(), n_kernel,
-                        result.data(), n_threads);
+        fft_convolution_mkl(signal.data(), n_signal,
+                            kernel.data(), n_kernel,
+                            result.data(), n_threads);
     }
     papiprof->stop_counters();
     papiprof->report_timing();
-    destroy_plans();
     // report results
     return 0;
 }

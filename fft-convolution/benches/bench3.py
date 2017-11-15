@@ -27,9 +27,9 @@ if __name__ == "__main__":
     result = np.zeros(len(signal) + len(kernel) - 1, dtype=float)
     convolution_v1(signal, kernel, result, n_threads)
 
+    start_timing('convolution_v1')
     for i in range(n_turns):
-        start_timing('convolution_v1')
         convolution_v1(signal, kernel, result, n_threads)
-        stop_timing()
+    stop_timing()
 
     report()

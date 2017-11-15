@@ -5,8 +5,12 @@ include $(HOME)/Defines.mk
 SRCS := $(wildcard *.cpp)
 OBJS := ${SRCS:.cpp=.o}
 
+INCDIRS += -I../include
+LIBS = -lm
+# CC = icc
 ifeq ($(LINKAGE), dynamic)
 CFLAGS += -fPIC
+LDFLAGS += -shared
 endif
 
 .PHONY: default all clean
@@ -21,10 +25,10 @@ $(LIB_BASE).a: $(OBJS)
 	$(RANLIB) $@
 
 $(LIB_BASE).so: $(OBJS) 
-	$(CC) --shared -o $@ $(OBJS)
+	$(CC) $(LDFLAGS) $(INCDIRS) -o $@ $(OBJS) $(LIBS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ -I../$(INC_DIR)
+	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
 	rm -f $(TARGET_LIB) $(OBJS)

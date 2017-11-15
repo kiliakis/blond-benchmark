@@ -8,7 +8,8 @@ PROGS := ${BENCHES:.cpp=}
 LDFLAGS += -Lsrc -Wl,-rpath,src
 LIBS += -l$(BASE) -lpapiprof
 INCDIRS += -Iinclude
-
+MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+CC=icc
 # ifeq ($(LINKAGE), dynamic)
 # CFLAGS += -fPIC
 # endif
@@ -17,13 +18,16 @@ INCDIRS += -Iinclude
 
 default: all
 
-all: base $(PROGS) $(OBJS)
+all: $(TARGET_LIB) $(PROGS) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
 
-base:
+$(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
-%: %.o base
+benches/bench4: benches/bench4.o $(TARGET_LIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
+
+%: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
 
 %.o: %.cpp

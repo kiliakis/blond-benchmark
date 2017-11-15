@@ -8,6 +8,7 @@ PROGS := ${BENCHES:.cpp=}
 LDFLAGS += -Lsrc -Wl,-rpath,src
 LIBS += -l$(BASE) -lpapiprof
 INCDIRS += -Iinclude
+CC = icc
 
 .PHONY: default all clean
 

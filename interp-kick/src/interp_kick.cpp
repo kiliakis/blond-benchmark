@@ -57,7 +57,7 @@ void linear_interp_kick_v4(
 
     #pragma omp parallel
     {
-        int fbin[STEP];
+        unsigned fbin[STEP];
 
         #pragma omp for
         for (int i = 0; i < n_slices - 1; i++) {
@@ -73,17 +73,16 @@ void linear_interp_kick_v4(
             // directive recognized only by icc
 #pragma simd
             for (int j = 0; j < loop_count; j++) {
-                fbin[j] = (int) floor((beam_dt[i + j] - bin_centers[0])
-                                      * inv_bin_width);
+                fbin[j] = (unsigned) floor((beam_dt[i + j] - bin_centers[0])
+                                           * inv_bin_width);
                 beam_dE[i + j] += acc_kick;
             }
 
             for (int j = 0; j < loop_count; j++) {
-                int bin = fbin[j];
-                if (bin >= 0 && bin < n_slices - 1) {
-                    beam_dE[i + j] += voltage_array[bin]
-                                      + (beam_dt[i + j] - bin_centers[bin])
-                                      * voltageKick[bin];
+                if (fbin[j] < n_slices - 1) {
+                    beam_dE[i + j] += voltage_array[fbin[j]]
+                                      + (beam_dt[i + j] - bin_centers[fbin[j]])
+                                      * voltageKick[fbin[j]];
                 }
             }
         }

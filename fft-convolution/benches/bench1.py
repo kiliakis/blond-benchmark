@@ -31,9 +31,9 @@ if __name__ == "__main__":
     result = np.zeros(len(signal) + len(kernel) - 1)
     result = convolution_v0(signal, kernel)
 
+    start_timing('convolution_v0')
     for i in range(n_turns):
-        start_timing('convolution_v0')
         result = convolution_v0(signal, kernel)
-        stop_timing()
+    stop_timing()
 
     report()

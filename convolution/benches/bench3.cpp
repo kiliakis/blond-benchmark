@@ -1,24 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "convolution.h"
 #include "utils.h"
 #include <vector>
 #include <random>
 #include <chrono>
 #include <PAPIProf.h>
 #include <omp.h>
-#include "fft.h"
-#include <iostream>
-
+#include <mkl_vsl.h>
 using namespace std;
 
-template <typename T>
-void print_vector(vector<T> &v) {
-    for (auto &i : v) cout << i << "\n";
-}
-
-template <typename T>
-void print_vector(T *v, int n) {
-    for (int i = 0; i < n; i++) cout << v[i] << "\n";
+void convolution_mkl(const double * __restrict__ signal,
+                     const int signalLen,
+                     const double * __restrict__ kernel,
+                     const int kernelLen,
+                     double * __restrict__ result)
+{
+    static VSLConvTaskPtr task = nullptr;
+    int status;
+    // VSL_CONV_MODE_DIRECT compute convolution directly
+    // VSL_CONV_MODE_FFT use FFT
+    // VSL_CONV_MODE_AUTO FFT or directly
+    if (!task) {
+        vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT,
+                          signalLen, kernelLen,
+                          signalLen + kernelLen - 1);
+    }
+    status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
+    // vslConvDeleteTask(&task);
 }
 
 
@@ -53,21 +62,17 @@ int main(int argc, char const *argv[])
         kernel[i] = d(gen);
     }
 
-    fft_convolution(signal.data(), n_signal,
-                    kernel.data(), n_kernel,
-                    result.data(), n_threads);
-
     auto papiprof = new PAPIProf();
+    papiprof->start_counters("convolution_mkl");
     // main loop
-    papiprof->start_counters("fft_convolution");
     for (int i = 0; i < n_turns; ++i) {
-        fft_convolution(signal.data(), n_signal,
+        convolution_mkl(signal.data(), n_signal,
                         kernel.data(), n_kernel,
-                        result.data(), n_threads);
+                        result.data());
     }
     papiprof->stop_counters();
     papiprof->report_timing();
-    destroy_plans();
     // report results
+
     return 0;
 }

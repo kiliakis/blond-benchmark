@@ -12,6 +12,8 @@ CFLAGS += -fPIC
 LDFLAGS += -shared
 endif
 
+CC=icc
+
 .PHONY: default all clean
 
 default: all
