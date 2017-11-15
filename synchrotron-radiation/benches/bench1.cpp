@@ -45,8 +45,8 @@ int main(int argc, char const *argv[])
     // main loop
     for (int i = 0; i < n_turns; ++i) {
         papiprof->start_counters("synchrotron_radiation");
-        synchrotron_radiation_full(dE.data(), U0, n_particles,
-                                   sigma_dE, tau_z, energy, n_kicks);
+        synchrotron_radiation_full_v0(dE.data(), U0, n_particles,
+                                      sigma_dE, tau_z, energy, n_kicks);
         papiprof->stop_counters();
     }
     papiprof->report_timing();
