@@ -8,7 +8,6 @@ PROGS := ${BENCHES:.cpp=}
 LDFLAGS += -L$(realpath src) -Wl,-rpath=$(realpath src)
 LIBS += -l$(BASE) -lpapiprof 
 INCDIRS += -Iinclude
-MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
 CC=icc
 
 .PHONY: default all clean
@@ -20,12 +19,6 @@ all: $(TARGET_LIB) $(PROGS) $(OBJS)
 
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
-
-benches/bench3: benches/bench3.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
-
-benches/bench4: benches/bench4.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
 
 %: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)

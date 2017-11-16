@@ -7,29 +7,7 @@
 #include <chrono>
 #include <PAPIProf.h>
 #include <omp.h>
-#include <mkl_vsl.h>
 using namespace std;
-
-void convolution_mkl(const double * __restrict__ signal,
-                     const int signalLen,
-                     const double * __restrict__ kernel,
-                     const int kernelLen,
-                     double * __restrict__ result)
-{
-    static VSLConvTaskPtr task = nullptr;
-    int status;
-    // VSL_CONV_MODE_DIRECT compute convolution directly
-    // VSL_CONV_MODE_FFT use FFT
-    // VSL_CONV_MODE_AUTO FFT or directly
-    if (!task) {
-        vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT,
-                          signalLen, kernelLen,
-                          signalLen + kernelLen - 1);
-    }
-    status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
-    // vslConvDeleteTask(&task);
-}
-
 
 int main(int argc, char const *argv[])
 {
@@ -63,17 +41,17 @@ int main(int argc, char const *argv[])
     }
 
     auto papiprof = new PAPIProf();
-    papiprof->start_counters("convolution_mkl");
+    papiprof->start_counters("convolution_mkl_v0");
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        convolution_mkl(signal.data(), n_signal,
-                        kernel.data(), n_kernel,
-                        result.data());
+        convolution_mkl_v0(signal.data(), n_signal,
+                           kernel.data(), n_kernel,
+                           result.data());
     }
-    for (auto& i : result) printf("%lf\n", i);
+    // for (auto& i : result) printf("%lf\n", i);
 
     papiprof->stop_counters();
-    // papiprof->report_timing();
+    papiprof->report_timing();
     // report results
 
     return 0;

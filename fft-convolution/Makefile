@@ -27,6 +27,9 @@ $(TARGET_LIB):
 benches/bench4: benches/bench4.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
 
+benches/bench5: benches/bench5.o $(TARGET_LIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
+
 %: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
 
