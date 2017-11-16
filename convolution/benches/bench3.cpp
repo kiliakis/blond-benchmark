@@ -70,8 +70,10 @@ int main(int argc, char const *argv[])
                         kernel.data(), n_kernel,
                         result.data());
     }
+    for (auto& i : result) printf("%lf\n", i);
+
     papiprof->stop_counters();
-    papiprof->report_timing();
+    // papiprof->report_timing();
     // report results
 
     return 0;

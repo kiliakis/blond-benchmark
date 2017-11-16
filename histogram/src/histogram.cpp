@@ -32,7 +32,7 @@ void histogram_v0(const double *__restrict__ input,
             if ((input[i] < cut_left) || input[i] > cut_right)
                 continue;
             int bin = (int) (input[i] - cut_left) * inv_bin_width;
-            output[bin] += 1.;
+            histo[id][bin] += 1.;
         }
 
         #pragma omp for
