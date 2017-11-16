@@ -13,39 +13,35 @@ def string_between(string, before, after):
 
 
 home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/'
-result_dir = home + '{}/results/raw/run0/'
-csv_dir = home + '{}/results/csv/run0/{}.csv'
-testcases = ['kick', 'drift', 'interp_kick', 'convolution', 'histogram']
-
-app = ''
-
-delimiter = ';'
+result_dir = home + '{}/results/raw/run1/'
+csv_dir = home + '{}/results/csv/run1/{}.csv'
+testcases = ['kick', 'drift', 'interp-kick', 'convolution',
+             'histogram', 'fft-convolution', 'synchrotron-radiation']
 
 
-def process_line(line, events):
-    global event_list
-    if('Function' in line) and ('Event Count' in line):
-        event_line = line.split(delimiter)[1:]
-        event_list = []
-        for e in event_line:
-            event_list.append(e.split('Event Count:')[1].strip())
-            if(e.split('Event Count:')[1].strip() not in events):
-                events[e.split('Event Count:')[1].strip()] = {}
-    elif('MapReduce' in line) and ('map_worker' in line):
-        counters = line.split(delimiter)[1:]
-        for i in range(len(counters)):
-            event = event_list[i]
-            if('map_worker' not in events[event]):
-                events[event]['map_worker'] = []
-            events[event]['map_worker'].append(int(counters[i]))
-    elif('MapReduce' in line) and ('combine_worker' in line):
-        counters = line.split(delimiter)[1:]
-        for i in range(len(counters)):
-            event = event_list[i]
-            if('combine_worker' not in events[event]):
-                events[event]['combine_worker'] = []
-            events[event]['combine_worker'].append(int(counters[i]))
-    return
+def process_line(line):
+    if('CPI Rate:' in line):
+        metric = line.split('CPI Rate:')[1].strip()
+        return ['CPI', metric]
+    elif('MUX Reliability' in line):
+        metric = line.split('MUX Reliability')[1].strip()
+        if float(metric) < 0.7:
+            print('Warning, MUX Reliability too low:', float(metric))
+    elif('Front-End Bound' in line):
+        metric = line.split('Front-End Bound')[1].split('%')[0].strip()
+        return ['FE_Bound', metric]
+    elif('Bad Speculation' in line):
+        metric = line.split('Bad Speculation')[1].split('%')[0].strip()
+        return ['Bad_Speculation', metric]
+    elif('Memory Bound' in line):
+        metric = line.split('Memory Bound')[1].split('%')[0].strip()
+        return ['MEM_Bound', metric]
+    elif('Core Bound' in line):
+        metric = line.split('Core Bound')[1].split('%')[0].strip()
+        return ['Core_Bound', metric]
+    elif('Retiring' in line):
+        metric = line.split('Retiring')[1].split('%')[0].strip()
+        return ['Retiring', metric]
 
 
 # First we have to create a dictionary
@@ -53,48 +49,69 @@ def process_line(line, events):
 # one key per event
 # one key for map/ combine
 # a list for every run to extract mean/ std
-# def extract_results(input, outdir):
-#     outdir = os.path.abspath(outdir)
-#     if not os.path.exists(outdir):
-#         os.makedirs(outdir)
-#     os.chdir(input)
-#     header = ['app', 'event_count', 'std']
-#     app_dict = {}
-#     for dirs, subdirs, files in os.walk('./'):
-#         # if subdirs:
-#         #     continue
-#         for file in files:
-#             if('.report' not in file):
-#                 continue
-#             # print dirs, subdirs, files
-#             events = {}
-#             print dirs + '/' + file
-#             app = dirs.split('/')[1]
-#             if(app not in app_dict):
-#                 app_dict[app] = {}
-#             for line in open(os.path.join(dirs, file), 'r'):
-#                 process_line(line, events)
-#             for event, workers in events.items():
-#                 if(event not in app_dict[app]):
-#                     app_dict[app][event] = {}
-#                 for worker, counters in workers.items():
-#                     if(worker not in app_dict[app][event]):
-#                         app_dict[app][event][worker] = []
-#                     app_dict[app][event][worker].append([app,
-#                                                          np.mean(counters),
-#                                                          np.std(counters)])
-#             # print app_dict[app]
-#     for app, events in app_dict.items():
-#         for event, workers in events.items():
-#             for worker, combos in workers.items():
-#                 if not os.path.exists(outdir + '/' + app + '/'):
-#                     os.makedirs(outdir + '/' + app + '/')
-#                 out = open(
-#                     outdir + '/' + app + '/' + event + '_' + worker + '.csv', 'w')
-#                 writer = csv.writer(out, delimiter=' ')
-#                 writer.writerow(header)
-#                 combos.sort(key=lambda a: (a[0]))
-#                 writer.writerows(combos)
+def extract_results(tc):
+    input_dir = result_dir.format(tc)
+    header = ['metric', 'value']
+    for dirs, subdirs, files in os.walk(input_dir):
+        for file in files:
+            if('summary.txt' not in file):
+                continue
+            out_file = csv_dir.format(tc, dirs.split('/')[-1])
+            if not os.path.exists(os.path.dirname(out_file)):
+                os.makedirs(os.path.dirname(out_file))
+            # records = []
+            print(out_file)
+            # for line in open(os.path.join(dirs, file), 'r'):
+            records = [process_line(line)
+                       for line in open(os.path.join(dirs, file), 'r')
+                       if process_line(line) is not None]
+            print(records)
+            writer = csv.writer(open(out_file, 'w'), delimiter='\t')
+            writer.writerow(header)
+            # combos.sort(key=lambda a: (a[0]))
+            writer.writerows(records)
+    #         exit(0)
+    #     outdir = os.path.abspath(outdir)
+    #     if not os.path.exists(outdir):
+    #         os.makedirs(outdir)
+    #     os.chdir(input)
+    #     header = ['app', 'event_count', 'std']
+    #     app_dict = {}
+    #     for dirs, subdirs, files in os.walk('./'):
+    #         # if subdirs:
+    #         #     continue
+    #         for file in files:
+    #             if('.report' not in file):
+    #                 continue
+    #             # print dirs, subdirs, files
+    #             events = {}
+    #             print dirs + '/' + file
+    #             app = dirs.split('/')[1]
+    #             if(app not in app_dict):
+    #                 app_dict[app] = {}
+    #             for line in open(os.path.join(dirs, file), 'r'):
+    #                 process_line(line, events)
+    #             for event, workers in events.items():
+    #                 if(event not in app_dict[app]):
+    #                     app_dict[app][event] = {}
+    #                 for worker, counters in workers.items():
+    #                     if(worker not in app_dict[app][event]):
+    #                         app_dict[app][event][worker] = []
+    #                     app_dict[app][event][worker].append([app,
+    #                                                          np.mean(counters),
+    #                                                          np.std(counters)])
+    #             # print app_dict[app]
+    #     for app, events in app_dict.items():
+    #         for event, workers in events.items():
+    #             for worker, combos in workers.items():
+    #                 if not os.path.exists(outdir + '/' + app + '/'):
+    #                     os.makedirs(outdir + '/' + app + '/')
+    #                 out = open(
+    #                     outdir + '/' + app + '/' + event + '_' + worker + '.csv', 'w')
+    #                 writer = csv.writer(out, delimiter=' ')
+    #                 writer.writerow(header)
+    #                 combos.sort(key=lambda a: (a[0]))
+    #                 writer.writerows(combos)
 
 
 def extract_reports(tc):
@@ -142,5 +159,5 @@ def extract_reports(tc):
 
 if __name__ == '__main__':
     for tc in testcases:
-        extract_reports(tc)
-        # extract_results(input_dir, output_dir)
+        # extract_reports(tc)
+        extract_results(tc)

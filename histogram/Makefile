@@ -5,7 +5,7 @@ include $(HOME)/Defines.mk
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=}
-LDFLAGS += -Lsrc -Wl,-rpath,src
+LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
 LIBS += -l$(BASE) -lpapiprof
 INCDIRS += -Iinclude
 
