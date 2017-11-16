@@ -6,7 +6,9 @@ SRCS := $(wildcard *.cpp)
 OBJS := ${SRCS:.cpp=.o}
 
 INCDIRS += -I../include
-LIBS = -lm
+LIBS = -lm 
+MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+
 CFLAGS += -DUSE_BOOST
 CC = icc
 ifeq ($(LINKAGE), dynamic)
@@ -26,7 +28,7 @@ $(LIB_BASE).a: $(OBJS)
 	$(RANLIB) $@
 
 $(LIB_BASE).so: $(OBJS) 
-	$(CC) $(LDFLAGS) $(INCDIRS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(LDFLAGS) $(INCDIRS) -o $@ $(OBJS) $(LIBS) $(MKL_LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
