@@ -10,6 +10,9 @@
 // #include <ittnotify.h>
 using namespace std;
 
+const int INPUT_SIZE = 2 * sizeof(double);
+const int L1_CACHE_SIZE = 32000;
+
 int main(int argc, char const *argv[])
 {
     int n_turns = 5000;
@@ -25,12 +28,12 @@ int main(int argc, char const *argv[])
 
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<float> d(0.0, 1.0);
+    uniform_real_distribution<double> d(0.0, 1.0);
 
     // initialize variables
-    vector<float> dE, dt;
-    vector<float> voltage, omega_rf, phi_rf;
-    float acc_kick;
+    vector<double> dE, dt;
+    vector<double> voltage, omega_rf, phi_rf;
+    double acc_kick;
 
     dE.resize(n_particles); dt.resize(n_particles);
     for (int i = 0; i < n_particles; ++i) {
@@ -52,25 +55,31 @@ int main(int argc, char const *argv[])
     // papiprof->start_counters("kick_v2");
     // main loop
     // __itt_resume();
+    int tile_size = L1_CACHE_SIZE / INPUT_SIZE;
+    int tiles = (n_particles + tile_size - 1) / tile_size;
     auto start = chrono::high_resolution_clock::now();
     // chrono::duration<double> elapsed_time(0.0);
     // start = chrono::system_clock::now();
-    for (int i = 0; i < n_turns; ++i) {
-        kick_v1(dt.data(), dE.data(), n_rf,
-                voltage.data(), omega_rf.data(), phi_rf.data(),
-                n_particles, acc_kick);
+
+    for (int i = 0; i < n_particles; i += tile_size) {
+        const int tile = std::min(n_particles - i, tile_size);
+        for (int t = 0; t < n_turns; t++) {
+            kick_v2(dt.data() + i, dE.data() + i, n_rf,
+                    voltage.data(), omega_rf.data(), phi_rf.data(),
+                    tile, acc_kick);
+        }
     }
+
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("kick_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("kick_v4\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
-    
-    // elapsed_time = chrono::system_clock::now() - start;
-    // __itt_pause(); // stop VTune
-    // papiprof->stop_counters();
-    // papiprof->report_timing();
-    // report results
+// elapsed_time = chrono::system_clock::now() - start;
+// __itt_pause(); // stop VTune
+// papiprof->stop_counters();
+// papiprof->report_timing();
+// report results
 
     return 0;
 }

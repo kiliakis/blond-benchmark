@@ -8,8 +8,17 @@ BENCH_DIRS := interp-kick \
 			  fft-convolution \
 			  synchrotron-radiation
 
-CC = g++
-OPTFLAGS = -Ofast
+#CC = g++
+CC = icc
+ifeq ($(NOVEC),1)
+	ifeq ($(CC),icc)
+		OPTFLAGS = -O2 -no-vec
+	else 
+		OPTFLAGS = -O2 -fno-tree-vectorize
+	endif
+else
+	OPTFLAGS = -Ofast -march=native
+endif
 CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
 LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
 INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include

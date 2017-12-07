@@ -2,7 +2,7 @@ import subprocess
 import os
 
 home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/'
-result_dir = home + '{}/results/raw/run1/{}/'
+result_dir = home + '{}/results/raw/ge1/{}/'
 exe_form = home + '{}/benches/{}'
 testcases = {
     'kick': [['bench1', '5000', '4000000', '2', '1']],

@@ -6,8 +6,10 @@ BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=}
 LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
+# LIBS += -l$(BASE) -lpapiprof -ltcmalloc
 LIBS += -l$(BASE) -lpapiprof
 INCDIRS += -Iinclude
+CFLAGS+= -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free
 
 .PHONY: default all clean
 

@@ -26,14 +26,14 @@ int main(int argc, char const *argv[])
     omp_set_num_threads(n_threads);
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<double> d(0.0, 1.0);
+    uniform_real_distribution<FTYPE> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> dt, dE;
-    vector<double> profile;
+    vector<FTYPE> dt, dE;
+    vector<HIST_T> profile;
     string input = HOME "/input_files/distribution_10M_particles.txt";
     read_distribution(input, n_particles, dt, dE);
-    double cut_left, cut_right;
+    FTYPE cut_left, cut_right;
     profile.resize(n_slices);
     cut_left = 1.05 * (*min_element(dt.begin(), dt.end()));
     cut_right = 0.95 * (*max_element(dt.begin(), dt.end()));
@@ -42,10 +42,10 @@ int main(int argc, char const *argv[])
     if (cut_left > cut_right) swap(cut_left, cut_right);
 
     auto papiprof = new PAPIProf();
-    papiprof->start_counters("histogram");
+    papiprof->start_counters("histogram_v2");
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        histogram_v6(dt.data(), profile.data(),
+        histogram_v2(dt.data(), profile.data(),
                      cut_left, cut_right,
                      n_slices, n_particles);
     }

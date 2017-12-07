@@ -25,12 +25,12 @@ int main(int argc, char const *argv[])
 
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<float> d(0.0, 1.0);
+    uniform_real_distribution<double> d(0.0, 1.0);
 
     // initialize variables
-    vector<float> dE, dt;
-    vector<float> voltage, omega_rf, phi_rf;
-    float acc_kick;
+    vector<double> dE, dt;
+    vector<double> voltage, omega_rf, phi_rf;
+    double acc_kick;
 
     dE.resize(n_particles); dt.resize(n_particles);
     for (int i = 0; i < n_particles; ++i) {
@@ -56,16 +56,16 @@ int main(int argc, char const *argv[])
     // chrono::duration<double> elapsed_time(0.0);
     // start = chrono::system_clock::now();
     for (int i = 0; i < n_turns; ++i) {
-        kick_v1(dt.data(), dE.data(), n_rf,
+        kick_v2(dt.data(), dE.data(), n_rf,
                 voltage.data(), omega_rf.data(), phi_rf.data(),
                 n_particles, acc_kick);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("kick_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("kick_v2\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
-    
+
     // elapsed_time = chrono::system_clock::now() - start;
     // __itt_pause(); // stop VTune
     // papiprof->stop_counters();

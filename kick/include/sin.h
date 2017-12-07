@@ -1,3 +1,4 @@
+#pragma once
 /*
  * cos.h
  * The basic idea is to exploit Pade polynomials.
