@@ -7,24 +7,25 @@
 #include <iostream>
 #include <string>
 // #include <PAPIProf.h>
-#include <chrono>
 #include <omp.h>
+#include <cmath>
+#include <chrono>
 #include <algorithm>
 #include <mkl.h>
-#include <chrono>
 
 using namespace std;
 
-void synchrotron_radiation_full_mkl(double * __restrict__ beam_dE,
-        const double U0,
-        const int n_macroparticles, const double sigma_dE,
-        const double tau_z, const double energy,
+
+void synchrotron_radiation_full_mkl(float * __restrict__ beam_dE,
+        const float U0,
+        const int n_macroparticles, const float sigma_dE,
+        const float tau_z, const float energy,
         const int n_kicks)
 {
-    const double const_quantum_exc = 2.0 * sigma_dE / sqrt(tau_z) * energy;
-    const double const_synch_rad = 2.0 / tau_z;
+    const float const_quantum_exc = 2.0 * sigma_dE / sqrt(tau_z) * energy;
+    const float const_synch_rad = 2.0 / tau_z;
 
-    double *rand_array = (double *) malloc (sizeof(double) * n_macroparticles);
+    float *rand_array = (float *) malloc (sizeof(float) * n_macroparticles);
 
     #pragma omp parallel
     {
@@ -34,32 +35,32 @@ void synchrotron_radiation_full_mkl(double * __restrict__ beam_dE,
         const int computeCount = std::min(count, n_macroparticles - tid * count);
         // auto seed = std::chrono::system_clock::now().time_since_epoch().count();
         auto seed = 0;
+
         int status;
         VSLStreamStatePtr stream;
         status = vslNewStream(&stream, VSL_BRNG_MT19937, seed);
-        // if (status != VSL_STATUS_OK){
-        //     printf("[%d] Error in %s\n", tid, "vslNewStream");
-        // }
+        if (status != VSL_STATUS_OK){
+            printf("[%d] Error in %s\n", tid, "vslNewStream");
+        }
         // Methods
         // VSL_RNG_METHOD_GAUSSIAN_ICDF
         // VSL_RNG_METHOD_GAUSSIAN_BOXMULLER
         // VSL_RNG_METHOD_GAUSSIAN_BOXMULLER2
-        status = vdRngGaussian(VSL_RNG_METHOD_GAUSSIAN_ICDF, stream,
+        status = vsRngGaussian(VSL_RNG_METHOD_GAUSSIAN_ICDF, stream,
                                computeCount, &rand_array[tid * count],
                                0.0, 1.0);
-        // if (status != VSL_STATUS_OK){
-        //     printf("[%d] Error in %s\n", tid, "vdRngGaussian");
-        // }
+        if (status != VSL_STATUS_OK){
+            printf("[%d] Error in %s\n", tid, "vdRngGaussian");
+        }
 
         #pragma omp for
-        for (int i = 0; i < n_macroparticles; i++) {        
+        for (int i = tid * count; i < tid * count + computeCount; i++) {
             beam_dE[i] = beam_dE[i] + const_quantum_exc * rand_array[i]
                          - const_synch_rad * beam_dE[i] - U0;
         }
     }
     free(rand_array);
 }
-
 
 int main(int argc, char const *argv[])
 {
@@ -76,11 +77,11 @@ int main(int argc, char const *argv[])
 
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<double> d(0.0, 1.0);
+    uniform_real_distribution<float> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> dE, dt;
-    double U0, sigma_dE, tau_z, energy;
+    vector<float> dE, dt;
+    float U0, sigma_dE, tau_z, energy;
 
     string input = HOME "/input_files/distribution_10M_particles.txt";
     read_distribution(input, n_particles, dt, dE);
@@ -89,6 +90,7 @@ int main(int argc, char const *argv[])
     sigma_dE = 0.00142927197106;
     tau_z = 232.014940939;
     energy = 175000000000.0;
+
     // auto papiprof = new PAPIProf();
     // main loop
     // papiprof->start_counters("synchrotron_radiation");
@@ -101,7 +103,7 @@ int main(int argc, char const *argv[])
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("sync_rad_v3\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("sync_rad_v4\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
 
     // papiprof->stop_counters();

@@ -8,7 +8,7 @@ vec_list = ['vec', 'novec']
 cc_list = ['g++', 'icc']
 exe_form = home + 'exe_{}_{}/{}'
 
-out_file_name = result_dir + 'i{}-p{}-s{}-t{}.txt'
+out_file_name = result_dir + 'i{}-p{}-s{}-t{}-{}-{}.txt'
 testcases = {
     # To show performance, scalability, icc, sp vs dp
     'bench0': [['500', str(1000000*x), '1', str(x)]
@@ -50,7 +50,7 @@ os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=["+proclist+"],explicit"
 repeats = 3
 
 
-total_sims = sum(len(x) for x in testcases.values()) * repeats
+total_sims = sum(len(x) for x in testcases.values()) * repeats * 4
 print("Total runs: ", total_sims)
 current_sim = 0
 os.chdir(home)
@@ -75,7 +75,7 @@ for cc in cc_list:
                     os.makedirs(results)
 
                 stdout = open(out_file_name.format(
-                    app, size[0], size[1], size[2], size[3]), 'w')
+                    app, size[0], size[1], size[2], size[3], cc, vec), 'w')
                 exe = exe_form.format(cc, vec, app)
                 exe_list = [exe] + size
                 for i in range(repeats):

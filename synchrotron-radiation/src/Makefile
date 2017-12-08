@@ -6,11 +6,12 @@ SRCS := $(wildcard *.cpp)
 OBJS := ${SRCS:.cpp=.o}
 
 INCDIRS += -I../include
-LIBS = -lm 
-MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+LIBS = -lm
+# ifeq ($(CC), icc)
+# MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
 
-CFLAGS += -DUSE_BOOST
-CC = icc
+# CFLAGS += -DUSE_BOOST
+# CC = icc
 ifeq ($(LINKAGE), dynamic)
 CFLAGS += -fPIC
 LDFLAGS += -shared

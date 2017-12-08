@@ -19,6 +19,13 @@ ifeq ($(NOVEC),1)
 else
 	OPTFLAGS = -Ofast -march=native
 endif
+
+ifeq ($(TCM),1)
+	LIBS += -ltcmalloc
+	CFLAGS += -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free
+endif
+
+
 CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
 LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
 INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include

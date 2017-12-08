@@ -62,14 +62,14 @@ int main(int argc, char const *argv[])
     auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        linear_interp_kick_v1(dt.data(), dE.data(), voltage.data(),
+        linear_interp_kick_v5(dt.data(), dE.data(), voltage.data(),
                               bin_centers.data(), n_slices, n_particles,
                               acc_kick);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("interp_kick_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("interp_kick_v5\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
     // papiprof->stop_counters();
     // papiprof->report_timing();

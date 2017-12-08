@@ -16,15 +16,16 @@
 using namespace std;
 
 void synchrotron_radiation_full_mkl(double * __restrict__ beam_dE,
-        const double U0,
-        const int n_macroparticles, const double sigma_dE,
-        const double tau_z, const double energy,
-        const int n_kicks)
+                                    const double U0,
+                                    const int n_macroparticles, const double sigma_dE,
+                                    const double tau_z, const double energy,
+                                    const int n_kicks)
 {
     const double const_quantum_exc = 2.0 * sigma_dE / sqrt(tau_z) * energy;
-    const double const_synch_rad = 2.0 / tau_z;
+    // const double const_synch_rad = 2.0 / tau_z;
+    const double const_synch_rad = 1.0 - (2.0 / tau_z);
 
-    double *rand_array = (double *) malloc (sizeof(double) * n_macroparticles);
+    const int STEP = 2000;
 
     #pragma omp parallel
     {
@@ -37,27 +38,31 @@ void synchrotron_radiation_full_mkl(double * __restrict__ beam_dE,
         int status;
         VSLStreamStatePtr stream;
         status = vslNewStream(&stream, VSL_BRNG_MT19937, seed);
-        // if (status != VSL_STATUS_OK){
+        // if (status != VSL_STATUS_OK) {
         //     printf("[%d] Error in %s\n", tid, "vslNewStream");
         // }
         // Methods
         // VSL_RNG_METHOD_GAUSSIAN_ICDF
         // VSL_RNG_METHOD_GAUSSIAN_BOXMULLER
         // VSL_RNG_METHOD_GAUSSIAN_BOXMULLER2
-        status = vdRngGaussian(VSL_RNG_METHOD_GAUSSIAN_ICDF, stream,
-                               computeCount, &rand_array[tid * count],
-                               0.0, 1.0);
         // if (status != VSL_STATUS_OK){
         //     printf("[%d] Error in %s\n", tid, "vdRngGaussian");
         // }
+        double rand_val[STEP];
 
         #pragma omp for
-        for (int i = 0; i < n_macroparticles; i++) {        
-            beam_dE[i] = beam_dE[i] + const_quantum_exc * rand_array[i]
-                         - const_synch_rad * beam_dE[i] - U0;
+        for (int i = 0; i < n_macroparticles; i += STEP) {
+            int loop_count = STEP;
+            if (n_macroparticles - i < STEP) loop_count = n_macroparticles - i;
+
+            vdRngGaussian(VSL_RNG_METHOD_GAUSSIAN_ICDF, stream,
+                          STEP, rand_val, -U0, const_quantum_exc);
+
+            for (int j = 0; j < loop_count; j++)
+                beam_dE[i + j] = beam_dE[i + j] * const_synch_rad + rand_val[j];
         }
+        // free(rand_array);
     }
-    free(rand_array);
 }
 
 
@@ -96,13 +101,13 @@ int main(int argc, char const *argv[])
 
     for (int i = 0; i < n_turns; ++i) {
         synchrotron_radiation_full_mkl(dE.data(), U0, n_particles,
-                                      sigma_dE, tau_z, energy, n_kicks);
+                                       sigma_dE, tau_z, energy, n_kicks);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("sync_rad_v3\ttime(ms)\t%d\t0\t1\n", duration);
-    printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
+    printf("sync_rad_v7\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0) / n_particles);
 
     // papiprof->stop_counters();
     // papiprof->report_timing();

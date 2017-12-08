@@ -27,12 +27,12 @@ int main(int argc, char const *argv[])
 
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<double> d(0.0, 1.0);
+    uniform_real_distribution<float> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> dE, dt;
-    vector<double> voltage, edges, bin_centers;
-    double cut_left, cut_right, acc_kick;
+    vector<float> dE, dt;
+    vector<float> voltage, edges, bin_centers;
+    float cut_left, cut_right, acc_kick;
 
     string input = HOME "/input_files/distribution_10M_particles.txt";
     read_distribution(input, n_particles, dt, dE);
@@ -62,14 +62,14 @@ int main(int argc, char const *argv[])
     auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        linear_interp_kick_v1(dt.data(), dE.data(), voltage.data(),
+        linear_interp_kick_v3(dt.data(), dE.data(), voltage.data(),
                               bin_centers.data(), n_slices, n_particles,
                               acc_kick);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("interp_kick_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("interp_kick_v3\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
     // papiprof->stop_counters();
     // papiprof->report_timing();
