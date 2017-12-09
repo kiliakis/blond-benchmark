@@ -5,78 +5,52 @@ import os
 
 from plot.plotting_utilities import *
 
-application = 'interp-kick'
+application = 'histo'
 project_dir = './'
 res_dir = project_dir + 'results/'
-images_dir = res_dir + 'plots/interp-kick1/'
+images_dir = res_dir + 'plots/histo1/'
 
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
-csv_file = res_dir + 'csv/interp-kick1/all_results.csv'
+csv_file = res_dir + 'csv/histo1/all_results.csv'
 
 plots_config = {
-    'plot1': {'lines': {'version': ['v0', 'v1', 'v2', 'v4'],
-                        'vec': ['vec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['g++']},
-              'exclude': [['v1', 'notcm'], ['v2', 'notcm'], ['v4', 'notcm']],
+    'plot1': {'lines': {'version': ['v0', 'v1', 'v2']},
+              'exclude': [],
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'interp-kick optimizations',
+              'title': 'histo scaling',
               # 'ylim': [0, 16000],
-              'image_name': images_dir + 'v0vsv1vs2vsv4.pdf'
+              'image_name': images_dir + 'scaling.pdf',
+              'extra': ['plt.yscale(\'log\')']
               },
 
-    'plot2': {'lines': {'version': ['v4'],
-                        'vec': ['vec'],
-                        'tcm': ['tcm'],
-                        'cc': ['g++', 'icc']},
+    'plot2': {'lines': {'version': ['v3', 'v4', 'v5']},
               'exclude': [],
-
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'icc VS gcc',
+              'title': 'Loop-tiling effect',
               # 'ylim': [0, 16000],
-              'image_name': images_dir + 'iccVSgcc.pdf'
+              'image_name': images_dir + 'loop_tiling.pdf'
               },
-
-    'plot3': {'lines': {'version': ['v5', 'v6'],
-                        'vec': ['vec'],
-                        'tcm': ['tcm'],
-                        'cc': ['g++']},
+    'plot3': {'lines': {'version': ['v20', 'v30']},
               'exclude': [],
-
-              'x_name': 'threads',
+              'x_name': 'slices',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
-              'xlabel': 'Threads (500k points/thread)',
+              'xlabel': 'Slices',
               'ylabel': 'Run-time (ms)',
-              'title': 'float VS double precision',
+              'title': 'Serial VS Parallel Reduction',
               # 'ylim': [0, 16000],
-              'image_name': images_dir + 'float_vs_double.pdf'
-              },
-
-    'plot4': {'lines': {'version': ['v4'],
-                        'vec': ['vec', 'novec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['g++']},
-              'exclude': [],
-
-              'x_name': 'threads',
-              'y_name': 'time(ms)',
-              'y_err_name': 'std(%)',
-              'xlabel': 'Threads (500k points/thread)',
-              'ylabel': 'Run-time (ms)',
-              'title': 'tcm and vec effects',
-              # 'ylim': [0, 16000],
-              'image_name': images_dir + 'tcm_and_vec_effects.pdf'
+              'extra': ['plt.xscale(\'log\')'],
+              'image_name': images_dir + 'serial_vs_parallel_reduction.pdf'
               }
 }
 
@@ -97,6 +71,9 @@ if __name__ == '__main__':
         # plt.xscale('log', basex=2)
         if 'ylim' in config:
             plt.ylim(config['ylim'])
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
