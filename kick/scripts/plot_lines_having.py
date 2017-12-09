@@ -1,14 +1,17 @@
 #!/usr/bin/python
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
+import os
 
 from plot.plotting_utilities import *
 
 application = 'kick'
 project_dir = './'
 res_dir = project_dir + 'results/'
-images_dir = res_dir + 'results/plots/kick1/'
+images_dir = res_dir + 'plots/kick1/'
+
+if not os.path.exists(images_dir):
+    os.makedirs(images_dir)
 
 csv_file = res_dir + 'csv/kick1/all_results.csv'
 
@@ -16,15 +19,65 @@ plots_config = {
     'plot3': {'lines': {'version': ['v0', 'v2'],
                         'vec': ['vec'],
                         'cc': ['icc', 'g++']},
-              # 'labels': ['version', 'cc'],
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
               'title': 'std::sin VS vdt::sin',
-              'image_name': 'plot3.pdf'
+              'ylim': [0, 16000],
+              'image_name': images_dir + 'stdsin_vs_vdtsin.pdf'
+              },
+
+    'plot1': {'lines': {'version': ['v0'],
+                        'vec': ['vec', 'novec'],
+                        'cc': ['icc']},
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'vec vs novec (icc)',
+              'image_name': images_dir + 'iccvec_vs_novec.pdf'
+              },
+
+    'plot2': {'lines': {'version': ['v2'],
+                        'vec': ['vec', 'novec'],
+                        'cc': ['g++']},
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'vec vs novec (g++)',
+              'image_name': images_dir + 'gccvec_vs_novec.pdf'
+              },
+
+    'plot4': {'lines': {'version': ['v0', 'v1'],
+                        'vec': ['vec'],
+                        'cc': ['icc']},
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'Float vs Double (icc)',
+              'image_name': images_dir + 'iccfloat_vs_double.pdf'
+              },
+
+    'plot5': {'lines': {'version': ['v0', 'v6'],
+                        'vec': ['vec'],
+                        'cc': ['icc']},
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'tiled vs no-tiled (icc)',
+              'image_name': images_dir + 'icctiled_vs_notiled.pdf'
               }
+
+
 }
 
 if __name__ == '__main__':
@@ -32,6 +85,7 @@ if __name__ == '__main__':
     header = list(data[0])
     data = data[1:]
     for plot_key, config in plots_config.items():
+        print(plot_key)
         plots_dir = get_plots(header, data, config['lines'])
         # print(plots_dir)
         plt.figure()
@@ -40,17 +94,20 @@ if __name__ == '__main__':
         plt.xlabel(config['xlabel'])
         plt.ylabel(config['ylabel'])
         plt.xscale('log', basex=2)
+        if 'ylim' in config:
+            plt.ylim(config['ylim'])
         for label, values in plots_dir.items():
-            print(values)
+            # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
             y = np.array(values[:, header.index(config['y_name'])], float)
             y_err = np.array(
                 values[:, header.index(config['y_err_name'])], float)
             y_err = y_err * y / 100.
             print(label, x, y)
-            plt.errorbar(x, y, yerr=y_err, label=label)
+            plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
+        plt.savefig(config['image_name'])
         plt.show()
         plt.close()
 
@@ -63,9 +120,3 @@ if __name__ == '__main__':
     #     800, 6.3), textcoords='data', size='16')
     # plt.annotate('Heavy\nCombine\nWorkload', xy=(
     #     1400, 8.2), textcoords='data', size='16')
-
-    # for image_name in image_names:
-    #     plt.savefig(image_name, bbox_inches='tight')
-    # plt.tight_layout()
-    # plt.show()
-    # plt.close()
