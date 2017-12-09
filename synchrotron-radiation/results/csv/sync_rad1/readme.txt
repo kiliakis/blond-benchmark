@@ -7,5 +7,5 @@ v3: mkl, double
 v4: mkl, float
 v5: boost, float
 v6: std, float
-v6: mkl, double, tiled, optimized
+v7: mkl, double, tiled, optimized
 

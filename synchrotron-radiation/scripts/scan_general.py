@@ -1,5 +1,7 @@
 import subprocess
 import os
+from functools import reduce
+from operator import mul
 
 home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/synchrotron-radiation/'
 result_dir = home + 'results/raw/synch-rad1/{}/'
@@ -9,32 +11,58 @@ tcm_list = ['tcm', 'notcm']
 cc_list = ['g++', 'icc']
 exe_form = home + 'exe_{}_{}_{}/{}'
 
-out_file_name = result_dir + 'i{}-p{}-s{}-t{}-{}-{}-{}.txt'
-testcases = {
-    # To show performance, scalability, icc, sp vs dp
-    'bench0': [['1000', str(500000*x), str(100*x), str(x)]
-               for x in [1, 2, 4, 8, 14]],
+out_file_name = result_dir + 'i{}-p{}-t{}-{}-{}-{}.txt'
 
-    # # To show performance, scalability, icc, sp vs dp
-    # 'bench1': [['1000', str(500000*x), str(100*x), str(x)]
-    #            for x in [1, 2, 4, 8, 14]],
-    # # To show performance, scalability, gcc, sp vs dp
-    # 'bench2': [['1000', str(500000*x), str(100*x), str(x)]
-    #            for x in [1, 2, 4, 8, 14]],
-    # # To show performance, scalability, gcc, sp vs dp
-    # 'bench3': [['1000', str(500000*x), str(100*x), str(x)]
-    #            for x in [1, 2, 4, 8, 14]],
-    # To show that loop-tiling works
-    'bench4': [['1000', str(500000 * x), str(100 * x), str(x)]
-               for x in [1, 2, 4, 8, 14]],
-    # To show performance, scalability, how tiling effects cache misses, gcc
-    'bench5': [['1000', str(500000 * x), str(100 * x), str(x)]
-               for x in [1, 2, 4, 8, 14]],
-    # To show performance, scalability, how tiling effects cache misses, icc
-    # 'bench6': [['1000', str(500000*x), str(100*x), str(x)]
-    #            for x in [1, 2, 4, 8, 14]],
-    '': []
+configs = {
+    'bench0': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec'],
+               'tcm': ['notcm'],
+               'cc': ['icc', 'g++']},
+
+    'bench1': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec', 'novec'],
+               'tcm': ['notcm'],
+               'cc': ['icc', 'g++']},
+
+    'bench2': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec', 'novec'],
+               'tcm': ['notcm'],
+               'cc': ['icc', 'g++']},
+
+    'bench3': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec', 'novec'],
+               'tcm': ['tcm', 'notcm'],
+               'cc': ['icc']},
+
+    'bench4': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec'],
+               'tcm': ['tcm'],
+               'cc': ['icc']},
+
+    'bench5': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec'],
+               'tcm': ['notcm'],
+               'cc': ['icc', 'g++']},
+
+    'bench6': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec'],
+               'tcm': ['notcm'],
+               'cc': ['icc', 'g++']},
+
+    'bench7': {'sizes': [['500', str(500000 * x), str(x)]
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['vec', 'novec'],
+               'tcm': ['tcm', 'notcm'],
+               'cc': ['icc']}
 }
+
 
 # proclist = 'proclist=['
 proclist = ''
@@ -52,41 +80,42 @@ os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
 
 repeats = 3
 
+total_sims = repeats * \
+    sum([reduce(mul, [len(x) for x in y.values()])
+         for y in configs.values()])
 
-total_sims = sum(len(x) for x in testcases.values()) * repeats * 8
+
 print("Total runs: ", total_sims)
 current_sim = 0
 os.chdir(home)
-for cc in cc_list:
-    for tcm in tcm_list:
-        for vec in vec_list:
-            if (cc == 'icc' and vec == 'novec'):
-                continue
-            subprocess.call('make clean', shell=True)
-            if tcm == 'tcm':
-                tcm_value = 1
-            else:
-                tcm_value = 0
-            if vec == 'vec':
-                vec_value = 0
-            else:
-                vec_value = 1
-            make_string = 'make CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(cc,
-                                                                                     tcm_value, vec_value, cc, vec, tcm)
-            subprocess.call(make_string, shell=True)
-            for app, sizes in testcases.items():
-                for size in sizes:
+
+for app, config in configs.items():
+    for cc in configs[app]['cc']:
+        for tcm in configs[app]['tcm']:
+            for vec in configs[app]['vec']:
+                subprocess.call('make clean', shell=True)
+                if tcm == 'tcm':
+                    tcm_value = 1
+                else:
+                    tcm_value = 0
+                if vec == 'vec':
+                    vec_value = 0
+                else:
+                    vec_value = 1
+                make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                    cc, tcm_value, vec_value, cc, vec, tcm)
+                subprocess.call(make_string, shell=True)
+                for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
                         os.makedirs(results)
 
                     stdout = open(out_file_name.format(
-                        app, size[0], size[1], size[2], size[3],
-                        cc, vec, tcm), 'w')
+                        app, size[0], size[1], size[2], cc, vec, tcm), 'w')
                     exe = exe_form.format(cc, vec, tcm, app)
                     exe_list = [exe] + size
                     for i in range(repeats):
-                        print(cc, tcm, vec, app, size, i)
+                        print(app, cc, tcm, vec, size, i)
                         subprocess.call(exe_list, stdout=stdout,
                                         stderr=stdout, env=os.environ.copy())
                         current_sim += 1
