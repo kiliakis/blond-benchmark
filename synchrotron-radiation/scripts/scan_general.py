@@ -14,11 +14,11 @@ exe_form = home + 'exe_{}_{}_{}/{}'
 out_file_name = result_dir + 'i{}-p{}-t{}-{}-{}-{}.txt'
 
 configs = {
-    'bench0': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec'],
-               'tcm': ['notcm'],
-               'cc': ['icc', 'g++']},
+    #'bench0': {'sizes': [['500', str(500000 * x), str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    #           'vec': ['vec'],
+    #           'tcm': ['notcm'],
+    #           'cc': ['icc', 'g++']},
 
     'bench1': {'sizes': [['500', str(500000 * x), str(x)]
                          for x in [1, 2, 4, 8, 14, 28, 56]],
