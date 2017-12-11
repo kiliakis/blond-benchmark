@@ -5,35 +5,37 @@ import os
 
 from plot.plotting_utilities import *
 
-application = 'interp-kick'
+application = 'sync_rad'
 project_dir = './'
 res_dir = project_dir + 'results/'
-images_dir = res_dir + 'plots/interp-kick1/'
+images_dir = res_dir + 'plots/sync_rad1/'
 
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
-csv_file = res_dir + 'csv/interp-kick1/all_results.csv'
+csv_file = res_dir + 'csv/sync_rad1/all_results.csv'
 
 plots_config = {
-    'plot1': {'lines': {'version': ['v0', 'v2', 'v4'],
+    'plot1': {'lines': {'version': ['v0', 'v1'],
                         'vec': ['vec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['g++']},
-              'exclude': [['v1', 'notcm'], ['v2', 'notcm'], ['v4', 'notcm']],
+                        # 'tcm': ['tcm', 'notcm'],
+                        'cc': ['icc', 'g++']},
+              'exclude': [],
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'interp-kick optimizations',
-              # 'ylim': [0, 16000],
-              'image_name': images_dir + 'v0vsv1vs2vsv4.pdf'
+              'title': 'STD vs BOOST (icc/gcc)',
+              'extra': ['plt.xscale(\'log\', basex=2)', 
+                        'plt.yscale(\'log\', basex=10)'],
+
+              'image_name': images_dir + 'std_vs_boost.pdf'
               },
 
-    'plot2': {'lines': {'version': ['v4'],
+    'plot2': {'lines': {'version': ['v1', 'v2'],
                         'vec': ['vec'],
-                        'tcm': ['tcm'],
+                        # 'tcm': ['tcm'],
                         'cc': ['g++', 'icc']},
               'exclude': [],
 
@@ -42,31 +44,31 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'icc VS gcc',
-              # 'ylim': [0, 16000],
-              'image_name': images_dir + 'iccVSgcc.pdf'
+              'title': 'BOOST loop-tiling',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'boost_tiling.pdf'
               },
 
-    'plot3': {'lines': {'version': ['v5', 'v6'],
+    'plot3': {'lines': {'version': ['v2', 'v3', 'v7'],
                         'vec': ['vec'],
-                        'tcm': ['tcm'],
-                        'cc': ['g++']},
-              'exclude': [],
+                        'tcm': ['notcm'],
+                        'cc': ['g++', 'icc']},
+              'exclude': [['v2', 'icc']],
 
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'float VS double precision',
-              # 'ylim': [0, 16000],
-              'image_name': images_dir + 'float_vs_double.pdf'
+              'title': 'MKL vs BOOST',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'mkl_vs_boost.pdf'
               },
 
-    'plot4': {'lines': {'version': ['v4'],
+    'plot4': {'lines': {'version': ['v7'],
                         'vec': ['vec', 'novec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['g++']},
+                        'tcm': ['notcm', 'tcm']},
+                        # 'cc': ['g++']},
               'exclude': [],
 
               'x_name': 'threads',
@@ -74,9 +76,39 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'tcm and vec effects',
-              # 'ylim': [0, 16000],
-              'image_name': images_dir + 'tcm_and_vec_effects.pdf'
+              'title': 'Vectorization and TCM effect on MKL',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'vec_and_tcm_effects.pdf'
+              },
+
+
+    'plot5': {'lines': {'version': ['v5', 'v1'],
+                        'vec': ['vec'],
+                        'cc': ['g++']},
+              'exclude': [],
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'Single VS Double precision with BOOST',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'single_vs_double_boost.pdf'
+              },
+
+    'plot6': {'lines': {'version': ['v3', 'v4'],
+                        'vec': ['vec'],
+                        'tcm': ['tcm']},
+              'exclude': [],
+
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'Single VS Double precision with MKL',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'single_vs_double_mkl.pdf'
               }
 }
 
@@ -94,9 +126,9 @@ if __name__ == '__main__':
         plt.title(config['title'])
         plt.xlabel(config['xlabel'])
         plt.ylabel(config['ylabel'])
-        # plt.xscale('log', basex=2)
-        if 'ylim' in config:
-            plt.ylim(config['ylim'])
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)

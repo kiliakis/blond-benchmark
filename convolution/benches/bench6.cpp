@@ -21,49 +21,37 @@ void convolution_mkl(const double * __restrict__ signal,
                      const int threads)
 {
 
+    const int STEP = 64;
     memset(result, 0.0, (signalLen + kernelLen - 1) * sizeof(double));
-    double **resultPT = (double **) malloc(threads * sizeof(double *));
 
     #pragma omp parallel num_threads(threads)
     {
         const int tid = omp_get_thread_num();
-        static thread_local VSLConvTaskPtr task = nullptr;
+        // static thread_local VSLConvTaskPtr task = nullptr;
+        VSLConvTaskPtr task = nullptr;
         const int kernelLenPT = (kernelLen + threads - 1) / threads;
-        const int resultLen = signalLen + kernelLenPT - 1;
-        const int computeLen = signalLen + min(kernelLenPT, kernelLen - tid * kernelLenPT) - 1;
-        int status;
-        #pragma omp single
-        {
-            resultPT[0] = (double *) malloc (threads * resultLen * sizeof(double));
-        }
+        // const int computeLen = signalLen + min(kernelLenPT, kernelLen - tid * kernelLenPT) - 1;
+        double resultPT[STEP] = {0.0};
 
-        resultPT[tid] = (*resultPT + resultLen * tid);
-        memset(resultPT[tid], 0.0, computeLen * sizeof(double));
+        for (int i = 0; i < kernelLenPT; i += STEP) {
+            int loop_count = STEP;
+            if (kernelLenPT - i < STEP) loop_count = kernelLenPT - i;
 
-        if (!task) {
-            status = vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
-                                       kernelLenPT, computeLen);
-            // if (status != VSL_STATUS_OK) {
-            //     printf("[%d] Error in %s\n", tid, "vsldConvNewTask1D");
-            //     exit(-1);
-            // }
-        }
+            vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
+                              loop_count, singalLen + loop_count - 1);
+            vsldConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT + i],
+                           1, resultPT, 1);
+            for (int j = 0; j < loop_count; ++j) {
+                #pragma omp atomic
+                result[i + j + tid * kernelLenPT] += resultPT[j];
+            }
 
-        status = vsldConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT], 1,
-                                resultPT[tid], 1);
-        // if (status != VSL_STATUS_OK) {
-        //     printf("[%d] Error in %s\n", tid, "vsldConvExec1D");
-        //     exit(-1);
-        // }
-
-        for (int i = 0; i < computeLen; ++i) {
-            #pragma omp atomic
-            result[i + tid * kernelLenPT] += resultPT[tid][i];
         }
     }
-    free(resultPT[0]);
-    free(resultPT);
 }
+// WARNING: This implementatio is not correct, the result has to be at least 
+//  signalLen size so tiling to save memory is not worth it
+
 
 int main(int argc, char const *argv[])
 {
@@ -109,7 +97,7 @@ int main(int argc, char const *argv[])
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("convolution_v3\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("convolution_v6\ttime(ms)\t%d\t0\t1\n", duration);
     printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
     // papiprof->stop_counters();
     // papiprof->report_timing();

@@ -6,14 +6,14 @@ SRCS := $(wildcard *.cpp)
 OBJS := ${SRCS:.cpp=.o}
 
 INCDIRS += -I../include
-MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+# MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
 
 ifeq ($(LINKAGE), dynamic)
 CFLAGS += -fPIC
 LDFLAGS += -shared
 endif
 
-CC=icc
+# CC=icc
 
 .PHONY: default all clean
 

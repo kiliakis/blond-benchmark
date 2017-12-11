@@ -1,14 +1,36 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "convolution.h"
 #include "utils.h"
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
+#include <algorithm>
+#include <mkl_vsl.h>
 
 using namespace std;
+
+
+void convolution_mkl(const double * __restrict__ signal,
+                        const int signalLen,
+                        const double * __restrict__ kernel,
+                        const int kernelLen,
+                        double * __restrict__ result)
+{
+    static VSLConvTaskPtr task = nullptr;
+    int status;
+    // VSL_CONV_MODE_DIRECT compute convolution directly
+    // VSL_CONV_MODE_FFT use FFT
+    // VSL_CONV_MODE_AUTO FFT or directly
+    if (!task) {
+        vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT,
+                          signalLen, kernelLen,
+                          signalLen + kernelLen - 1);
+    }
+    status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
+    // vslConvDeleteTask(&task);
+}
 
 int main(int argc, char const *argv[])
 {
@@ -41,16 +63,23 @@ int main(int argc, char const *argv[])
         kernel[i] = d(gen);
     }
 
-    auto papiprof = new PAPIProf();
-    papiprof->start_counters("convolution");
+
+    // auto papiprof = new PAPIProf();
+    // papiprof->start_counters("convolution");
+    auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        convolution_v2(signal.data(), n_signal,
-                      kernel.data(), n_kernel,
-                      result.data());
+        convolution_mkl(signal.data(), n_signal,
+                       kernel.data(), n_kernel,
+                       result.data());
     }
-    papiprof->stop_counters();
-    papiprof->report_timing();
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("convolution_v2\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
+    // papiprof->stop_counters();
+    // papiprof->report_timing();
     // report results
 
     return 0;

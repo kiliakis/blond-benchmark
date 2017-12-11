@@ -25,11 +25,11 @@ int main(int argc, char const *argv[])
     omp_set_num_threads(n_threads);
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<double> d(0.0, 1.0);
+    uniform_real_distribution<float> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> signal, kernel;
-    vector<double> result;
+    vector<float> signal, kernel;
+    vector<float> result;
     signal.resize(n_signal);
     kernel.resize(n_kernel);
     result.resize(n_signal + n_kernel - 1);
@@ -48,14 +48,14 @@ int main(int argc, char const *argv[])
     auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        convolution_v2(signal.data(), n_signal,
+        convolution_v3(signal.data(), n_signal,
                        kernel.data(), n_kernel,
-                       result.data());
+                       result.data(), n_signal);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("convolution_v4\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("convolution_v7\ttime(ms)\t%d\t0\t1\n", duration);
     printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
     // papiprof->stop_counters();
     // papiprof->report_timing();

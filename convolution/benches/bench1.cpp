@@ -5,8 +5,9 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,16 +42,23 @@ int main(int argc, char const *argv[])
         kernel[i] = d(gen);
     }
 
-    auto papiprof = new PAPIProf();
-    papiprof->start_counters("convolution");
+
+    // auto papiprof = new PAPIProf();
+    // papiprof->start_counters("convolution");
+    auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        convolution_v0(signal.data(), n_signal,
-                      kernel.data(), n_kernel,
-                      result.data());
+        convolution_v1(signal.data(), n_signal,
+                       kernel.data(), n_kernel,
+                       result.data(), n_signal);
     }
-    papiprof->stop_counters();
-    papiprof->report_timing();
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("convolution_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
+    // papiprof->stop_counters();
+    // papiprof->report_timing();
     // report results
 
     return 0;
