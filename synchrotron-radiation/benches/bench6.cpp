@@ -55,7 +55,7 @@ int main(int argc, char const *argv[])
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("sync_rad_v7\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("sync_rad_v6\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0)/n_particles);
 
     // papiprof->stop_counters();

@@ -20,41 +20,41 @@ configs = {
     #           'tcm': ['notcm'],
     #           'cc': ['icc', 'g++']},
 
-    'bench1': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec', 'novec'],
-               'tcm': ['notcm'],
-               'cc': ['icc', 'g++']},
+    # 'bench1': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec', 'novec'],
+    #            'tcm': ['notcm'],
+    #            'cc': ['icc', 'g++']},
 
-    'bench2': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec', 'novec'],
-               'tcm': ['notcm'],
-               'cc': ['icc', 'g++']},
+    # 'bench2': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec', 'novec'],
+    #            'tcm': ['notcm'],
+    #            'cc': ['icc', 'g++']},
 
-    'bench3': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec', 'novec'],
-               'tcm': ['tcm', 'notcm'],
-               'cc': ['icc']},
+    # 'bench3': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec', 'novec'],
+    #            'tcm': ['tcm', 'notcm'],
+    #            'cc': ['icc']},
 
-    'bench4': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec'],
-               'tcm': ['tcm'],
-               'cc': ['icc']},
+    # 'bench4': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec'],
+    #            'tcm': ['tcm'],
+    #            'cc': ['icc']},
 
-    'bench5': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec'],
-               'tcm': ['notcm'],
-               'cc': ['icc', 'g++']},
+    # 'bench5': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec'],
+    #            'tcm': ['notcm'],
+    #            'cc': ['icc', 'g++']},
 
-    'bench6': {'sizes': [['500', str(500000 * x), str(x)]
-                         for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec'],
-               'tcm': ['notcm'],
-               'cc': ['icc', 'g++']},
+    # 'bench6': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec'],
+    #            'tcm': ['notcm'],
+    #            'cc': ['icc', 'g++']},
 
     'bench7': {'sizes': [['500', str(500000 * x), str(x)]
                          for x in [1, 2, 4, 8, 14, 28, 56]],
@@ -78,7 +78,7 @@ os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 3
+repeats = 10
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])
