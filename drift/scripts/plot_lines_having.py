@@ -18,6 +18,7 @@ csv_file = res_dir + 'csv/drift1/all_results.csv'
 plots_config = {
     'plot1': {'lines': {'version': ['v0'],
                         'vec': ['vec', 'novec'],
+                        'alpha': ['1'],
                         # 'tcm': ['tcm', 'notcm'],
                         'cc': ['icc', 'g++']},
               'exclude': [],
@@ -34,6 +35,7 @@ plots_config = {
 
     'plot2': {'lines': {'version': ['v1', 'v0'],
                         'vec': ['vec'],
+                        'alpha': ['1'],
                         # 'tcm': ['tcm'],
                         'cc': ['g++', 'icc']},
               'exclude': [],
@@ -50,6 +52,7 @@ plots_config = {
 
     'plot3': {'lines': {'version': ['v0', 'v2'],
                         'vec': ['vec'],
+                        'alpha': ['1'],
                         # 'tcm': ['notcm'],
                         'cc': ['g++', 'icc']},
               'exclude': [],
@@ -62,7 +65,25 @@ plots_config = {
               'title': 'Single VS Double precision',
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'single_vs_double.pdf'
+              },
+
+    'plot4': {'lines': {'version': ['v0', 'v3'],
+                        'vec': ['vec'],
+                        'alpha': ['1'],
+                        # 'tcm': ['notcm'],
+                        'cc': ['g++']},
+              'exclude': [],
+
+              'x_name': 'threads',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Threads (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'Tiled vs No-tiled',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'tiled_vs_notiled.pdf'
               }
+
 }
 
 if __name__ == '__main__':

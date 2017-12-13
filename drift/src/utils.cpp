@@ -27,7 +27,6 @@ void linspace(const float start, const float end, const int n,
 // Kostis
 size_t L1_cache_size (void)
 {
-#ifdef _LINUX_
     FILE * p = 0;
     p = fopen("/sys/devices/system/cpu/cpu0/cache/index0/size", "r");
     unsigned int i = 0;
@@ -37,16 +36,12 @@ size_t L1_cache_size (void)
     }
     // i is in KB
     return i * 1024;
-#else
-    return 0;
-#endif
 }
 
 
 // Kostis
 size_t L2_cache_size (void)
 {
-#ifdef _LINUX_
     FILE * p = 0;
     p = fopen("/sys/devices/system/cpu/cpu0/cache/index2/size", "r");
     unsigned int i = 0;
@@ -56,7 +51,4 @@ size_t L2_cache_size (void)
     }
     // i is in KB
     return i * 1024;
-#else
-    return 0;
-#endif
 }

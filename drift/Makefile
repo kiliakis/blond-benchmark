@@ -6,7 +6,7 @@ PROGS_DIR = exe
 
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
-PROGS := ${BENCHES:.cpp=}
+PROGS := ${BENCHES:.cpp=.exe}
 LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
 LIBS += -l$(BASE)
 INCDIRS += -Iinclude
@@ -24,12 +24,12 @@ $(PROGS_DIR):
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
-%: %.o $(TARGET_LIB)
+%.exe: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $(PROGS_DIR)/$(subst benches/,,$@) $< $(LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
-	rm -rf $(PROGS_DIR)/$(subst benches/,,$@) $(OBJS)
+	rm -rf exe* $(OBJS)
 	$(MAKE) -C src clean --no-print-directory

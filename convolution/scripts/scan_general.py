@@ -35,11 +35,11 @@ configs = {
     #           'tcm': ['notcm', 'tcm'],
     #           'cc': ['icc']},
 
-    'bench5': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-                        for x in [1, 2, 4, 8, 14, 28, 56]],
-              'vec': ['vec', 'novec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']},
+    # 'bench5': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    #           'vec': ['vec', 'novec'],
+    #           'tcm': ['notcm', 'tcm'],
+    #           'cc': ['icc']},
 
     # 'bench7': {'sizes': [['500', str(4000 * x), '4000', str(x)]
     #                     for x in [1, 2, 4, 8, 14, 28, 56]],
@@ -47,9 +47,14 @@ configs = {
     #           'tcm': ['notcm'],
     #           'cc': ['g++', 'icc']},
 
-    'bench8': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    # 'bench8': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    #           'vec': ['vec', 'novec'],
+    #           'tcm': ['notcm', 'tcm'],
+    #           'cc': ['icc']},
+    'bench9': {'sizes': [['500', str(4000 * x), '4000', str(x)]
                         for x in [1, 2, 4, 8, 14, 28, 56]],
-              'vec': ['vec', 'novec'],
+              'vec': ['vec'],
               'tcm': ['notcm', 'tcm'],
               'cc': ['icc']}
 }

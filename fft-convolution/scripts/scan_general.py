@@ -19,14 +19,14 @@ configs = {
 
     # Parallelization not working, need to fix this
     'bench2': {'sizes': [['500', str(50000 * x), '50000', str(x)]
-                         for x in [1, 2, 4, 8, 14, 28]],
-               'vec': ['vec', 'novec'],
-               'tcm': ['notcm', 'tcm'],
-               'cc': ['g++', 'icc']}
+                         for x in [56]],
+               'vec': ['novec'],
+               'tcm': ['tcm', 'notcm'],
+               'cc': ['g++']}
 
     # 'bench4': {'sizes': [['500', str(50000 * x), '50000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28]],
-    #           'vec': ['vec', 'novec'],
+    #                     for x in [56]],
+    #           'vec': ['vec'],
     #           'tcm': ['notcm', 'notcm'],
     #           'cc': ['icc']},
 
@@ -37,8 +37,8 @@ configs = {
     #           'cc': ['icc']},
 
     # 'bench6': {'sizes': [['500', str(50000 * x), '50000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28]],
-    #           'vec': ['vec', 'novec'],
+    #                     for x in [56]],
+    #           'vec': ['vec'],
     #           'tcm': ['notcm', 'notcm'],
     #           'cc': ['icc']}
 }
@@ -58,7 +58,7 @@ proclist = proclist[:-1]
 #     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 4
+repeats = 3
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])

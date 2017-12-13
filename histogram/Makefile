@@ -4,7 +4,7 @@ include $(HOME)/Defines.mk
 
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
-PROGS := ${BENCHES:.cpp=}
+PROGS := ${BENCHES:.cpp=.exe}
 LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
 # LIBS += -l$(BASE) -lpapiprof -ltcmalloc
 LIBS += -l$(BASE) -lpapiprof
@@ -21,12 +21,12 @@ all: $(TARGET_LIB) $(PROGS) $(OBJS)
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
-%: %.o $(TARGET_LIB)
+%.exe: %.o $(TARGET_LIB)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
-	rm -f $(PROGS) $(OBJS)
+	rm -rf exe* $(OBJS)
 	$(MAKE) -C src clean --no-print-directory

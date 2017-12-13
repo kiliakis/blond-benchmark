@@ -50,8 +50,8 @@ int main(int argc, char const *argv[])
     // papiprof->start_counters("drift");
     const ssize_t INPUT_UNIT_SIZE = 2 * sizeof(double);
     const ssize_t L2_CACHE_SIZE = L2_cache_size();
-    const ssize_t tile_size = L2_CACHE_SIZE / INPUT_UNIT_SIZE;
-
+    const int tile_size = L2_CACHE_SIZE / INPUT_UNIT_SIZE;
+    printf("L2 cache size: %d\n", L2_CACHE_SIZE);
     auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int t = 0; t < n_particles; t += tile_size) {

@@ -20,7 +20,7 @@ def extract_results(input, outfile):
             if('.txt' not in file):
                 continue
             times = []
-            print(file)
+            print(dirs+'/'+file)
             turns = string_between(file, 'i', '-')
             signalLen = string_between(file, 's', '-')
             kernelLen = string_between(file, 'k', '-')
