@@ -1,0 +1,7 @@
+metric	value
+FE_Bound	1.6
+Bad_Speculation	0.4
+MEM_Bound	61.2
+Core_Bound	13.9
+Retiring	22.9
+CPI	0.889
