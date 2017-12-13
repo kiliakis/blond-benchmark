@@ -5,7 +5,7 @@ import sys
 import numpy as np
 from extract.extract_utilities import *
 
-application = 'convolution'
+application = 'fft_convolution'
 header = ['version', 'cc', 'vec', 'tcm', 'turns', 'signalLen', 'kernelLen',
           'threads', 'time(ms)', 'std(%)']
 
@@ -29,7 +29,7 @@ def extract_results(input, outfile):
             vec = file.split('-')[5]
             tcm = file.split('-')[6].split('.txt')[0]
             for line in open(os.path.join(dirs, file), 'r'):
-                line = get_line_matching(line, [application])
+                line = get_line_matching(line, [application, 'convolution'])
                 if not line:
                     continue
                 line = line.split('\t')

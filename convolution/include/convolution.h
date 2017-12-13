@@ -1,3 +1,4 @@
+#pragma once
 
 void convolution_v0(const double *__restrict__ signal,
                     const int SignalLen,
@@ -20,7 +21,7 @@ void convolution_v2(const double *__restrict__ signal,
 
 void convolution_v3(const float *__restrict__ signal,
                     const int SignalLen,
-                    float *__restrict__ kernel,
+                    const float *__restrict__ kernel,
                     const int KernelLen,
                     float *__restrict__ res);
 

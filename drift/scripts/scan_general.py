@@ -3,55 +3,28 @@ import os
 from functools import reduce
 from operator import mul
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/'
-result_dir = home + 'results/raw/convolution1/{}/'
-# exe_form = home + 'benches/{}'
+home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/'
+result_dir = home + 'results/raw/drift2/{}/'
 exe_form = home + 'exe_{}_{}_{}/{}'
 
-out_file_name = result_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}.txt'
+out_file_name = result_dir + 'i{}-p{}-a{}-t{}-{}-{}-{}.txt'
 
 configs = {
-    # 'bench0': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc', 'g++']},
-
-    # 'bench1': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc', 'g++']},
-
-    # 'bench2': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc']},
-
-    # 'bench3': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm', 'tcm'],
-    #           'cc': ['icc']},
-
-    'bench5': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    'bench0': {'sizes': [['1000', str(500000 * x), '0', str(x)]
                         for x in [1, 2, 4, 8, 14, 28, 56]],
               'vec': ['vec', 'novec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']},
-
-    # 'bench7': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['g++', 'icc']},
-
-    'bench8': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+              'tcm': ['notcm'],
+              'cc': ['icc', 'g++']},
+    'bench1': {'sizes': [['1000', str(500000 * x), '0', str(x)]
                         for x in [1, 2, 4, 8, 14, 28, 56]],
               'vec': ['vec', 'novec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']}
+              'tcm': ['notcm'],
+              'cc': ['icc', 'g++']},
+    'bench2': {'sizes': [['1000', str(500000 * x), '0', str(x)]
+                        for x in [1, 2, 4, 8, 14, 28, 56]],
+              'vec': ['vec', 'novec'],
+              'tcm': ['notcm'],
+              'cc': ['icc', 'g++']}
 }
 
 
@@ -69,7 +42,7 @@ os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 3
+repeats = 5
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])
@@ -102,7 +75,8 @@ for app, config in configs.items():
                         os.makedirs(results)
 
                     stdout = open(out_file_name.format(
-                        app, size[0], size[1], size[2], size[3], cc, vec, tcm), 'w')
+                        app, size[0], size[1], size[2], size[3], 
+                        cc, vec, tcm), 'w')
                     exe = exe_form.format(cc, vec, tcm, app)
                     exe_list = [exe] + size
                     for i in range(repeats):

@@ -47,3 +47,9 @@ void linspace(const double start, const double end, const int n,
 
 void linspace(const float start, const float end, const int n,
               float *__restrict__ out);
+
+
+size_t L1_cache_size (void);
+
+size_t L2_cache_size (void);
+

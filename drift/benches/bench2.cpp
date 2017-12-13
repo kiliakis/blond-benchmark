@@ -26,12 +26,12 @@ int main(int argc, char const *argv[])
 
     // setup random engine
     default_random_engine gen;
-    uniform_real_distribution<double> d(0.0, 1.0);
+    uniform_real_distribution<float> d(0.0, 1.0);
 
     // initialize variables
-    vector<double> dE, dt;
-    double T0, length_ratio, eta0, eta1, eta2;
-    double beta, energy;
+    vector<float> dE, dt;
+    float T0, length_ratio, eta0, eta1, eta2;
+    float beta, energy;
 
     dE.resize(n_particles); dt.resize(n_particles);
     for (int i = 0; i < n_particles; ++i) {
@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
     auto start = chrono::high_resolution_clock::now();
     // main loop
     for (int i = 0; i < n_turns; ++i) {
-        drift_v1(dt.data(), dE.data(), solver,
+        drift_v2(dt.data(), dE.data(), solver,
                  T0, length_ratio, alpha_order, eta0,
                  eta1, eta2, beta, energy,
                  n_particles);
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[])
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("drift_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("drift_v2\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dt: %lf\n", accumulate(dt.begin(), dt.end(), 0.0) / (n_particles));
     // papiprof->stop_counters();
     // papiprof->report_timing();

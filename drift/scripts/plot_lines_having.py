@@ -5,52 +5,36 @@ import os
 
 from plot.plotting_utilities import *
 
-application = 'convolution'
+application = 'drift'
 project_dir = './'
 res_dir = project_dir + 'results/'
-images_dir = res_dir + 'plots/convolution1/'
+images_dir = res_dir + 'plots/drift1/'
 
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
-csv_file = res_dir + 'csv/convolution1/all_results.csv'
+csv_file = res_dir + 'csv/drift1/all_results.csv'
 
 plots_config = {
-    'plot1': {'lines': {'version': ['v0', 'v1', 'v3'],
-                        'vec': ['vec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['icc']},
-              'exclude': [['v3', 'notcm']],
-              'x_name': 'threads',
-              'y_name': 'time(ms)',
-              'y_err_name': 'std(%)',
-              'xlabel': 'Threads (500k points/thread)',
-              'ylabel': 'Run-time (ms)',
-              'title': 'Convolution Optimizations',
-              'extra': ['plt.xscale(\'log\', basex=2)'],
-              'image_name': images_dir + 'convolution_opts.pdf'
-              },
-
-    'plot2': {'lines': {'version': ['v3', 'v5'],
-                        'vec': ['vec'],
-                        'tcm': ['tcm', 'notcm'],
-                        'cc': ['icc']},
+    'plot1': {'lines': {'version': ['v0'],
+                        'vec': ['vec', 'novec'],
+                        # 'tcm': ['tcm', 'notcm'],
+                        'cc': ['icc', 'g++']},
               'exclude': [],
-
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'Parallel MKL convolution',
-              'extra': ['plt.xscale(\'log\', basex=2)',
-                        'plt.yscale(\'log\', basex=10)'],
-              'image_name': images_dir + 'parallel_mkl.pdf'
+              'title': 'icc VS gcc (vec/novec)',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+
+              'image_name': images_dir + 'icc_vs_gcc.pdf'
               },
 
-    'plot3': {'lines': {'version': ['v0','v7'],
+    'plot2': {'lines': {'version': ['v1', 'v0'],
                         'vec': ['vec'],
-                        'tcm': ['notcm'],
+                        # 'tcm': ['tcm'],
                         'cc': ['g++', 'icc']},
               'exclude': [],
 
@@ -59,15 +43,15 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'Custom Convolution Single VS Double precision',
+              'title': 'Drift Optimization',
               'extra': ['plt.xscale(\'log\', basex=2)'],
-              'image_name': images_dir + 'custom_single_vs_double.pdf'
+              'image_name': images_dir + 'drift_opt.pdf'
               },
 
-    'plot4': {'lines': {'version': ['v5', 'v8'],
+    'plot3': {'lines': {'version': ['v0', 'v2'],
                         'vec': ['vec'],
-                        'tcm': ['tcm'],
-                        'cc': ['icc']},
+                        # 'tcm': ['notcm'],
+                        'cc': ['g++', 'icc']},
               'exclude': [],
 
               'x_name': 'threads',
@@ -75,9 +59,9 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'Parallel MKL Single VS Double Precision',
+              'title': 'Single VS Double precision',
               'extra': ['plt.xscale(\'log\', basex=2)'],
-              'image_name': images_dir + 'mkl_single_vs_double.pdf'
+              'image_name': images_dir + 'single_vs_double.pdf'
               }
 }
 
@@ -112,3 +96,13 @@ if __name__ == '__main__':
         plt.savefig(config['image_name'])
         plt.show()
         plt.close()
+
+    # plt.legend(loc='best', fancybox=True, fontsize='11')
+    # plt.axvline(700.0, color='k', linestyle='--', linewidth=1.5)
+    # plt.axvline(1350.0, color='k', linestyle='--', linewidth=1.5)
+    # plt.annotate('Light\nCombine\nWorkload', xy=(
+    #     200, 6.3), textcoords='data', size='16')
+    # plt.annotate('Moderate\nCombine\nWorkload', xy=(
+    #     800, 6.3), textcoords='data', size='16')
+    # plt.annotate('Heavy\nCombine\nWorkload', xy=(
+    #     1400, 8.2), textcoords='data', size='16')

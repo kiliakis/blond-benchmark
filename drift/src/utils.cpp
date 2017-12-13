@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include "utils.h"
+#include <stdio.h>
 using namespace std;
 
 void linspace(const double start, const double end, const int n,
@@ -23,35 +24,39 @@ void linspace(const float start, const float end, const int n,
     for (int i = 0; i < n; ++i) out[i] = start + i * step;
 }
 
-// void read_distribution(const string &file, const int n,
-//                        vector<double> &dtV, vector<double> &dEV)
-// {
-//     dtV.clear(); dEV.clear();
-//     ifstream source(file);
-//     if (!source.good()) {
-//         cout << "Error: file " << file << " does not exist\n";
-//         source.close();
-//         exit(-1);
-//     }
-//     string line;
-//     int i = 0;
-//     getline(source, line);
-//     for (; getline(source, line) && i < n;){
-//         istringstream in(line);
-//         double dt, dE;
-//         in >> dt >> dE;
-//         dtV.push_back(dt);
-//         dEV.push_back(dE);
-//         i++;
+// Kostis
+size_t L1_cache_size (void)
+{
+#ifdef _LINUX_
+    FILE * p = 0;
+    p = fopen("/sys/devices/system/cpu/cpu0/cache/index0/size", "r");
+    unsigned int i = 0;
+    if (p) {
+        fscanf(p, "%d", &i);
+        fclose(p);
+    }
+    // i is in KB
+    return i * 1024;
+#else
+    return 0;
+#endif
+}
 
-//     }
-    
-//     int k = 0;
-//     while (i < n) {
-//         dtV.push_back(dtV[k]);
-//         dEV.push_back(dEV[k]);
-//         k++; i++;
-//     }
 
-//     source.close();
-// }
+// Kostis
+size_t L2_cache_size (void)
+{
+#ifdef _LINUX_
+    FILE * p = 0;
+    p = fopen("/sys/devices/system/cpu/cpu0/cache/index2/size", "r");
+    unsigned int i = 0;
+    if (p) {
+        fscanf(p, "%d", &i);
+        fclose(p);
+    }
+    // i is in KB
+    return i * 1024;
+#else
+    return 0;
+#endif
+}

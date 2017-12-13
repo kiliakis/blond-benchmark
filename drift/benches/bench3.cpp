@@ -11,6 +11,9 @@
 
 using namespace std;
 
+// const int INPUT_UNIT_SIZE = 2 * sizeof(double);
+// const int L2_CACHE_SIZE = 512000;
+
 int main(int argc, char const *argv[])
 {
     int n_turns = 5000;
@@ -45,18 +48,24 @@ int main(int argc, char const *argv[])
     const char *solver = alpha_order > 0 ? "full" : "simple";
     // auto papiprof = new PAPIProf();
     // papiprof->start_counters("drift");
+    const ssize_t INPUT_UNIT_SIZE = 2 * sizeof(double);
+    const ssize_t L2_CACHE_SIZE = L2_cache_size();
+    const ssize_t tile_size = L2_CACHE_SIZE / INPUT_UNIT_SIZE;
+
     auto start = chrono::high_resolution_clock::now();
     // main loop
-    for (int i = 0; i < n_turns; ++i) {
-        drift_v1(dt.data(), dE.data(), solver,
-                 T0, length_ratio, alpha_order, eta0,
-                 eta1, eta2, beta, energy,
-                 n_particles);
+    for (int t = 0; t < n_particles; t += tile_size) {
+        const int tile = std::min(n_particles - t, tile_size);
+        for (int i = 0; i < n_turns; ++i) {
+            drift_v0(&dt[t], &dE[t], solver,
+                     T0, length_ratio, alpha_order, eta0,
+                     eta1, eta2, beta, energy, tile);
+        }
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("drift_v1\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("drift_v3\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dt: %lf\n", accumulate(dt.begin(), dt.end(), 0.0) / (n_particles));
     // papiprof->stop_counters();
     // papiprof->report_timing();

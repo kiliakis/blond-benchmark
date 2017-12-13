@@ -27,7 +27,7 @@ void convolution_mkl(const double * __restrict__ signal,
     #pragma omp parallel num_threads(threads)
     {
         const int tid = omp_get_thread_num();
-        static thread_local VSLConvTaskPtr task = nullptr;
+        VSLConvTaskPtr task;
         const int kernelLenPT = (kernelLen + threads - 1) / threads;
         const int resultLen = signalLen + kernelLenPT - 1;
         const int computeLen = signalLen + min(kernelLenPT, kernelLen - tid * kernelLenPT) - 1;
@@ -40,14 +40,12 @@ void convolution_mkl(const double * __restrict__ signal,
         resultPT[tid] = (*resultPT + resultLen * tid);
         memset(resultPT[tid], 0.0, computeLen * sizeof(double));
 
-        if (!task) {
             status = vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
                                        kernelLenPT, computeLen);
             // if (status != VSL_STATUS_OK) {
             //     printf("[%d] Error in %s\n", tid, "vsldConvNewTask1D");
             //     exit(-1);
             // }
-        }
 
         status = vsldConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT], 1,
                                 resultPT[tid], 1);
@@ -60,6 +58,7 @@ void convolution_mkl(const double * __restrict__ signal,
             #pragma omp atomic
             result[i + tid * kernelLenPT] += resultPT[tid][i];
         }
+        vslConvDeleteTask(&task);
     }
     free(resultPT[0]);
     free(resultPT);

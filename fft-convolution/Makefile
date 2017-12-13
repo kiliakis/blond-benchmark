@@ -2,40 +2,40 @@ HOME = ..
 
 include $(HOME)/Defines.mk
 
+PROGS_DIR = exe
+
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=}
-LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
-LIBS += -l$(BASE) -lpapiprof
+LDFLAGS += -L$(realpath src) -Wl,-rpath=$(realpath src)
+LIBS += -l$(BASE) 
 INCDIRS += -Iinclude
-MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
-CC=icc
-# ifeq ($(LINKAGE), dynamic)
-# CFLAGS += -fPIC
-# endif
+# CC=icc
+
+ifeq ($(CC), icc)
+	MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+	LIBS += $(MKL_LIBS)
+endif
 
 .PHONY: default all clean
 
 default: all
 
-all: $(TARGET_LIB) $(PROGS) $(OBJS)
+all: $(TARGET_LIB) $(PROGS_DIR) $(PROGS) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
+
+$(PROGS_DIR):
+	mkdir -p $@
 
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
-benches/bench4: benches/bench4.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
-
-benches/bench5: benches/bench5.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS) $(MKL_LIBS)
-
 %: %.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $(PROGS_DIR)/$(subst benches/,,$@) $< $(LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
-	rm -f $(PROGS) $(OBJS)
+	rm -rf $(PROGS_DIR) $(OBJS)
 	$(MAKE) -C src clean --no-print-directory

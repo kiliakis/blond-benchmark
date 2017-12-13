@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < n_turns; ++i) {
         convolution_v3(signal.data(), n_signal,
                        kernel.data(), n_kernel,
-                       result.data(), n_signal);
+                       result.data());
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();

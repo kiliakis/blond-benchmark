@@ -5,8 +5,8 @@ import sys
 import numpy as np
 from extract.extract_utilities import *
 
-application = 'convolution'
-header = ['version', 'cc', 'vec', 'tcm', 'turns', 'signalLen', 'kernelLen',
+application = 'drift'
+header = ['version', 'cc', 'vec', 'tcm', 'turns', 'points', 'alpha',
           'threads', 'time(ms)', 'std(%)']
 
 
@@ -22,8 +22,8 @@ def extract_results(input, outfile):
             times = []
             print(file)
             turns = string_between(file, 'i', '-')
-            signalLen = string_between(file, 's', '-')
-            kernelLen = string_between(file, 'k', '-')
+            points = string_between(file, 'p', '-')
+            alpha = string_between(file, 'a', '-')
             threads = string_between(file, 't', '-')
             cc = file.split('-')[4]
             vec = file.split('-')[5]
@@ -37,8 +37,8 @@ def extract_results(input, outfile):
                 time = line[2]
                 times.append(float(time))
             if times:
-                records.append([app, cc, vec, tcm, turns, signalLen, kernelLen,
-                                threads, '%.1lf' % np.mean(times),
+                records.append([app, cc, vec, tcm, turns, points, alpha, threads,
+                                '%.1lf' % np.mean(times),
                                 '%.1lf' % (100 * np.std(times) / np.mean(times))])
     # print(records)
     records.sort(key=lambda a: (a[0], a[1], a[2], a[3],

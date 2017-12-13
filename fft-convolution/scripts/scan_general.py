@@ -3,55 +3,44 @@ import os
 from functools import reduce
 from operator import mul
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/'
-result_dir = home + 'results/raw/convolution1/{}/'
+home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/fft-convolution/'
+result_dir = home + 'results/raw/fft-convolution1/{}/'
 # exe_form = home + 'benches/{}'
 exe_form = home + 'exe_{}_{}_{}/{}'
 
 out_file_name = result_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}.txt'
 
 configs = {
-    # 'bench0': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    # 'bench1': {'sizes': [['500', str(50000 * x), '50000', str(x)]
     #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    #           'vec': ['na'],
+    #           'tcm': ['na'],
+    #           'cc': ['na']},
+
+    # Parallelization not working, need to fix this
+    'bench2': {'sizes': [['500', str(50000 * x), '50000', str(x)]
+                         for x in [1, 2, 4, 8, 14, 28]],
+               'vec': ['vec', 'novec'],
+               'tcm': ['notcm', 'tcm'],
+               'cc': ['g++', 'icc']}
+
+    # 'bench4': {'sizes': [['500', str(50000 * x), '50000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28]],
     #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc', 'g++']},
-
-    # 'bench1': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc', 'g++']},
-
-    # 'bench2': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec'],
-    #           'tcm': ['notcm'],
+    #           'tcm': ['notcm', 'notcm'],
     #           'cc': ['icc']},
 
-    # 'bench3': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    # 'bench5': {'sizes': [['500', str(50000 * x), '50000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28]],
     #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm', 'tcm'],
+    #           'tcm': ['notcm', 'notcm'],
     #           'cc': ['icc']},
 
-    'bench5': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-                        for x in [1, 2, 4, 8, 14, 28, 56]],
-              'vec': ['vec', 'novec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']},
-
-    # 'bench7': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    # 'bench6': {'sizes': [['500', str(50000 * x), '50000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28]],
     #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['g++', 'icc']},
-
-    'bench8': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-                        for x in [1, 2, 4, 8, 14, 28, 56]],
-              'vec': ['vec', 'novec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']}
+    #           'tcm': ['notcm', 'notcm'],
+    #           'cc': ['icc']}
 }
 
 
@@ -64,12 +53,12 @@ for i in range(28):
         proclist += str(i + 14) + ',' + str(i + 28) + ','
 proclist = proclist[:-1]
 
-os.environ['GOMP_CPU_AFFINITY'] = proclist
-os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
-    proclist + "],explicit"
+# os.environ['GOMP_CPU_AFFINITY'] = proclist
+# os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
+#     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 3
+repeats = 4
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])
@@ -84,6 +73,8 @@ for app, config in configs.items():
     for cc in configs[app]['cc']:
         for tcm in configs[app]['tcm']:
             for vec in configs[app]['vec']:
+                if app == 'bench2' and cc == 'icc' and vec == 'vec' and tcm == 'notcm':
+                    continue
                 subprocess.call('make clean', shell=True)
                 if tcm == 'tcm':
                     tcm_value = 1
@@ -95,7 +86,8 @@ for app, config in configs.items():
                     vec_value = 1
                 make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                     cc, tcm_value, vec_value, cc, vec, tcm)
-                subprocess.call(make_string, shell=True)
+                if app != 'bench1':
+                    subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
@@ -104,7 +96,10 @@ for app, config in configs.items():
                     stdout = open(out_file_name.format(
                         app, size[0], size[1], size[2], size[3], cc, vec, tcm), 'w')
                     exe = exe_form.format(cc, vec, tcm, app)
-                    exe_list = [exe] + size
+                    if app == 'bench1':
+                        exe_list = ['python', 'benches/bench1.py'] + size
+                    else:
+                        exe_list = [exe] + size
                     for i in range(repeats):
                         print(app, cc, tcm, vec, size, i)
                         subprocess.call(exe_list, stdout=stdout,

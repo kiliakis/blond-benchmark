@@ -13,23 +13,21 @@ using namespace std;
 
 
 void convolution_mkl(const double * __restrict__ signal,
-                        const int signalLen,
-                        const double * __restrict__ kernel,
-                        const int kernelLen,
-                        double * __restrict__ result)
+                     const int signalLen,
+                     const double * __restrict__ kernel,
+                     const int kernelLen,
+                     double * __restrict__ result)
 {
     static VSLConvTaskPtr task = nullptr;
     int status;
     // VSL_CONV_MODE_DIRECT compute convolution directly
     // VSL_CONV_MODE_FFT use FFT
     // VSL_CONV_MODE_AUTO FFT or directly
-    if (!task) {
-        vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT,
-                          signalLen, kernelLen,
-                          signalLen + kernelLen - 1);
-    }
+    status = vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT,
+                               signalLen, kernelLen,
+                               signalLen + kernelLen - 1);
     status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
-    // vslConvDeleteTask(&task);
+    vslConvDeleteTask(&task);
 }
 
 int main(int argc, char const *argv[])
@@ -70,8 +68,8 @@ int main(int argc, char const *argv[])
     // main loop
     for (int i = 0; i < n_turns; ++i) {
         convolution_mkl(signal.data(), n_signal,
-                       kernel.data(), n_kernel,
-                       result.data());
+                        kernel.data(), n_kernel,
+                        result.data());
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();

@@ -4,10 +4,11 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
 #include "fft.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -57,16 +58,23 @@ int main(int argc, char const *argv[])
                     kernel.data(), n_kernel,
                     result.data(), n_threads);
 
-    auto papiprof = new PAPIProf();
-    // main loop
-    papiprof->start_counters("fft_convolution");
+    // auto papiprof = new PAPIProf();
+    // // main loop
+    // papiprof->start_counters("fft_convolution");
+    auto start = chrono::high_resolution_clock::now();
+
     for (int i = 0; i < n_turns; ++i) {
         fft_convolution(signal.data(), n_signal,
                         kernel.data(), n_kernel,
                         result.data(), n_threads);
     }
-    papiprof->stop_counters();
-    papiprof->report_timing();
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("fft_convolution_v2\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
+    // papiprof->stop_counters();
+    // papiprof->report_timing();
     destroy_plans();
     // report results
     return 0;

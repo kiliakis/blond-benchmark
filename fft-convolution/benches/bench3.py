@@ -27,7 +27,7 @@ if __name__ == "__main__":
     result = np.zeros(len(signal) + len(kernel) - 1, dtype=float)
     convolution_v1(signal, kernel, result, n_threads)
 
-    start_timing('convolution_v1')
+    start_timing('convolution_v3')
     for i in range(n_turns):
         convolution_v1(signal, kernel, result, n_threads)
     stop_timing()

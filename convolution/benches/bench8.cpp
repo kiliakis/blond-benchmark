@@ -20,34 +20,42 @@ void convolution_mkl(const float * __restrict__ signal,
                      float * __restrict__ result,
                      const int threads)
 {
-
     memset(result, 0.0, (signalLen + kernelLen - 1) * sizeof(float));
-    float *resultPT;
 
     #pragma omp parallel num_threads(threads)
     {
+        VSLConvTaskPtr task;
         const int tid = omp_get_thread_num();
-        static thread_local VSLConvTaskPtr task = nullptr;
         const int kernelLenPT = (kernelLen + threads - 1) / threads;
-        // const int resultLen = signalLen + kernelLenPT - 1;
         const int computeLen = signalLen + min(kernelLenPT, kernelLen - tid * kernelLenPT) - 1;
-        int status;
-        resultPT = (float *) malloc (computeLen * sizeof(float));
+
+        float *resultPT = (float *) malloc (computeLen * sizeof(float));
         memset(resultPT, 0.0, computeLen * sizeof(float));
 
-        if (!task) {
-            status = vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
-                                       kernelLenPT, computeLen);
-        }
+        // printf("[%d] Before the task creation\n", tid);
+        // printf("[%d] In the task creation\n", tid);
 
-        status = vsldConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT], 1,
-                                resultPT, 1);
+        vslsConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
+                          kernelLenPT, computeLen);
+
+        // printf("[%d] After task creation\n", tid);
+
+        // printf("[%d] After task copy\n", tid);
+
+        // printf("[%d] Before task execution\n", tid);
+
+        vslsConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT], 1,
+                       resultPT, 1);
+
+        // printf("[%d] After task execution\n", tid);
 
         for (int i = 0; i < computeLen; ++i) {
             #pragma omp atomic
             result[i + tid * kernelLenPT] += resultPT[i];
         }
-    free(resultPT);
+
+        free(resultPT);
+        vslConvDeleteTask(&task);
     }
 }
 

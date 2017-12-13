@@ -4,11 +4,12 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
 #include "fft.h"
 #include <iostream>
 #include <mkl_vsl.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,18 +30,15 @@ void fft_convolution_mkl(const double * __restrict__ signal,
                          double * __restrict__ result,
                          const int threads = 1)
 {
-    static VSLConvTaskPtr task = nullptr;
-    int status;
+    VSLConvTaskPtr task;
     // VSL_CONV_MODE_DIRECT compute convolution directly
     // VSL_CONV_MODE_FFT use FFT
     // VSL_CONV_MODE_AUTO FFT or directly
-    if (!task) {
-        vsldConvNewTask1D(&task, VSL_CONV_MODE_FFT,
-                          signalLen, kernelLen,
-                          signalLen + kernelLen - 1);
-    }
-    status = vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
-    // vslConvDeleteTask(&task);
+    vsldConvNewTask1D(&task, VSL_CONV_MODE_FFT,
+                      signalLen, kernelLen,
+                      signalLen + kernelLen - 1);
+    vsldConvExec1D(task, signal, 1, kernel, 1, result, 1);
+    vslConvDeleteTask(&task);
 }
 
 
@@ -79,17 +77,25 @@ int main(int argc, char const *argv[])
     //                     kernel.data(), n_kernel,
     //                     result.data(), n_threads);
 
-    auto papiprof = new PAPIProf();
-    // main loop
-    papiprof->start_counters("fft_convolution_mkl");
+    // auto papiprof = new PAPIProf();
+    // // main loop
+    // papiprof->start_counters("fft_convolution_mkl");
+    auto start = chrono::high_resolution_clock::now();
+
     for (int i = 0; i < n_turns; ++i) {
         fft_convolution_mkl(signal.data(), n_signal,
                             kernel.data(), n_kernel,
                             result.data(), n_threads);
     }
-    papiprof->stop_counters();
-    // print_vector(result);
-    papiprof->report_timing();
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("fft_convolution_v4\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("result: %lf\n", accumulate(result.begin(), result.end(), 0.0) / (n_signal + n_kernel - 1));
+
+    // papiprof->stop_counters();
+    // // print_vector(result);
+    // papiprof->report_timing();
     // report results
     return 0;
 }

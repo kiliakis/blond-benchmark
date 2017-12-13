@@ -38,7 +38,7 @@ void convolution_mkl(const double * __restrict__ signal,
             if (kernelLenPT - i < STEP) loop_count = kernelLenPT - i;
 
             vsldConvNewTask1D(&task, VSL_CONV_MODE_DIRECT, signalLen,
-                              loop_count, singalLen + loop_count - 1);
+                              loop_count, signalLen + loop_count - 1);
             vsldConvExec1D(task, signal, 1, &kernel[tid * kernelLenPT + i],
                            1, resultPT, 1);
             for (int j = 0; j < loop_count; ++j) {
