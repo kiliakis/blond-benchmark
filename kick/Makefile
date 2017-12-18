@@ -10,15 +10,27 @@ LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
 LIBS += -l$(BASE)
 INCDIRS += -Iinclude
 
+CUPROGS_DIR = exe_cuda
+CUBENCHES := $(wildcard benches/*.cu)
+CUPROGS := ${CUBENCHES:.cu=.cu.exe}
+
 .PHONY: default all clean
 
 default: all
 
-all: $(TARGET_LIB) $(PROGS_DIR) $(PROGS) $(OBJS)
+all: $(TARGET_LIB) $(PROGS_DIR) $(OBJS) $(PROGS)
+cuda: $(CUPROGS_DIR) $(CUPROGS) 
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
+
+%.cu.exe: %.cu
+	$(CUCC) $(CUFLAGS) $(CULDFLAGS) $(CUDEBUG) $(INCDIRS) -o $(CUPROGS_DIR)/$(subst benches/,,$@) $< $(CULIBS)
 
 $(PROGS_DIR):
 	mkdir -p $@
+
+$(CUPROGS_DIR):
+	mkdir -p $@
+
 
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory

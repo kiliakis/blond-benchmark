@@ -5,7 +5,7 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
 #include <string>
 #include <algorithm>
@@ -41,16 +41,26 @@ int main(int argc, char const *argv[])
     // cut_right = dt[rand() % n_slices];
     if (cut_left > cut_right) swap(cut_left, cut_right);
 
-    auto papiprof = new PAPIProf();
-    papiprof->start_counters("histogram_v3");
+    // auto papiprof = new PAPIProf();
+    // papiprof->start_counters("histogram_v0");
+
+    auto start = chrono::high_resolution_clock::now();
+
+
     // main loop
     for (int i = 0; i < n_turns; ++i) {
         histogram_v3(dt.data(), profile.data(),
                      cut_left, cut_right,
                      n_slices, n_particles);
     }
-    papiprof->stop_counters();
-    papiprof->report_timing();
+    
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("histogram_v3\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("profile: %lf\n", accumulate(profile.begin(), profile.end(), 0.0) / n_slices);
+    // papiprof->stop_counters();
+    // papiprof->report_timing();
     // report results
 
     return 0;

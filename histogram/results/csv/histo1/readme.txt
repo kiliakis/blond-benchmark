@@ -7,6 +7,9 @@ v3: parallel, local histo, parallel reduction
 v4: parallel, local histo, parallel reduce, loop tiling
 v5: parallel, local histo, parallel reduce, loop tiling, parallel allocation
 # v6: parallel, local histo, parallel reduce, loop tiling, parallel allocation, heavier opts
+v7: cuda, global histo (512X1024)
+v8: cuda, shared histo (512X1024)
+v9: cuda, shared histo, simplified condition (512X1024)
 
 Plots
 

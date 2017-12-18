@@ -5,11 +5,10 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
 #include <string>
 #include <algorithm>
-
 using namespace std;
 
 int main(int argc, char const *argv[])
@@ -35,22 +34,33 @@ int main(int argc, char const *argv[])
     read_distribution(input, n_particles, dt, dE);
     FTYPE cut_left, cut_right;
     profile.resize(n_slices);
+
     cut_left = 1.05 * (*min_element(dt.begin(), dt.end()));
     cut_right = 0.95 * (*max_element(dt.begin(), dt.end()));
     // cut_left = dt[rand() % n_slices];
     // cut_right = dt[rand() % n_slices];
     if (cut_left > cut_right) swap(cut_left, cut_right);
 
-    auto papiprof = new PAPIProf();
-    papiprof->start_counters("histogram_v6");
+    // auto papiprof = new PAPIProf();
+    // papiprof->start_counters("histogram_v0");
+
+    auto start = chrono::high_resolution_clock::now();
+
+
     // main loop
     for (int i = 0; i < n_turns; ++i) {
         histogram_v6(dt.data(), profile.data(),
                      cut_left, cut_right,
                      n_slices, n_particles);
     }
-    papiprof->stop_counters();
-    papiprof->report_timing();
+    
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
+    printf("histogram_v6\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("profile: %lf\n", accumulate(profile.begin(), profile.end(), 0.0) / n_slices);
+    // papiprof->stop_counters();
+    // papiprof->report_timing();
     // report results
 
     return 0;

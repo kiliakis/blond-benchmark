@@ -2,27 +2,43 @@ HOME = ..
 
 include $(HOME)/Defines.mk
 
+PROGS_DIR = exe
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=.exe}
 LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
-# LIBS += -l$(BASE) -lpapiprof -ltcmalloc
-LIBS += -l$(BASE) -lpapiprof
+LIBS += -l$(BASE)
 INCDIRS += -Iinclude
-CFLAGS+= -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free
+
+
+CUPROGS_DIR = exe_cuda
+CUBENCHES := $(wildcard benches/*.cu)
+CUPROGS := ${CUBENCHES:.cu=.cu.exe}
+
 
 .PHONY: default all clean
 
 default: all
 
-all: $(TARGET_LIB) $(PROGS) $(OBJS)
+cuda: $(CUPROGS_DIR) $(CUPROGS)
+all: $(TARGET_LIB) $(PROGS_DIR) $(OBJS) $(PROGS) 
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
+
+%.cu.exe: %.cu
+	$(CUCC) $(CUFLAGS) $(CULDFLAGS) $(CUDEBUG) $(INCDIRS) -o $(CUPROGS_DIR)/$(subst benches/,,$@) $< $(CULIBS)
+
+$(PROGS_DIR):
+	mkdir -p $@
+
+$(CUPROGS_DIR):
+	mkdir -p $@
+
 
 $(TARGET_LIB):
 	$(MAKE) -C src --no-print-directory
 
 %.exe: %.o $(TARGET_LIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $@ $< $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCDIRS) -o $(PROGS_DIR)/$(subst benches/,,$@) $< $(LIBS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@

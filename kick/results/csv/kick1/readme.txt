@@ -5,6 +5,8 @@ v3: same but float
 # v4: vdt::fast_sin, double, vec/novec, icc/g++, L1 tiles
 v5: vdt::fast_sin, double, vec/novec, icc/g++, L2 tiles
 v6: std::sin, double, vec/novec, icc/g++, L2 tiles
+v7: cuda implementation (512, 64)
+v8: cuda with sh_mem (512, 64)
 
 Plots
 

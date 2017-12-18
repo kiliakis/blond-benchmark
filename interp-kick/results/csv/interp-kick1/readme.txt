@@ -8,7 +8,10 @@ v3: float, precalculate voltages + loop tiling, tcm/notcm, gcc/icc, vec/novec
 v4: double, precalculate voltages + functor + loop tiling, tcm/notcm, gcc/icc, vec/novec
 v5: double, precalculate voltages functor + loop tiling + AoS, tcm/notcm, gcc/icc, vec/novec
 v6: float, precalculate voltages + loop tiling, tcm/notcm, gcc/icc, vec/novec
-
+v7: double, simple interp-kick cuda
+v8: double, simple interp-kick cuda using shared memory (too restrictive)
+v9: double, two-phase interp-kick cuda
+v10: single, two-phase interp-kick cuda
 
 Plots
 
