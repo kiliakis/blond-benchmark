@@ -37,7 +37,7 @@ def extract_results(input, outfile):
                                 '%.2lf' % (100 * np.std(times) / np.mean(times))])
     # print(records)
     records.sort(key=lambda a: (a[0], int(a[1]),
-                                int(a[2]), int(a[3]), int(a[4])))
+                                int(a[2]), int(a[3]), (a[4])))
     out = open(outfile, 'w')
     writer = csv.writer(out, delimiter='\t')
     writer.writerow(header)

@@ -6,10 +6,9 @@ from operator import mul
 home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/synchrotron-radiation/'
 result_dir = home + 'results/raw/synch-rad1/{}/'
 # exe_form = home + 'benches/{}'
-vec_list = ['vec', 'novec']
-tcm_list = ['tcm', 'notcm']
-cc_list = ['g++', 'icc']
 exe_form = home + 'exe_{}_{}_{}/{}'
+cuexe_form = home + 'exe_cuda/{}'
+
 
 out_file_name = result_dir + 'i{}-p{}-t{}-{}-{}-{}.txt'
 
@@ -56,11 +55,26 @@ configs = {
     #            'tcm': ['notcm'],
     #            'cc': ['icc', 'g++']},
 
-    'bench7': {'sizes': [['500', str(500000 * x), str(x)]
+    # 'bench7': {'sizes': [['500', str(500000 * x), str(x)]
+    #                      for x in [1, 2, 4, 8, 14, 28, 56]],
+    #            'vec': ['vec', 'novec'],
+    #            'tcm': ['tcm', 'notcm'],
+    #            'cc': ['icc']},
+    'bench8.cu.exe': {'sizes': [['500', str(500000 * x), '512', '512']
                          for x in [1, 2, 4, 8, 14, 28, 56]],
-               'vec': ['vec', 'novec'],
-               'tcm': ['tcm', 'notcm'],
-               'cc': ['icc']}
+               'vec': ['na'],
+               'tcm': ['na'],
+               'cc': ['nvcc']},
+    'bench9.cu.exe': {'sizes': [['500', str(500000 * x), '512', '512']
+                         for x in [1, 2, 4, 8, 14, 28, 56]],
+               'vec': ['na'],
+               'tcm': ['na'],
+               'cc': ['nvcc']},
+    'bench10.cu.exe': {'sizes': [['500', str(500000 * x), '256', '256']
+                          for x in [1, 2, 4, 8, 14, 28, 56]],
+                'vec': ['na'],
+                'tcm': ['na'],
+                'cc': ['nvcc']}
 }
 
 
@@ -78,7 +92,7 @@ os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 10
+repeats = 5
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])
@@ -93,7 +107,7 @@ for app, config in configs.items():
     for cc in configs[app]['cc']:
         for tcm in configs[app]['tcm']:
             for vec in configs[app]['vec']:
-                subprocess.call('make clean', shell=True)
+                # subprocess.call('make clean', shell=True)
                 if tcm == 'tcm':
                     tcm_value = 1
                 else:
@@ -102,17 +116,27 @@ for app, config in configs.items():
                     vec_value = 0
                 else:
                     vec_value = 1
-                make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
-                    cc, tcm_value, vec_value, cc, vec, tcm)
-                subprocess.call(make_string, shell=True)
+                if 'cu' in app:
+                    make_string = 'make cuda CUDEBUG='
+                else:
+                    make_string = 'make {} -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                        cc, tcm_value, vec_value, cc, vec, tcm)
+                # subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
                         os.makedirs(results)
 
-                    stdout = open(out_file_name.format(
-                        app, size[0], size[1], size[2], cc, vec, tcm), 'w')
-                    exe = exe_form.format(cc, vec, tcm, app)
+                    if 'cu' in app:
+                        stdout = open(out_file_name.format(
+                            app, size[0], size[1], '{}X{}'.format(size[2], size[3]),
+                            cc, vec, tcm), 'w')
+                        exe = cuexe_form.format(app)
+                    else:
+                        stdout = open(out_file_name.format(
+                            app, size[0], size[1], size[2],
+                            cc, vec, tcm), 'w')
+                        exe = exe_form.format(cc, vec, tcm, app)
                     exe_list = [exe] + size
                     for i in range(repeats):
                         print(app, cc, tcm, vec, size, i)

@@ -7,6 +7,7 @@ home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/fft-convolution/'
 result_dir = home + 'results/raw/fft-convolution1/{}/'
 # exe_form = home + 'benches/{}'
 exe_form = home + 'exe_{}_{}_{}/{}'
+cuexe_form = home + 'exe_cuda/{}'
 
 out_file_name = result_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}.txt'
 
@@ -18,11 +19,12 @@ configs = {
     #           'cc': ['na']},
 
     # Parallelization not working, need to fix this
-    'bench2': {'sizes': [['500', str(50000 * x), '50000', str(x)]
-                         for x in [56]],
-               'vec': ['novec'],
-               'tcm': ['tcm', 'notcm'],
-               'cc': ['g++']}
+    # 'bench2': {'sizes': [['500', str(50000 * x), '50000', str(x)]
+    #                      for x in [56]],
+    #            'vec': ['novec'],
+    #            'tcm': ['tcm', 'notcm'],
+    #            'cc': ['g++']}
+
 
     # 'bench4': {'sizes': [['500', str(50000 * x), '50000', str(x)]
     #                     for x in [56]],
@@ -41,6 +43,21 @@ configs = {
     #           'vec': ['vec'],
     #           'tcm': ['notcm', 'notcm'],
     #           'cc': ['icc']}
+    'bench7.cu.exe': {'sizes': [['500', str(50000 * x), str(50000 * x), str(x)]
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']},
+    'bench8.cu.exe': {'sizes': [['500', str(50000 * x), str(50000 * x), str(x)]
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']},
+    'bench9.cu.exe': {'sizes': [['500', str(50000 * x), str(50000 * x), str(x)]
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']}
 }
 
 
@@ -58,7 +75,7 @@ proclist = proclist[:-1]
 #     proclist + "],explicit"
 # print(os.environ['KMP_AFFINITY'])
 
-repeats = 3
+repeats = 5
 
 total_sims = repeats * \
     sum([reduce(mul, [len(x) for x in y.values()])
@@ -75,7 +92,7 @@ for app, config in configs.items():
             for vec in configs[app]['vec']:
                 if app == 'bench2' and cc == 'icc' and vec == 'vec' and tcm == 'notcm':
                     continue
-                subprocess.call('make clean', shell=True)
+                # subprocess.call('make clean', shell=True)
                 if tcm == 'tcm':
                     tcm_value = 1
                 else:
@@ -84,18 +101,27 @@ for app, config in configs.items():
                     vec_value = 0
                 else:
                     vec_value = 1
-                make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
-                    cc, tcm_value, vec_value, cc, vec, tcm)
-                if app != 'bench1':
-                    subprocess.call(make_string, shell=True)
+                if 'cu' in app:
+                    make_string = 'make cuda CUDEBUG='
+                else:
+                    make_string = 'make {} -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                        cc, tcm_value, vec_value, cc, vec, tcm)
+                # if app != 'bench1':
+                    # subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
                         os.makedirs(results)
-
-                    stdout = open(out_file_name.format(
-                        app, size[0], size[1], size[2], size[3], cc, vec, tcm), 'w')
-                    exe = exe_form.format(cc, vec, tcm, app)
+                    if 'cu' in app:
+                        stdout = open(out_file_name.format(
+                            app, size[0], size[1], size[2], size[3],
+                            cc, vec, tcm), 'w')
+                        exe = cuexe_form.format(app)
+                    else:
+                        stdout = open(out_file_name.format(
+                            app, size[0], size[1], size[2], size[3],
+                            cc, vec, tcm), 'w')
+                        exe = exe_form.format(cc, vec, tcm, app)
                     if app == 'bench1':
                         exe_list = ['python', 'benches/bench1.py'] + size
                     else:

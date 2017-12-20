@@ -8,7 +8,9 @@ v4: mkl, float, icc, vec, tcm
 v5: boost, float, icc/g++, notcm, vec
 v6: std, float, icc/g++, notcm, vec
 v7: mkl, double, tiled, optimized, icc, vec/novec, tcm/notcm
-
+v8: cuda double, host API
+v9: cuda double, host API optimized
+v10: cuda double, device API
 plots
 
 1: v0, v1, vec, icc/g++ (boost vs std)
