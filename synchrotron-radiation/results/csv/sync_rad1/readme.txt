@@ -11,6 +11,7 @@ v7: mkl, double, tiled, optimized, icc, vec/novec, tcm/notcm
 v8: cuda double, host API
 v9: cuda double, host API optimized
 v10: cuda double, device API
+
 plots
 
 1: v0, v1, vec, icc/g++ (boost vs std)
@@ -19,3 +20,5 @@ plots
 4: v7 vec/novec, tcm/notcm (to show effect of tcm and vec)
 5: v5 g++ float vec, v1 g++ double vec (to show effect of float in boost)
 6: v3 mkl double icc vec vs v4 mkl float  (to show effect of float in mkl)
+7: all cuda versions
+8: best cuda vs best cpu (v7 vec notcm vs v10) 

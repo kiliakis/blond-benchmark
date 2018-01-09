@@ -82,6 +82,23 @@ plots_config = {
               'title': 'Tiled vs No-tiled',
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'tiled_vs_notiled.pdf'
+              },
+
+    'plot5': {'lines': {'version': ['v0', 'v4'],
+                        'vec': ['vec', 'na'],
+                        'alpha': ['1'],
+                        # 'tcm': ['notcm'],
+                        'cc': ['g++', 'nvcc']},
+              'exclude': [],
+
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'GPU vs CPU',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
               }
 
 }
@@ -100,9 +117,6 @@ if __name__ == '__main__':
         plt.title(config['title'])
         plt.xlabel(config['xlabel'])
         plt.ylabel(config['ylabel'])
-        if 'extra' in config:
-            for c in config['extra']:
-                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
@@ -111,7 +125,15 @@ if __name__ == '__main__':
                 values[:, header.index(config['y_err_name'])], float)
             y_err = y_err * y / 100.
             print(label, x, y)
-            plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+            plt.errorbar(x, y, yerr=y_err,
+                         label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot5':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata())
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

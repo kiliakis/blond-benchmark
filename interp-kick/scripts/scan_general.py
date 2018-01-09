@@ -33,24 +33,30 @@ configs = {
     # To show performance, scalability, how tiling effects cache misses, icc
     # 'bench6': [['1000', str(500000*x), str(100*x), str(x)]
     #            for x in [1, 2, 4, 8, 14]],
-    'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
-    'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
-    'bench10.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
+    'bench4.exe': {'sizes': [['1000', str(500000*x), str(100 * x), str(x)]
+                                for x in [28, 56]],
+                      'vec': ['vec'],
+                      'tcm': ['tcm', 'notcm'],
+                      'cc': ['g++']
                       }
+    # 'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench10.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   }
 }
 
 # proclist = 'proclist=['
@@ -87,10 +93,14 @@ for app, config in configs.items():
                     vec_value = 0
                 else:
                     vec_value = 1
+                if tcm == 'tcm':
+                    tcm_value = 1
+                else:
+                    tcm_value = 0
                 if 'cu' in app:
                     make_string = 'make cuda CUDEBUG='
                 else:
-                    make_string = 'make {} -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                    make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
                 subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:

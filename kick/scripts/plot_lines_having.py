@@ -64,7 +64,6 @@ plots_config = {
               'title': 'Float vs Double (icc)',
               'image_name': images_dir + 'iccfloat_vs_double.pdf'
               },
-
     'plot5': {'lines': {'version': ['v0', 'v6'],
                         'vec': ['vec'],
                         'cc': ['icc']},
@@ -73,8 +72,30 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
-              'title': 'tiled vs no-tiled (icc)',
+              'title': 'Tiled vs No-Tiled (icc)',
               'image_name': images_dir + 'icctiled_vs_notiled.pdf'
+              },
+
+    'plot6': {'lines': {'version': ['v0', 'v8'],
+                        'vec': ['vec', 'na'],
+                        'cc': ['icc', 'nvcc']},
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'GPU vs CPU',
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
+              },
+    'plot7': {'lines': {'version': ['v7', 'v8'],
+                        'cc': ['nvcc']},
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU versions',
+              'image_name': images_dir + 'all_gpu_versions.pdf'
               }
 
 
@@ -105,6 +126,13 @@ if __name__ == '__main__':
             y_err = y_err * y / 100.
             print(label, x, y)
             plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot6':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata())
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

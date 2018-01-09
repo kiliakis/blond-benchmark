@@ -13,7 +13,7 @@ images_dir = res_dir + 'plots/interp-kick1/'
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
-csv_file = res_dir + 'csv/interp-kick1/all_results.csv'
+csv_file = res_dir + 'csv/interp-kick1/all_results2.csv'
 
 plots_config = {
     'plot1': {'lines': {'version': ['v0', 'v2', 'v4'],
@@ -59,7 +59,6 @@ plots_config = {
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
               'title': 'float VS double precision',
-              # 'ylim': [0, 16000],
               'image_name': images_dir + 'float_vs_double.pdf'
               },
 
@@ -75,9 +74,35 @@ plots_config = {
               'xlabel': 'Threads (500k points/thread)',
               'ylabel': 'Run-time (ms)',
               'title': 'tcm and vec effects',
-              # 'ylim': [0, 16000],
               'image_name': images_dir + 'tcm_and_vec_effects.pdf'
+              },
+    'plot5': {'lines': {'version': ['v7', 'v8', 'v9', 'v10'],
+                        'cc': ['nvcc']},
+              'exclude': [],
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU versions',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'all_gpu_versions.pdf'
+              },
+    'plot6': {'lines': {'version': ['v9', 'v4'],
+                        'cc': ['nvcc', 'g++'],
+                        'tcm': ['tcm', 'na'],
+                        'vec': ['vec', 'na']},
+              'exclude': [],
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU versions',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'gpu_vs_gpu.pdf'
               }
+
 }
 
 if __name__ == '__main__':
@@ -106,6 +131,13 @@ if __name__ == '__main__':
             y_err = y_err * y / 100.
             print(label, x, y)
             plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot6':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata(), fontsize='8')
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

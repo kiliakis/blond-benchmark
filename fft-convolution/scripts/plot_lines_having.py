@@ -24,7 +24,7 @@ plots_config = {
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
-              'xlabel': 'Threads (50k X 50k) points/thread)',
+              'xlabel': 'Points (50k signalLen/thread X 50k kernelLen)',
               'ylabel': 'Run-time (ms)',
               'title': 'Scipy VS FFTW',
               'extra': ['plt.xscale(\'log\', basex=2)',
@@ -42,7 +42,7 @@ plots_config = {
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
-              'xlabel': 'Threads (50k X 50k) points/thread)',
+              'xlabel': 'Points (50k signalLen/thread X 50k kernelLen)',
               'ylabel': 'Run-time (ms)',
               'title': 'FFTW vs MKL',
               'extra': ['plt.xscale(\'log\', basex=2)'],
@@ -58,11 +58,49 @@ plots_config = {
               'x_name': 'threads',
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
-              'xlabel': 'Threads (50k X 50k) points/thread)',
+              'xlabel': 'Points (50k signalLen/thread X 50k kernelLen)',
               'ylabel': 'Run-time (ms)',
               'title': 'Single VS Double Precision',
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'single_vs_double.pdf'
+              },
+    'plot4': {'lines': {'version': ['v7', 'v8', 'v9'],
+                        'cc': ['nvcc']},
+              'exclude': [],
+              'x_name': 'signalLen',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (50k signalLen/thread X 50k kernelLen)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU Versions',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'all_gpu_versions.pdf'
+              },
+    'plot5': {'lines': {'version': ['v72', 'v82', 'v92'],
+                        'cc': ['nvcc']},
+              'exclude': [],
+              'x_name': 'signalLen',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (50k X 50k) points/thread',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU Versions',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'all_gpu_versions_2.pdf'
+              },
+    'plot6': {'lines': {'version': ['v9', 'v4'],
+                        'cc': ['nvcc', 'icc'],
+                        'tcm': ['notcm', 'na'],
+                        'vec': ['vec', 'na']},
+              'exclude': [],
+              'x_name': 'signalLen',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (50k signalLen/thread X 50k kernelLen)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'GPU vs CPU',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
               }
 }
 
@@ -80,9 +118,6 @@ if __name__ == '__main__':
         plt.title(config['title'])
         plt.xlabel(config['xlabel'])
         plt.ylabel(config['ylabel'])
-        if 'extra' in config:
-            for c in config['extra']:
-                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
@@ -92,6 +127,13 @@ if __name__ == '__main__':
             y_err = y_err * y / 100.
             print(label, x, y)
             plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot6':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata(), fontsize='8')
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

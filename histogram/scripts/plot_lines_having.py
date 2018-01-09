@@ -51,7 +51,32 @@ plots_config = {
               # 'ylim': [0, 16000],
               'extra': ['plt.xscale(\'log\')'],
               'image_name': images_dir + 'serial_vs_parallel_reduction.pdf'
+              },
+    'plot4': {'lines': {'version': ['v7', 'v8', 'v9']},
+              'exclude': [],
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU versions',
+              # 'ylim': [0, 16000],
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'all_gpu_versions.pdf'
+              },
+    'plot5': {'lines': {'version': ['v9', 'v5']},
+              'exclude': [],
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'GPU vs CPU',
+              # 'ylim': [0, 16000],
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
               }
+
 }
 
 if __name__ == '__main__':
@@ -71,9 +96,6 @@ if __name__ == '__main__':
         # plt.xscale('log', basex=2)
         if 'ylim' in config:
             plt.ylim(config['ylim'])
-        if 'extra' in config:
-            for c in config['extra']:
-                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
@@ -83,6 +105,13 @@ if __name__ == '__main__':
             y_err = y_err * y / 100.
             print(label, x, y)
             plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot5':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata())
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

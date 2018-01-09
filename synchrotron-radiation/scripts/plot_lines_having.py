@@ -109,6 +109,36 @@ plots_config = {
               'title': 'Single VS Double precision with MKL',
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'single_vs_double_mkl.pdf'
+              },
+
+    'plot7': {'lines': {'version': ['v8', 'v9', 'v10'],
+                        'cc': ['nvcc']},
+              'exclude': [],
+
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points',
+              'ylabel': 'Run-time (ms)',
+              'title': 'All GPU versions',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'all_gpu_versions.pdf'
+              },
+
+    'plot8': {'lines': {'version': ['v10', 'v7'],
+                        'vec': ['vec', 'na'],
+                        'tcm': ['notcm', 'na'],
+                        'cc': ['icc', 'nvcc']},
+              'exclude': [],
+
+              'x_name': 'points',
+              'y_name': 'time(ms)',
+              'y_err_name': 'std(%)',
+              'xlabel': 'Points (500k points/thread)',
+              'ylabel': 'Run-time (ms)',
+              'title': 'GPU vs CPU',
+              'extra': ['plt.xscale(\'log\', basex=2)'],
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
               }
 }
 
@@ -126,9 +156,6 @@ if __name__ == '__main__':
         plt.title(config['title'])
         plt.xlabel(config['xlabel'])
         plt.ylabel(config['ylabel'])
-        if 'extra' in config:
-            for c in config['extra']:
-                exec(c)
         for label, values in plots_dir.items():
             # print(values)
             x = np.array(values[:, header.index(config['x_name'])], float)
@@ -138,6 +165,13 @@ if __name__ == '__main__':
             y_err = y_err * y / 100.
             print(label, x, y)
             plt.errorbar(x, y, yerr=y_err, label=label, capsize=2, marker='o')
+        if 'extra' in config:
+            for c in config['extra']:
+                exec(c)
+        if plot_key == 'plot8':
+            plt.gca().get_lines()
+            for p in plt.gca().get_lines()[::3]:
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata())
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])

@@ -19,3 +19,6 @@ Plots
 2) v4 gcc vs icc, vec, tcm to show that gcc does better than icc
 3) v5 vs v6 gcc, vec, tcm to show float vs double
 4) v4 gcc, tcm/notcm, vec/novec to show effect of tcm and vec
+5) all gpu versions (double)
+6) v9 vs v10 (single vs double in gpu)
+7) best cpu vs best gpu v9 vs v4 (double)

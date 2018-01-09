@@ -16,3 +16,5 @@ Plots
 1) v0 vs v1 vs v2 (scalling improvement)
 2) v2 vs v3 (with many slices) to show that serial reduction can be a problem
 3) v3 vs v4 vs v5 to show that loop tiling and parallel allocation work
+4) all gpu versions
+5) best cpu vs best gpu v9 vs v5

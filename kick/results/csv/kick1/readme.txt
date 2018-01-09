@@ -15,3 +15,5 @@ Plots
 3) v0,v2 \w vec, icc/gcc to show that icc is better with std::sin and in general
 4) v1 vs v0 on icc vec (floats vs doubles)
 5) v6 vs v0 to show effect of L2 tiles
+6) all gpu versions
+7) cpu vs gpu v0 icc vec vs v8
