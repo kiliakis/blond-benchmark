@@ -132,7 +132,7 @@ int main(int argc, char const * argv[])
 
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("drift_gpu_v0\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("drift_gpu_v4\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dt: %lf\n", accumulate(dt.begin(), dt.end(), 0.0) / (n_particles));
     // papiprof->stop_counters();
     // papiprof->report_timing();

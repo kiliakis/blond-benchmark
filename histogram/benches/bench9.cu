@@ -109,7 +109,7 @@ int main(int argc, char const *argv[])
 
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("histogram_gpu_v2\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("histogram_gpu_v9\ttime(ms)\t%d\t0\t1\n", duration);
     printf("profile: %d\n", accumulate(profile.begin(), profile.end(), 0) / n_slices);
 
     return 0;

@@ -110,7 +110,7 @@ int main(int argc, char const *argv[])
     thrust::copy(dev_dE.begin(), dev_dE.end(), dE.begin());
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");
-    printf("kick_gpu_v0\ttime(ms)\t%d\t0\t1\n", duration);
+    printf("kick_gpu_v8\ttime(ms)\t%d\t0\t1\n", duration);
     printf("dE: %lf\n", accumulate(dE.begin(), dE.end(), 0.0) / n_particles);
 
     return 0;
