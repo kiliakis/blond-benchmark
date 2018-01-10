@@ -5,7 +5,8 @@ from operator import mul
 
 
 home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/'
-result_dir = home + 'results/raw/histo1/{}/'
+home = '/home/kiliakis/git/blond-benchmark/histogram/'
+result_dir = home + 'results/raw/histo2/{}/'
 exe_form = home + 'benches/{}'
 cuexe_form = home + 'exe_cuda/{}'
 
@@ -60,20 +61,17 @@ configs = {
 
 }
 
-proclist = 'proclist=['
-for i in range(28):
-    if(i < 14):
-        proclist += str(i) + ',' + str(i+14) + ','
-    else:
-        proclist += str(i+14) + ',' + str(i+28) + ','
-proclist = proclist[:-1] + ']'
+# proclist = 'proclist=['
+# for i in range(28):
+#     if(i < 14):
+#         proclist += str(i) + ',' + str(i+14) + ','
+#     else:
+#         proclist += str(i+14) + ',' + str(i+28) + ','
+# proclist = proclist[:-1] + ']'
 
-os.environ['KMP_AFFINITY'] = "granularity=fine,"+proclist+",explicit"
-print(os.environ['KMP_AFFINITY'])
+# os.environ['KMP_AFFINITY'] = "granularity=fine,"+proclist+",explicit"
+# print(os.environ['KMP_AFFINITY'])
 
-# amplxe_args = ['amplxe-cl', '-collect',
-#                'general-exploration', '-no-allow-multiple-runs',
-#                '-discard-raw-data', '-quiet']
 
 repeats = 5
 

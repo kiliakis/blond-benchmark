@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -p GPU
+#SBATCH --ntasks-per-node 1
+#SBATCH -t 2:00:00
+#SBATCH --gres=gpu:p100:2
+#SBATCH --output "submit-bridges-%j.out"
+
+set -x
+
+HOME=/home/kiliakis/
+PROJECT=$HOME/git/blond-benchmark/
+BENCHES=("convolution" 
+		 "drift" 
+		 "fft-convolution" 
+		 "histogram" 
+		 "interp-kick" 
+		 "kick" 
+		 "synchrotron-radiation"
+		 ) 
+
+
+#move to working directory
+# cd $PROJECT
+
+
+#run GPU program
+# LD_LIBRARY_PATH="/opt/packages/cuda/7.5/lib64" python test-fft-cuda.py 10000000 1000
+
+for bench in ${BENCHES[*]}; do
+	echo -e "\n\n ---- $bench Starting ---- \n\n"
+	cd $PROJECT/$bench
+	python scripts/scan_general.py
+	echo "\n\n ---- $bench end ---- \n\n"
+done

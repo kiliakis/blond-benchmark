@@ -31,7 +31,8 @@ CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
 LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
 INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include
 
-CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_35,code=sm_35
+# CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_35,code=sm_35
+CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_62,code=sm_62
 CUDEBUG = -g -pg -lineinfo -res-usage
 CULDFLAGS = 
 CULIBS = 

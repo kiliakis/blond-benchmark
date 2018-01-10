@@ -3,9 +3,9 @@ import os
 from functools import reduce
 from operator import mul
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/synchrotron-radiation/'
-result_dir = home + 'results/raw/synch-rad1/{}/'
-# exe_form = home + 'benches/{}'
+# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/synchrotron-radiation/'
+home = '/home/kiliakis/git/blond-benchmark/synchrotron-radiation/'
+result_dir = home + 'results/raw/synch-rad2/{}/'
 exe_form = home + 'exe_{}_{}_{}/{}'
 cuexe_form = home + 'exe_cuda/{}'
 
@@ -78,7 +78,6 @@ configs = {
 }
 
 
-# proclist = 'proclist=['
 proclist = ''
 for i in range(28):
     if(i < 14):
@@ -87,10 +86,9 @@ for i in range(28):
         proclist += str(i + 14) + ',' + str(i + 28) + ','
 proclist = proclist[:-1]
 
-os.environ['GOMP_CPU_AFFINITY'] = proclist
-os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
-    proclist + "],explicit"
-# print(os.environ['KMP_AFFINITY'])
+# os.environ['GOMP_CPU_AFFINITY'] = proclist
+# os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
+    # proclist + "],explicit"
 
 repeats = 5
 

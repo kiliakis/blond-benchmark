@@ -3,9 +3,10 @@ import os
 from functools import reduce
 from operator import mul
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/fft-convolution/'
-result_dir = home + 'results/raw/fft-convolution1/{}/'
-# exe_form = home + 'benches/{}'
+# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/fft-convolution/'
+home = '/home/kiliakis/git/blond-benchmark/fft-convolution/'
+
+result_dir = home + 'results/raw/fft-convolution2/{}/'
 exe_form = home + 'exe_{}_{}_{}/{}'
 cuexe_form = home + 'exe_cuda/{}'
 
@@ -61,7 +62,6 @@ configs = {
 }
 
 
-# proclist = 'proclist=['
 proclist = ''
 for i in range(28):
     if(i < 14):

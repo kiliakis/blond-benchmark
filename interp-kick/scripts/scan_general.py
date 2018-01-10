@@ -3,8 +3,9 @@ import os
 from functools import reduce
 from operator import mul
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/'
-result_dir = home + 'results/raw/interp-kick1/{}/'
+# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/'
+home = '/home/kiliakis/git/blond-benchmark/interp-kick/'
+result_dir = home + 'results/raw/interp-kick2/{}/'
 
 exe_form = home + 'exe_{}_{}_{}/{}'
 cuexe_form = home + 'exe_cuda/{}'
@@ -59,19 +60,17 @@ configs = {
     #                   }
 }
 
-# proclist = 'proclist=['
-proclist = ''
-for i in range(28):
-    if(i < 14):
-        proclist += str(i) + ',' + str(i + 14) + ','
-    else:
-        proclist += str(i + 14) + ',' + str(i + 28) + ','
-proclist = proclist[:-1]
+# proclist = ''
+# for i in range(28):
+#     if(i < 14):
+#         proclist += str(i) + ',' + str(i + 14) + ','
+#     else:
+#         proclist += str(i + 14) + ',' + str(i + 28) + ','
+# proclist = proclist[:-1]
 
-os.environ['GOMP_CPU_AFFINITY'] = proclist
-os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
-    proclist + "],explicit"
-# print(os.environ['KMP_AFFINITY'])
+# os.environ['GOMP_CPU_AFFINITY'] = proclist
+# os.environ['KMP_AFFINITY'] = "granularity=fine,proclist=[" + \
+#     proclist + "],explicit"
 
 repeats = 5
 
