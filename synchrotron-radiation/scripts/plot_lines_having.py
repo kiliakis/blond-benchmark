@@ -111,7 +111,8 @@ plots_config = {
               'image_name': images_dir + 'single_vs_double_mkl.pdf'
               },
 
-    'plot7': {'lines': {'version': ['v8', 'v9', 'v10'],
+    'plot7': {'lines': {'version': ['v8', 'v9', 'v10',
+                                    'v8-p100', 'v9-p100', 'v10-p100'],
                         'cc': ['nvcc']},
               'exclude': [],
 
@@ -125,7 +126,7 @@ plots_config = {
               'image_name': images_dir + 'all_gpu_versions.pdf'
               },
 
-    'plot8': {'lines': {'version': ['v10', 'v7'],
+    'plot8': {'lines': {'version': ['v10', 'v7', 'v10-p100'],
                         'vec': ['vec', 'na'],
                         'tcm': ['notcm', 'na'],
                         'cc': ['icc', 'nvcc']},

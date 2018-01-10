@@ -64,7 +64,8 @@ plots_config = {
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'single_vs_double.pdf'
               },
-    'plot4': {'lines': {'version': ['v7', 'v8', 'v9'],
+    'plot4': {'lines': {'version': ['v7', 'v8', 'v9', 
+                                    'v7-p100', 'v8-p100', 'v9-p100'],
                         'cc': ['nvcc']},
               'exclude': [],
               'x_name': 'signalLen',
@@ -88,7 +89,7 @@ plots_config = {
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'all_gpu_versions_2.pdf'
               },
-    'plot6': {'lines': {'version': ['v9', 'v4'],
+    'plot6': {'lines': {'version': ['v9', 'v4', 'v9-p100'],
                         'cc': ['nvcc', 'icc'],
                         'tcm': ['notcm', 'na'],
                         'vec': ['vec', 'na']},

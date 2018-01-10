@@ -76,7 +76,7 @@ plots_config = {
               'image_name': images_dir + 'icctiled_vs_notiled.pdf'
               },
 
-    'plot6': {'lines': {'version': ['v0', 'v8'],
+    'plot6': {'lines': {'version': ['v0', 'v8', 'v8-p100'],
                         'vec': ['vec', 'na'],
                         'cc': ['icc', 'nvcc']},
               'x_name': 'points',
@@ -87,7 +87,7 @@ plots_config = {
               'title': 'GPU vs CPU',
               'image_name': images_dir + 'gpu_vs_cpu.pdf'
               },
-    'plot7': {'lines': {'version': ['v7', 'v8'],
+    'plot7': {'lines': {'version': ['v7', 'v8', 'v7-p100', 'v8-p100'],
                         'cc': ['nvcc']},
               'x_name': 'points',
               'y_name': 'time(ms)',

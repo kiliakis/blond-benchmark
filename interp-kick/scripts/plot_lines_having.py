@@ -76,7 +76,8 @@ plots_config = {
               'title': 'tcm and vec effects',
               'image_name': images_dir + 'tcm_and_vec_effects.pdf'
               },
-    'plot5': {'lines': {'version': ['v7', 'v8', 'v9', 'v10'],
+    'plot5': {'lines': {'version': ['v7', 'v8', 'v9', 'v10',
+                                    'v7-p100', 'v8-p100', 'v9-p100', 'v10-p100'],
                         'cc': ['nvcc']},
               'exclude': [],
               'x_name': 'points',
@@ -88,7 +89,7 @@ plots_config = {
               'extra': ['plt.xscale(\'log\', basex=2)'],
               'image_name': images_dir + 'all_gpu_versions.pdf'
               },
-    'plot6': {'lines': {'version': ['v9', 'v4'],
+    'plot6': {'lines': {'version': ['v9', 'v4', 'v9-p100'],
                         'cc': ['nvcc', 'g++'],
                         'tcm': ['tcm', 'na'],
                         'vec': ['vec', 'na']},

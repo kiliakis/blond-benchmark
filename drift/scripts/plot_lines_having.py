@@ -84,7 +84,7 @@ plots_config = {
               'image_name': images_dir + 'tiled_vs_notiled.pdf'
               },
 
-    'plot5': {'lines': {'version': ['v0', 'v4'],
+    'plot5': {'lines': {'version': ['v0', 'v4', 'v4-p100'],
                         'vec': ['vec', 'na'],
                         'alpha': ['1'],
                         # 'tcm': ['notcm'],
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         if plot_key == 'plot5':
             plt.gca().get_lines()
             for p in plt.gca().get_lines()[::3]:
-                annotate(plt.gca(), p.get_xdata(), p.get_ydata())
+                annotate(plt.gca(), p.get_xdata(), p.get_ydata(), fontsize='8')
         plt.legend(loc='best', fancybox=True)
         plt.tight_layout()
         plt.savefig(config['image_name'])
