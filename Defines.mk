@@ -1,5 +1,7 @@
-HOME = \"/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/\"
-
+# HOME = \"/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/\"
+HOME = \"/home/kiliakis/git/blond-benchmark/\"
+INSTALL = /home/kiliakis/install/
+# INSTALL = /afs/cern.ch/work/k/kiliakis/install/
 BENCH_DIRS := interp-kick \
 			  convolution \
 			  histogram \
@@ -28,8 +30,8 @@ endif
 
 
 CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
-LDFLAGS = -L/afs/cern.ch/work/k/kiliakis/install/lib
-INCDIRS = -I/afs/cern.ch/work/k/kiliakis/install/include
+LDFLAGS = -L$(INSTALL)/lib
+INCDIRS = -I$(INSTALL)/include
 
 # CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_35,code=sm_35
 CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_62,code=sm_62
