@@ -10,8 +10,7 @@ set -x
 
 HOME=/home/kiliakis/
 PROJECT=$HOME/git/blond-benchmark/
-BENCHES=('fft-convolution'
-         'histogram'
+BENCHES=(
          'interp-kick'
          'kick'
 		 'synchrotron-radiation'

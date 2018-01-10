@@ -40,12 +40,12 @@ configs = {
     #                   'tcm': ['tcm', 'notcm'],
     #                   'cc': ['g++']
     #                   }
-    'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
+    #'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+     #                           for x in [1, 2, 4, 8, 14, 28, 56]],
+      #                'vec': ['na'],
+       #               'tcm': ['na'],
+        #              'cc': ['nvcc']
+         #             },
     'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
                                 for x in [1, 2, 4, 8, 14, 28, 56]],
                       'vec': ['na'],
