@@ -104,7 +104,7 @@ for app, config in configs.items():
                 if 'cu' in app:
                     make_string = 'make cuda CUDEBUG='
                 else:
-                    make_string = 'make {} -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                    make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
                 # if app != 'bench1':
                     # subprocess.call(make_string, shell=True)

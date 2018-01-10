@@ -4,7 +4,7 @@ from functools import reduce
 from operator import mul
 
 
-home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/'
+# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/'
 home = '/home/kiliakis/git/blond-benchmark/histogram/'
 result_dir = home + 'results/raw/histo2/{}/'
 exe_form = home + 'benches/{}'
@@ -93,7 +93,7 @@ for app, config in configs.items():
                 if 'cu' in app:
                     make_string = 'make cuda CUDEBUG='
                 else:
-                    make_string = 'make {} -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
+                    make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
                 subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
