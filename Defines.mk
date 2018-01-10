@@ -1,6 +1,6 @@
 # HOME = \"/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/\"
 HOME = \"/home/kiliakis/git/blond-benchmark/\"
-INSTALL = /home/kiliakis/install/
+INSTALL = /home/kiliakis/install
 # INSTALL = /afs/cern.ch/work/k/kiliakis/install/
 BENCH_DIRS := interp-kick \
 			  convolution \
