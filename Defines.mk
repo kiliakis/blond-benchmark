@@ -34,7 +34,7 @@ LDFLAGS = -L$(INSTALL)/lib
 INCDIRS = -I$(INSTALL)/include
 
 # CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_35,code=sm_35
-CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_62,code=sm_62
+CUFLAGS = -std=c++11 -DHOME=$(HOME) -O3 -m64 -restrict -gencode arch=compute_60,code=sm_60
 CUDEBUG = -g -pg -lineinfo -res-usage
 CULDFLAGS = 
 CULIBS = 

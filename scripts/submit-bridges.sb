@@ -10,9 +10,7 @@ set -x
 
 HOME=/home/kiliakis/
 PROJECT=$HOME/git/blond-benchmark/
-BENCHES=( 
-		 'drift'
-         'fft-convolution'
+BENCHES=('fft-convolution'
          'histogram'
          'interp-kick'
          'kick'
