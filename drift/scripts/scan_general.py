@@ -4,7 +4,7 @@ from functools import reduce
 from operator import mul
 
 # home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/'
-home = '/home/kiliakis/git/blond-benchmark/kick/'
+home = '/home/kiliakis/git/blond-benchmark/drift/'
 
 result_dir = home + 'results/raw/drift2/{}/'
 exe_form = home + 'exe_{}_{}_{}/{}'

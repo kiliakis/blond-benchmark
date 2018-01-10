@@ -92,7 +92,7 @@ for app, config in configs.items():
             for vec in configs[app]['vec']:
                 if app == 'bench2' and cc == 'icc' and vec == 'vec' and tcm == 'notcm':
                     continue
-                # subprocess.call('make clean', shell=True)
+                subprocess.call('make clean', shell=True)
                 if tcm == 'tcm':
                     tcm_value = 1
                 else:
@@ -106,8 +106,8 @@ for app, config in configs.items():
                 else:
                     make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
-                # if app != 'bench1':
-                    # subprocess.call(make_string, shell=True)
+                if app != 'bench1':
+                    subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):

@@ -34,30 +34,30 @@ configs = {
     # To show performance, scalability, how tiling effects cache misses, icc
     # 'bench6': [['1000', str(500000*x), str(100*x), str(x)]
     #            for x in [1, 2, 4, 8, 14]],
-    'bench4.exe': {'sizes': [['1000', str(500000*x), str(100 * x), str(x)]
-                                for x in [28, 56]],
-                      'vec': ['vec'],
-                      'tcm': ['tcm', 'notcm'],
-                      'cc': ['g++']
-                      }
-    # 'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
-    #                   'vec': ['na'],
-    #                   'tcm': ['na'],
-    #                   'cc': ['nvcc']
-    #                   },
-    # 'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
-    #                   'vec': ['na'],
-    #                   'tcm': ['na'],
-    #                   'cc': ['nvcc']
-    #                   },
-    # 'bench10.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
-    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
-    #                   'vec': ['na'],
-    #                   'tcm': ['na'],
-    #                   'cc': ['nvcc']
+    # 'bench4.exe': {'sizes': [['1000', str(500000*x), str(100 * x), str(x)]
+    #                             for x in [28, 56]],
+    #                   'vec': ['vec'],
+    #                   'tcm': ['tcm', 'notcm'],
+    #                   'cc': ['g++']
     #                   }
+    'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']
+                      },
+    'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']
+                      },
+    'bench10.cu.exe': {'sizes': [['1000', str(500000*x), str(100 * x), '512', '1024']
+                                for x in [1, 2, 4, 8, 14, 28, 56]],
+                      'vec': ['na'],
+                      'tcm': ['na'],
+                      'cc': ['nvcc']
+                      }
 }
 
 # proclist = ''
