@@ -17,9 +17,15 @@ CUPROGS := ${CUBENCHES:.cu=.cu.exe}
 # CULDFLAGS += -L$(realpath src)
 CULIBS += src/utils.cpp -lcurand
 
+ifeq ($(CC), icc)
+	MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+	LIBS += $(MKL_LIBS)
+endif
+
 .PHONY: default all clean
 
 default: all
+
 
 cuda: $(CUPROGS_DIR) $(CUPROGS) 
 all: $(TARGET_LIB) $(PROGS_DIR) $(PROGS) $(OBJS)

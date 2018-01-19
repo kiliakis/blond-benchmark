@@ -11,11 +11,11 @@ exe_form = home + 'exe_{}_{}_{}/{}'
 out_file_name = result_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}.txt'
 
 configs = {
-    # 'bench0': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
-    #           'vec': ['vec', 'novec'],
-    #           'tcm': ['notcm'],
-    #           'cc': ['icc', 'g++']},
+    'bench0.exe': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+                        for x in [4]],
+              'vec': ['vec'],
+              'tcm': ['notcm'],
+              'cc': ['icc']},
 
     # 'bench1': {'sizes': [['500', str(4000 * x), '4000', str(x)]
     #                     for x in [1, 2, 4, 8, 14, 28, 56]],
@@ -52,11 +52,11 @@ configs = {
     #           'vec': ['vec', 'novec'],
     #           'tcm': ['notcm', 'tcm'],
     #           'cc': ['icc']},
-    'bench9': {'sizes': [['500', str(4000 * x), '4000', str(x)]
-                        for x in [1, 2, 4, 8, 14, 28, 56]],
-              'vec': ['vec'],
-              'tcm': ['notcm', 'tcm'],
-              'cc': ['icc']}
+    # 'bench9': {'sizes': [['500', str(4000 * x), '4000', str(x)]
+    #                     for x in [1, 2, 4, 8, 14, 28, 56]],
+    #           'vec': ['vec'],
+    #           'tcm': ['notcm', 'tcm'],
+    #           'cc': ['icc']}
 }
 
 
@@ -89,7 +89,7 @@ for app, config in configs.items():
     for cc in configs[app]['cc']:
         for tcm in configs[app]['tcm']:
             for vec in configs[app]['vec']:
-                subprocess.call('make clean', shell=True)
+                # subprocess.call('make clean', shell=True)
                 if tcm == 'tcm':
                     tcm_value = 1
                 else:
@@ -100,7 +100,7 @@ for app, config in configs.items():
                     vec_value = 1
                 make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                     cc, tcm_value, vec_value, cc, vec, tcm)
-                subprocess.call(make_string, shell=True)
+                # subprocess.call(make_string, shell=True)
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):

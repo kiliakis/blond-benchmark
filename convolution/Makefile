@@ -12,6 +12,12 @@ LIBS += -l$(BASE)
 INCDIRS += -Iinclude
 # CC=icc
 
+CUPROGS_DIR = exe_cuda
+CUBENCHES := $(wildcard benches/*.cu)
+CUPROGS := ${CUBENCHES:.cu=.cu.exe}
+# CULDFLAGS += -L$(realpath src)
+CULIBS += src/utils.cpp
+
 ifeq ($(CC), icc)
 	MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
 	LIBS += $(MKL_LIBS)
@@ -21,8 +27,16 @@ endif
 
 default: all
 
+cuda: $(CUPROGS_DIR) $(CUPROGS)
 all: $(TARGET_LIB) $(PROGS_DIR) $(PROGS) $(OBJS)
 # $(info $$OBJS is [${OBJS}]) $(info $$PROGS is [${PROGS}])
+
+
+%.cu.exe: %.cu
+	$(CUCC) $(CUFLAGS) $(CULDFLAGS) $(CUDEBUG) $(INCDIRS) -o $(CUPROGS_DIR)/$(subst benches/,,$@) $< $(CULIBS)
+
+$(CUPROGS_DIR):
+	mkdir -p $@
 
 $(PROGS_DIR):
 	mkdir -p $@
@@ -37,5 +51,5 @@ $(TARGET_LIB):
 	$(CC) $(CFLAGS) $(INCDIRS) -c $< -o $@
 
 clean:
-	rm -rf exe_* $(OBJS)
+	rm -rf exe* $(OBJS)
 	$(MAKE) -C src clean --no-print-directory

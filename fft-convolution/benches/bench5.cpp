@@ -5,7 +5,7 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <PAPIProf.h>
+// #include <PAPIProf.h>
 #include <omp.h>
 #include "fft.h"
 #include <iostream>

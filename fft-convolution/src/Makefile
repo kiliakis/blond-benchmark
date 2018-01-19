@@ -13,6 +13,11 @@ CFLAGS += -fPIC
 LDFLAGS += -shared
 endif
 
+# ifeq ($(CC), icc)
+# 	MKL_LIBS = -lmkl_core -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt
+# 	LIBS += $(MKL_LIBS)
+# endif
+
 .PHONY: default all clean
 
 default: all

@@ -99,9 +99,9 @@ plots_config = {
               'y_err_name': 'std(%)',
               'xlabel': 'Points',
               'ylabel': 'Run-time (ms)',
-              'title': 'All GPU versions',
+              'title': 'GPU vs CPU',
               'extra': ['plt.xscale(\'log\', basex=2)'],
-              'image_name': images_dir + 'gpu_vs_gpu.pdf'
+              'image_name': images_dir + 'gpu_vs_cpu.pdf'
               }
 
 }
