@@ -1,0 +1,157 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      8256 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 8256
+         2 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0
+         3 |        -1 |      8296 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 8256
+         4 |        49 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         5 |        47 |     12793 |    1 |      0 |               [Loop at line 55 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 12732
+         6 |        51 |      3097 |    1 |      0 |            [Loop at line 14 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3016
+         7 |         6 |    378845 |    0 |      1 |                           [OpenMP fork] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 378528
+         8 |       151 |    542444 |    1 |      1 |  [Loop at line 1856 in __kmp_fork_call] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 542236
+         9 |         8 |    744130 |    0 |      1 |                  __kmp_invoke_microtask | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 743984
+        10 |        55 |      4877 |    0 |      0 |                        vdt::fast_sincos | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        11 |         5 |      3282 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        12 |        11 |    378845 |    0 |      1 |                           [OpenMP fork] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 378528
+        13 |       153 |    542444 |    1 |      1 |  [Loop at line 1856 in __kmp_fork_call] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 542236
+        14 |        13 |    744130 |    0 |      1 |                  __kmp_invoke_microtask | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 743984
+        15 |        59 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        16 |        65 |      4802 |    0 |      0 |           vdt::details::reduce2quadrant | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        17 |        69 |      4913 |    0 |      0 |                vdt::details::get_cos_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4913
+        18 |        68 |      4821 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        19 |        74 |      4863 |    0 |      0 |                vdt::details::get_sin_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        20 |        68 |      4872 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        21 |         9 |      5019 |    0 |      0 |             kick_v0$omp$parallel_for@15 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3877
+        22 |        79 |      3741 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        23 |        74 |      4854 |    0 |      0 |                vdt::details::get_sin_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        24 |        54 |      4970 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        25 |        54 |      4998 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        26 |        54 |      4990 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        27 |         9 |      5024 |    0 |      0 |             kick_v0$omp$parallel_for@15 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3877
+        28 |        65 |      4732 |    0 |      0 |           vdt::details::reduce2quadrant | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        29 |        65 |      4782 |    0 |      0 |           vdt::details::reduce2quadrant | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        30 |        97 |      3734 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        31 |        65 |      4761 |    0 |      0 |           vdt::details::reduce2quadrant | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        32 |       105 |      5004 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        33 |        74 |      4826 |    0 |      0 |                vdt::details::get_sin_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        34 |        74 |      4845 |    0 |      0 |                vdt::details::get_sin_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        35 |        54 |      4984 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        36 |        69 |      4941 |    0 |      0 |                vdt::details::get_cos_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4913
+        37 |       115 |      3754 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        38 |        54 |      4976 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        39 |        65 |      4812 |    0 |      0 |           vdt::details::reduce2quadrant | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        40 |        55 |      4894 |    0 |      0 |                        vdt::fast_sincos | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        41 |       127 |      3720 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        42 |        69 |      4946 |    0 |      0 |                vdt::details::get_cos_px | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4913
+        43 |        68 |      4831 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        44 |        68 |      4961 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        45 |       139 |      3768 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        46 |       145 |      3714 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        47 |         4 |     12732 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 8592
+        48 |         4 |     12793 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 8592
+        49 |         3 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        50 |         3 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        51 |         5 |      3016 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        52 |         5 |      3097 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        53 |         9 |      4717 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        54 |        53 |      4254 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        55 |        54 |      4254 |    0 |      0 |                           vdt::fast_sin | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        56 |        53 |      4877 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        57 |         9 |      4877 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        58 |        14 |      3714 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        59 |        58 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        60 |        14 |      3727 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        61 |        59 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        62 |        59 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        63 |        59 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        64 |        59 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+        65 |        55 |      4254 |    0 |      0 |                        vdt::fast_sincos | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        66 |        53 |      4802 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        67 |         9 |      4802 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        68 |        55 |      4275 |    0 |      0 |                        vdt::fast_sincos | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4254
+        69 |        68 |      4913 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        70 |        53 |      4913 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        71 |         9 |      4913 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        72 |        53 |      4821 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        73 |         9 |      4821 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        74 |        68 |      4275 |    0 |      0 |        vdt::details::fast_sincos_m45_45 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4275
+        75 |        53 |      4863 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        76 |         9 |      4863 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        77 |        53 |      4872 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        78 |         9 |      4872 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        79 |        58 |      3741 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        80 |        14 |      3741 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        81 |        79 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        82 |        79 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        83 |        79 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        84 |        79 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+        85 |        53 |      4854 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        86 |         9 |      4854 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        87 |        53 |      4970 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        88 |         9 |      4970 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        89 |        53 |      4998 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        90 |         9 |      4998 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        91 |        53 |      4990 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        92 |         9 |      4990 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        93 |        53 |      4732 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        94 |         9 |      4732 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        95 |        53 |      4782 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+        96 |         9 |      4782 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        97 |        58 |      3734 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        98 |        14 |      3734 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        99 |        97 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       100 |        97 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+       101 |        97 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       102 |        97 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+       103 |        53 |      4761 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       104 |         9 |      4761 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       105 |         9 |      4717 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       106 |         9 |      5004 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       107 |        53 |      4826 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       108 |         9 |      4826 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       109 |        53 |      4845 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       110 |         9 |      4845 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       111 |        53 |      4984 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       112 |         9 |      4984 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       113 |        53 |      4941 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       114 |         9 |      4941 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       115 |        58 |      3754 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       116 |        14 |      3754 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+       117 |       115 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       118 |       115 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+       119 |       115 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       120 |       115 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+       121 |        53 |      4976 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       122 |         9 |      4976 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       123 |        53 |      4812 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       124 |         9 |      4812 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       125 |        53 |      4894 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       126 |         9 |      4894 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       127 |        58 |      3720 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       128 |        14 |      3720 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+       129 |       127 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       130 |       127 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+       131 |       127 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       132 |       127 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+       133 |        53 |      4946 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       134 |         9 |      4946 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       135 |        53 |      4831 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       136 |         9 |      4831 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       137 |        53 |      4961 |    1 |      0 |            [Loop at line 15 in kick_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 4717
+       138 |         9 |      4961 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+       139 |        58 |      3768 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       140 |        14 |      3768 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+       141 |       139 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       142 |       139 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+       143 |       139 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       144 |       139 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+       145 |        58 |      3714 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       146 |        14 |      3714 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+       147 |       145 |      3727 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       148 |       145 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+       149 |       145 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+       150 |       145 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+       151 |         7 |    542236 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       152 |         7 |    542444 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       153 |        12 |    542236 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       154 |        12 |    542444 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       155 |        -1 |         0 |    0 |      0 |                      [Outside any loop] | n/a | 0

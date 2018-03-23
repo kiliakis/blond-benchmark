@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/convolution.cpp"
+           line_no="22"
+           routine="convolution_v0$omp$parallel_for@17"
+           is_vectorized="1"
+           self_time="8.099862E-01"
+           total_time="8.099862E-01"
+           trip_counts="1; 1; 2; 1"
+           func_instance="314"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/convolution.cpp"
+           line_no="18"
+           routine="convolution_v0$omp$parallel_for@17"
+           is_vectorized="0"
+           self_time="2.000513E-02"
+           total_time="8.299913E-01"
+           trip_counts="9999"
+           func_instance="313"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1.cpp"
+           line_no="47"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="8.299913E-01"
+           trip_counts="100"
+           func_instance="21"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_intel_x86_priv.h"
+           line_no="298"
+           routine="intel_x86_num_umasks"
+           is_vectorized="0"
+           self_time="4.000868E-02"
+           total_time="4.000868E-02"
+           trip_counts="3"
+           func_instance="294"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c"
+           line_no="1917"
+           routine="_papi_hwi_init_global"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="4.000868E-02"
+           trip_counts="1"
+           func_instance="16"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

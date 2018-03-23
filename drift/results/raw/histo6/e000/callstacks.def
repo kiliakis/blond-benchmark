@@ -1,0 +1,105 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      9920 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 9920
+         2 |        -1 |      9960 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 9920
+         3 |        66 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |     10508 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 10256
+         5 |        85 |     13940 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+         6 |        60 |   1063615 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+         7 |         6 |   1144570 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+         8 |         7 |    736593 |    0 |      1 |             std::__convert_to_v<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 736576
+         9 |        90 |     13744 |    0 |      0 |                   std::istream::istream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13687
+        10 |         9 |   1045327 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+        11 |        10 |   1044975 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        12 |        11 |   1087498 |    0 |      1 |        std::use_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1087440
+        13 |        12 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        14 |        13 |    581844 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+        15 |        93 |     13564 |    0 |      0 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13509
+        16 |        63 |    701781 |    0 |      1 |            std::char_traits<char>::find | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701560
+        17 |        16 |    561347 |    0 |      1 |                                  memchr | /lib64/libc.so.6 | 560624
+        18 |       100 |     14783 |    0 |      0 |__gnu_cxx::new_allocator<double>::allocate | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 14753
+        19 |        18 |    159951 |    0 |      0 |tcmalloc::ThreadCache::FetchFromCentralCache | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 159856
+        20 |        19 |    148179 |    0 |      0 |  tcmalloc::CentralFreeList::RemoveRange | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 148080
+        21 |        20 |    148039 |    0 |      0 |tcmalloc::CentralFreeList::FetchFromOneSpansSafe | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147984
+        22 |        21 |    147524 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        23 |        22 |    152962 |    0 |      0 |                 tcmalloc::PageHeap::New | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 152816
+        24 |        68 |    152197 |    0 |      0 |                            RecordGrowth | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 152131
+        25 |        24 |    211187 |    0 |      0 |                           GetStackTrace | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 211136
+        26 |        25 |    209433 |    0 |      0 |                    GetStackTrace_libgcc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 209392
+        27 |        26 |     66903 |    0 |      0 |                       _Unwind_Backtrace | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 66848
+        28 |        27 |     64639 |    0 |      0 |                       uw_init_context_1 | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 64560
+        29 |        28 |     59957 |    0 |      0 |                      uw_frame_state_for | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 59856
+        30 |        48 |     73697 |    1 |      0 |[Loop at line 1020 in _Unwind_Find_registered_FDE] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73640
+        31 |        52 |     72328 |    0 |      0 |                            end_fde_sort | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71687
+        32 |        54 |     67389 |    1 |      0 |    [Loop at line 534 in frame_heapsort] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67352
+        33 |        56 |     67117 |    1 |      0 |    [Loop at line 491 in frame_downheap] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67088
+        34 |        33 |     68156 |    0 |      0 |             fde_single_encoding_compare | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 68064
+        35 |        34 |     67773 |    0 |      0 |            read_encoded_value_with_base | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67728
+        36 |        58 |     71574 |    0 |      0 |                          start_fde_sort | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71542
+        37 |        36 |    159951 |    0 |      0 |tcmalloc::ThreadCache::FetchFromCentralCache | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 159856
+        38 |        37 |    148179 |    0 |      0 |  tcmalloc::CentralFreeList::RemoveRange | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 148080
+        39 |        38 |    148039 |    0 |      0 |tcmalloc::CentralFreeList::FetchFromOneSpansSafe | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147984
+        40 |        71 |    147783 |    0 |      0 |                          SpinLock::Lock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147475
+        41 |        73 |    208955 |    1 |      0 | [Loop at line 91 in SpinLock::SlowLock] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208896
+        42 |        75 |    208828 |    1 |      0 | [Loop at line 69 in SpinLock::SpinLoop] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208824
+        43 |        78 |    208826 |    0 |      0 |            base::subtle::NoBarrier_Load | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        44 |        73 |    208947 |    1 |      0 | [Loop at line 91 in SpinLock::SlowLock] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208896
+        45 |        82 |    209179 |    0 |      0 |                               sys_futex | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 209138
+        46 |        75 |    208832 |    1 |      0 | [Loop at line 69 in SpinLock::SpinLoop] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208824
+        47 |        29 |     73442 |    0 |      0 |                        _Unwind_Find_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73424
+        48 |        47 |     73640 |    0 |      0 |             _Unwind_Find_registered_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73442
+        49 |        47 |     73697 |    0 |      0 |             _Unwind_Find_registered_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73442
+        50 |        29 |     73697 |    0 |      0 |                        _Unwind_Find_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73424
+        51 |        30 |     71040 |    0 |      0 |                           search_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 70880
+        52 |        51 |     71687 |    0 |      0 |                             init_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71040
+        53 |        30 |     72328 |    0 |      0 |                           search_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 70880
+        54 |        31 |     67352 |    0 |      0 |                          frame_heapsort | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67248
+        55 |        31 |     67389 |    0 |      0 |                          frame_heapsort | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67248
+        56 |        32 |     67088 |    0 |      0 |                          frame_downheap | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67040
+        57 |        32 |     67117 |    0 |      0 |                          frame_downheap | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 67040
+        58 |        51 |     71542 |    0 |      0 |                             init_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71040
+        59 |        30 |     71574 |    0 |      0 |                           search_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 70880
+        60 |         5 |   1063586 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+        61 |         5 |   1063615 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+        62 |        15 |    701584 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+        63 |        62 |    701560 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+        64 |        62 |    701781 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+        65 |        15 |    701781 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+        66 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        67 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        68 |        23 |    152131 |    0 |      0 |            tcmalloc::PageHeap::GrowHeap | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 151984
+        69 |        23 |    152197 |    0 |      0 |            tcmalloc::PageHeap::GrowHeap | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 151984
+        70 |        39 |    147475 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        71 |        70 |    147475 |    0 |      0 |        _ZN14SpinLockHolderC4EP8SpinLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147475
+        72 |        39 |    147783 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        73 |        40 |    208896 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        74 |        40 |    208955 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        75 |        41 |    208824 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        76 |        41 |    208828 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        77 |        41 |    208824 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        78 |        77 |    208800 |    1 |      0 | [Loop at line 69 in SpinLock::SpinLoop] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208824
+        79 |        77 |    208826 |    1 |      0 | [Loop at line 69 in SpinLock::SpinLoop] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208824
+        80 |        41 |    208826 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        81 |        40 |    208947 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        82 |        44 |    209138 |    0 |      0 |           base::internal::SpinLockDelay | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208992
+        83 |        44 |    209179 |    0 |      0 |           base::internal::SpinLockDelay | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208992
+        84 |        41 |    208832 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        85 |         4 |     13501 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+        86 |         4 |     13940 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+        87 |         4 |     13501 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+        88 |        87 |     13606 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+        89 |        88 |     13606 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13606
+        90 |        89 |     13687 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13606
+        91 |        87 |     13744 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+        92 |         4 |     13744 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+        93 |        87 |     13509 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+        94 |        87 |     13564 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+        95 |         4 |     13564 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+        96 |        87 |     13941 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+        97 |        96 |     13957 |    0 |      0 |std::vector<double, std::allocator<double>>::push_back | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13941
+        98 |        97 |     14018 |    0 |      0 |_ZNSt6vectorIdSaIdEE19_M_emplace_back_auxIJRKdEEEvDpOT_ | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13957
+        99 |        98 |     14753 |    0 |      0 |std::_Vector_base<double, std::allocator<double>>::_M_allocate | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 14018
+       100 |        99 |     14753 |    0 |      0 |std::allocator_traits<std::allocator<double>>::allocate | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 14753
+       101 |        87 |     14783 |    1 |      0 |[Loop at line 24 in read_distribution<double>] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 13501
+       102 |         4 |     14783 |    0 |      0 |               read_distribution<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 12992
+       103 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

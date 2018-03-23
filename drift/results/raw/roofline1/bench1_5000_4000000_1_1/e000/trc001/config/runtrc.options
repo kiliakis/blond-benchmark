@@ -1,0 +1,13 @@
+-r
+/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/results/raw/roofline1/bench1_5000_4000000_1_1/e000/trc001
+-quiet
+-cs-file
+/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/results/raw/roofline1/bench1_5000_4000000_1_1/e000/callstacks.def
+--cs-mode=no-count-loops,no-count-flops
+--count-flops
+--
+/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1
+5000
+4000000
+1
+1

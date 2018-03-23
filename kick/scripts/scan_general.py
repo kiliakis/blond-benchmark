@@ -3,15 +3,36 @@ import os
 from functools import reduce
 from operator import mul
 
-# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/'
-home = '/home/kiliakis/git/blond-benchmark/kick/'
-result_dir = home + 'results/raw/kick2/{}/'
-exe_form = home + 'exe_{}_{}/{}'
+home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/'
+# home = '/home/kiliakis/git/blond-benchmark/kick/'
+result_dir = home + 'results/raw/kick3/{}/'
+exe_form = home + 'exe_{}_{}_{}/{}'
 cuexe_form = home + 'exe_cuda/{}'
+intelpy = '/cvmfs/projects.cern.ch/intelsw/python/linux/intelpython3/bin/python'
+normalpy = '/afs/cern.ch/work/k/kiliakis/install/anaconda3/bin/python'
 
-out_file_name = result_dir + 'i{}-p{}-s{}-t{}-{}-{}.txt'
+out_file_name = result_dir + 'i{}-p{}-s{}-t{}-{}-{}-{}.txt'
 configs = {
     # To show performance, scalability, icc, sp vs dp
+    'bench0.exe': {'sizes': [['5000', str(100000*x), '1', '1']
+                            for x in [1, 2, 5, 10, 20, 50]],
+                  'vec': ['vec'],
+                  'tcm': ['notcm'],
+                  'cc': ['g++']
+                  },
+    'bench2.exe': {'sizes': [['5000', str(100000*x), '1', '1']
+                            for x in [1, 2, 5, 10, 20, 50]],
+                  'vec': ['vec'],
+                  'tcm': ['notcm'],
+                  'cc': ['icc', 'g++']
+                  }
+    # 'bench0.exe': {'sizes': [['5000', str(100000*x), '1', '1']
+    #                         for x in [1, 2, 5, 10, 20, 50]],
+    #               'vec': ['novec'],
+    #               'tcm': ['notcm'],
+    #               'cc': ['icc']
+    #               }
+
     # 'bench0': [['500', str(1000000*x), '1', str(x)]
     #            for x in [1, 2, 4, 8, 14, 28, 56]],
     # # To show performance, scalability, icc, sp vs dp
@@ -32,18 +53,24 @@ configs = {
     # # To show performance, scalability, how tiling effects cache misses, icc
     # 'bench6': [['500', str(1000000*x), '1', str(x)]
     #            for x in [1, 2, 4, 8, 14, 28, 56]],
-    'bench7.cu.exe': {'sizes': [['500', str(1000000*x), '1', '512', '64']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
-    'bench8.cu.exe': {'sizes': [['500', str(1000000*x), '1', '512', '64']
-                                for x in [1, 2, 4, 8, 14, 28, 56]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      }
+    # 'bench7.cu.exe': {'sizes': [['500', str(1000000*x), '1', '512', '64']
+    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench8.cu.exe': {'sizes': [['500', str(1000000*x), '1', '512', '64']
+    #                             for x in [1, 2, 4, 8, 14, 28, 56]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench9.py': {'sizes': [['500', str(1000000*x), '1', str(x)]
+    #                         for x in [1]],
+    #               'vec': ['na'],
+    #               'tcm': ['na'],
+    #               'cc': ['intel', 'normal']
+    #               }
 }
 
 # proclist = ''
@@ -77,12 +104,23 @@ for app, config in configs.items():
                     vec_value = 0
                 else:
                     vec_value = 1
+                if tcm == 'tcm':
+                    tcm_value = 1
+                else:
+                    tcm_value = 0
                 if 'cu' in app:
                     make_string = 'make cuda CUDEBUG='
                 else:
                     make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
-                subprocess.call(make_string, shell=True)
+                if '.py' not in app:
+                    subprocess.call(make_string, shell=True)
+                else:
+                    if cc == 'intel':
+                        py = intelpy
+                    else:
+                        py = normalpy
+
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
@@ -99,8 +137,11 @@ for app, config in configs.items():
                             app, size[0], size[1], size[2], size[3],
                             cc, vec, tcm), 'w')
                         exe = exe_form.format(cc, vec, tcm, app)
+                    if '.py' in app:
+                        exe_list = [py, 'benches/'+app] + size
+                    else:
+                        exe_list = [exe] + size
 
-                    exe_list = [exe] + size
                     for i in range(repeats):
                         print(cc, vec, app, size, i)
                         subprocess.call(exe_list, stdout=stdout,

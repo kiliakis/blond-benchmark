@@ -1,0 +1,12 @@
+# hash file version: 1
+1	7	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/libbase.so	9264	10032,10730	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/utils.cpp	31	867	6fa2f78f341a49b661e26f8b9193e429	0	1	0
+2	23	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench1	3872	3885	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench1.cpp	38	13	b4ac326539e3b674cc4e3ef6a1735360	0	1	0
+3	29	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench1	4224	4262	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench1.cpp	47	38	b4ac326539e3b674cc4e3ef6a1735360	0	1	0
+4	33	/afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4	616130	616166,616200,616264	/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_common.c	1335	103	da273642fee2e405da944d990e87d4df	0	1	0
+5	36	/afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4	615935	616166,616200,616281	/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_common.c	1311	315	da273642fee2e405da944d990e87d4df	0	1	0
+6	58	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	68392	68512,68514,68508	/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c	1917	116	503ef81c02471fedfbba212db2442751	0	1	0
+7	76	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/libbase.so	11704	11778	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp	32	74	6fa2f78f341a49b661e26f8b9193e429	0	1	0
+8	79	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/libbase.so	11896	11918	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp	41	22	6fa2f78f341a49b661e26f8b9193e429	0	1	0
+9	80	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/libbase.so	11864	11927	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp	40	63	6fa2f78f341a49b661e26f8b9193e429	0	1	0
+10	105	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	116064	116648,116656,120263,120242,120270,120283,120290,120141,120249,119361,120129,120119,120194,119779	/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c	1033	3283	503ef81c02471fedfbba212db2442751	0	1	0
+11	108	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	70552	71109,71169,71244,71043	/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c	2421	510	503ef81c02471fedfbba212db2442751	0	1	0

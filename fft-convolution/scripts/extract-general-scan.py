@@ -33,7 +33,7 @@ def extract_results(input, outfile):
                 if not line:
                     continue
                 line = line.split('\t')
-                app = line[0][-2:]
+                app = line[0].split(application)[1][1:]
                 time = line[2]
                 times.append(float(time))
             if times:

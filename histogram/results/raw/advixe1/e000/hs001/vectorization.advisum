@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c"
+           line_no="1164"
+           routine="papi_load_derived_events"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.993089E-03"
+           trip_counts=""
+           func_instance="133"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_intel_x86_priv.h"
+           line_no="298"
+           routine="intel_x86_num_umasks"
+           is_vectorized="0"
+           self_time="9.993089E-03"
+           total_time="9.993089E-03"
+           trip_counts=""
+           func_instance="145"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/work/git/gperftools-master/src/base/spinlock.cc"
+           line_no="78"
+           routine="SpinLock::SpinLoop"
+           is_vectorized="0"
+           self_time="1.000000E-02"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="128"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/components/perf_event/pe_libpfm4_events.c"
+           line_no="291"
+           routine="allocate_native_event"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.993089E-03"
+           trip_counts=""
+           func_instance="142"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c"
+           line_no="1033"
+           routine="papi_load_derived_events"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.993089E-03"
+           trip_counts=""
+           func_instance="136"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

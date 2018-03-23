@@ -1,0 +1,181 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      7040 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7040
+         2 |        -1 |      7080 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7040
+         3 |        80 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |      7542 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+         5 |         4 |    478361 |    0 |      1 |           __kmp_api_omp_set_num_threads | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 478352
+         6 |         5 |    525588 |    0 |      1 |          __kmp_get_global_thread_id_reg | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 525440
+         7 |         6 |    570272 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_do_serial_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 570160
+         8 |       175 |    564673 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_reg_status_name | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564653
+         9 |         8 |    680493 |    0 |      1 |                        __kmp_str_format | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 680368
+        10 |         9 |   1006991 |    0 |      1 |                         scalable_malloc | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1006816
+        11 |        10 |   1032877 |    0 |      1 |         rml::internal::doInitialization | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1032272
+        12 |        11 |   1033341 |    0 |      1 |rml::internal::MemoryPool::initDefaultPool | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1033280
+        13 |        12 |    439317 |    0 |      1 |                                   fgets | /lib64/libc.so.6 | 439152
+        14 |        82 |    443667 |    1 |      1 |      [Loop@0x6c4c0 in _IO_getline_info] | /lib64/libc.so.6 | 443584
+        15 |        14 |    492909 |    0 |      1 |                       _IO_default_uflow | /lib64/libc.so.6 | 492896
+        16 |        15 |    488927 |    0 |      1 |                      _IO_file_underflow | /lib64/libc.so.6 | 488624
+        17 |       173 |   2670527 |    1 |      1 |  [Loop@0x28bf99 in tpss_read_mod1_ver0] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2670489
+        18 |        17 |    956384 |    0 |      1 |                                    read | /lib64/libc.so.6 | 956368
+        19 |        65 |     11003 |    0 |      0 |std::__fill_n_a<double*, unsigned long, double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10968
+        20 |        19 |     25786 |    0 |      0 |                  __intel_avx_rep_memset | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 25536
+        21 |        67 |      8194 |    1 |      0 |               [Loop at line 35 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7874
+        22 |        74 |      8081 |    0 |      0 |std::generate_canonical<double, (unsigned long)53, std::linear_congruential_engine<unsigned long, (unsigned long)16807, (unsigned long)0, (unsigned long)2147483647>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8032
+        23 |        67 |      8039 |    1 |      0 |               [Loop at line 35 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7874
+        24 |         3 |      9548 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        25 |        24 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+        26 |        25 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+        27 |        26 |     58714 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        28 |        27 |    112456 |    0 |      0 |                       _papi_hwi_init_os | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 112144
+        29 |        28 |    111813 |    0 |      0 |                  _linux_get_system_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 111648
+        30 |       158 |    106267 |    1 |      0 |[Loop at line 963 in _linux_update_shlib_info] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 106157
+        31 |        30 |    439317 |    0 |      1 |                                   fgets | /lib64/libc.so.6 | 439152
+        32 |        84 |    443667 |    1 |      1 |      [Loop@0x6c4c0 in _IO_getline_info] | /lib64/libc.so.6 | 443584
+        33 |        32 |    492909 |    0 |      1 |                       _IO_default_uflow | /lib64/libc.so.6 | 492896
+        34 |        33 |    488927 |    0 |      1 |                      _IO_file_underflow | /lib64/libc.so.6 | 488624
+        35 |        34 |   2671461 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+        36 |        35 |   5817007 |    0 |      1 |                           func@0x58c230 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 5816880
+        37 |        26 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        38 |       160 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+        39 |        38 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+        40 |        39 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+        41 |        40 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+        42 |       165 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+        43 |       168 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+        44 |        43 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+        45 |       171 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+        46 |        45 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+        47 |       177 |    615121 |    1 |      0 |[Loop at line 1187 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614912
+        48 |        78 |     10083 |    1 |      0 |               [Loop at line 47 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 9995
+        49 |        87 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        50 |        94 |      5826 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        51 |       101 |      5860 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        52 |       108 |      5816 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        53 |       115 |      5831 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        54 |       122 |      5847 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        55 |       129 |      5874 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        56 |       136 |      5780 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        57 |       143 |      5897 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        58 |       150 |      5802 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        59 |         3 |      7627 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        60 |        59 |     10781 |    0 |      0 |std::vector<double, std::allocator<double>>::resize | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7627
+        61 |        60 |     10968 |    0 |      0 |std::vector<double, std::allocator<double>>::_M_default_append | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10781
+        62 |        61 |     10968 |    0 |      0 |std::__uninitialized_default_n_a<double*, unsigned long, double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10968
+        63 |        62 |     10968 |    0 |      0 |std::__uninitialized_default_n<double*, unsigned long> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10968
+        64 |        63 |     10968 |    0 |      0 |std::__uninitialized_default_n_1<(bool)1>::__uninit_default_n<double*, unsigned long> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10968
+        65 |        64 |     10968 |    0 |      0 |std::fill_n<double*, unsigned long, double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 10968
+        66 |         3 |     11003 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        67 |         3 |      7874 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        68 |         3 |      8194 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        69 |         3 |      7874 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        70 |        69 |      8069 |    1 |      0 |               [Loop at line 35 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7874
+        71 |        70 |      8032 |    1 |      0 |               [Loop at line 37 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8069
+        72 |        71 |      8032 |    0 |      0 |std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, (unsigned long)16807, (unsigned long)0, (unsigned long)2147483647>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8032
+        73 |        72 |      8032 |    0 |      0 |std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, (unsigned long)16807, (unsigned long)0, (unsigned long)2147483647>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8032
+        74 |        73 |      8032 |    0 |      0 |std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, (unsigned long)16807, (unsigned long)0, (unsigned long)2147483647>, double>::operator() | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8032
+        75 |        70 |      8081 |    1 |      0 |               [Loop at line 37 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 8069
+        76 |         3 |      8081 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        77 |         3 |      8039 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        78 |         3 |      9995 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        79 |         3 |     10083 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1 | 7376
+        80 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        81 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        82 |        13 |    443584 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        83 |        13 |    443667 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        84 |        31 |    443584 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        85 |        31 |    443667 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        86 |        48 |      5769 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+        87 |        86 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        88 |        48 |      5821 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+        89 |        87 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        90 |        87 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+        91 |        87 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        92 |        87 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+        93 |        87 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+        94 |        86 |      5826 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        95 |        48 |      5826 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+        96 |        94 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        97 |        94 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+        98 |        94 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+        99 |        94 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       100 |        94 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       101 |        86 |      5860 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       102 |        48 |      5860 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       103 |       101 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       104 |       101 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       105 |       101 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       106 |       101 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       107 |       101 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       108 |        86 |      5816 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       109 |        48 |      5816 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       110 |       108 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       111 |       108 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       112 |       108 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       113 |       108 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       114 |       108 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       115 |        86 |      5831 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       116 |        48 |      5831 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       117 |       115 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       118 |       115 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       119 |       115 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       120 |       115 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       121 |       115 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       122 |        86 |      5847 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       123 |        48 |      5847 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       124 |       122 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       125 |       122 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       126 |       122 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       127 |       122 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       128 |       122 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       129 |        86 |      5874 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       130 |        48 |      5874 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       131 |       129 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       132 |       129 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       133 |       129 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       134 |       129 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       135 |       129 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       136 |        86 |      5780 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       137 |        48 |      5780 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       138 |       136 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       139 |       136 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       140 |       136 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       141 |       136 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       142 |       136 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       143 |        86 |      5897 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       144 |        48 |      5897 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       145 |       143 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       146 |       143 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       147 |       143 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       148 |       143 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       149 |       143 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       150 |        86 |      5802 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       151 |        48 |      5802 |    0 |      0 |                                drift_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 3776
+       152 |       150 |      5821 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       153 |       150 |      5712 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5711
+       154 |       150 |      5770 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5769
+       155 |       150 |      5983 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 5982
+       156 |       150 |      6043 |    1 |      0 |           [Loop at line 31 in drift_v0] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/libbase.so | 6042
+       157 |        29 |    106145 |    0 |      0 |                _linux_update_shlib_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 105872
+       158 |       157 |    106157 |    1 |      0 |[Loop at line 963 in _linux_update_shlib_info] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 106145
+       159 |        29 |    106267 |    0 |      0 |                _linux_update_shlib_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 105872
+       160 |        37 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       161 |        37 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       162 |        41 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       163 |       162 |    118017 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+       164 |       163 |    118344 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       165 |       164 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+       166 |       163 |    119100 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       167 |        41 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       168 |        42 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       169 |        42 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       170 |        44 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       171 |       170 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+       172 |        44 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       173 |        16 |   2670489 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+       174 |        16 |   2670527 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+       175 |         7 |    564653 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+       176 |         7 |    564673 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+       177 |        46 |    614912 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       178 |        46 |    615121 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       179 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

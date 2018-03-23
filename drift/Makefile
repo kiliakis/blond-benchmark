@@ -8,8 +8,8 @@ BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=.exe}
 LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
-LIBS += -l$(BASE)
-INCDIRS += -Iinclude
+LIBS += -l$(BASE) -L$(VTUNE_AMPLIFIER_2018_DIR)/lib64 -littnotify
+INCDIRS += -Iinclude -I$(VTUNE_AMPLIFIER_2018_DIR)/include
 
 
 CUPROGS_DIR = exe_cuda

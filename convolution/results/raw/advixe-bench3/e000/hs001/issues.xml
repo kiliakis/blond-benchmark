@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<bag xmlns:float="http://www.w3.org/2001/XMLSchema#float" xmlns:int="http://www.w3.org/2001/XMLSchema#int" xmlns:unsignedInt="http://www.w3.org/2001/XMLSchema#unsignedInt" xmlns:unsignedLong="http://www.w3.org/2001/XMLSchema#unsignedLong" int:version="4">
+ <issues>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>compiler_diag_issue_15333</id>
+   <int:severity>1</int:severity>
+   <text>&lt;b&gt;Cause:&lt;/b&gt; The compiler automatically generates a try block for a program block (that is, code inside {}) when it allocates a large, local object or array on the heap (because the object is too big to allocate on the stack) and a function within the block could throw an exception. &lt;br/&gt; &lt;b&gt;C++ Example:&lt;/b&gt;&lt;/br&gt; &lt;div class=&quot;sample&quot;&gt;__attribute__((vector)) void f1(double);&lt;br/&gt;
+int main() &lt;br/&gt;
+{&lt;br/&gt;
+  int n = 10000;&lt;br/&gt;
+  double a[n];&lt;br/&gt;
+  #pragma simd&lt;br/&gt;
+  for(int i = 0 ; i &amp;lt; n ; i++)&lt;br/&gt;
+    f1(a[i]);&lt;br/&gt;
+}&lt;/div&gt;  </text>
+   <title>Exception Handling For a Call Prevents Vectorization </title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>compiler_diag_rec_15333</id>
+     <text>Avoid exceptions within a vectorizable loop body by marking functions as &lt;div class=&quot;inplace_sample&quot;&gt;nothrow&lt;/div&gt;.
+&lt;div class=&quot;sample&quot;&gt;__attribute__((vector, nothrow)) void f1(double);&lt;/div&gt; </text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>56</unsignedLong:rowKey>
+  </issue>
+ </issues>
+</bag>

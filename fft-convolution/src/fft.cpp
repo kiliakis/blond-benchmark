@@ -5,7 +5,7 @@
  *      Author: kiliakis
  */
 
-#include <fft.h>
+#include "fft.h"
 #include <complex>
 #include <vector>
 #include <algorithm>
@@ -13,7 +13,7 @@
 #include <fftw3.h>
 #include <functional>
 #include <iostream>
-
+#include <omp.h>
 
 // FFTW_PATIENT: run a lot of ffts to discover the best plan.
 // Will not use the multithreaded version unless the fft size
@@ -30,7 +30,10 @@
 // Can be combined with all the above
 
 static std::vector<fft_plan_t> planV;
-const uint FFTW_FLAGS = FFTW_MEASURE | FFTW_DESTROY_INPUT;
+static bool hasBeenInit = false;
+// const uint FFTW_FLAGS = FFTW_MEASURE | FFTW_DESTROY_INPUT;
+// const uint FFTW_FLAGS = FFTW_PATIENT;
+const uint FFTW_FLAGS = FFTW_ESTIMATE;
 // const uint FFTW_FLAGS = FFTW_MEASURE;
 
 using namespace std;
@@ -47,9 +50,15 @@ extern "C" {
                        const int threads = 1)
     {
         if (threads > 1) {
-            fftw_init_threads();
-            fftw_plan_with_nthreads(threads);
+            if (!hasBeenInit){
+                if(fftw_init_threads() == 0)
+                    cout << "[fft.cpp:init_rfft] Thread initialisation error\n";
+                hasBeenInit = true;
+                fftw_plan_with_nthreads(threads);
+            }
         }
+        // cout << "Threads: " << threads << "\n";
+
         fftw_complex *a = reinterpret_cast<fftw_complex *>(in);
         fftw_complex *b = reinterpret_cast<fftw_complex *>(out);
         return fftw_plan_dft_1d(n, a, b, sign, flag);
@@ -61,10 +70,14 @@ extern "C" {
 
     {
         if (threads > 1) {
-            // cout << "Initializing multithreaded\n";
-            fftw_init_threads();
-            fftw_plan_with_nthreads(threads);
+            if (!hasBeenInit){
+                if(fftw_init_threads() == 0)
+                    cout << "[fft.cpp:init_rfft] Thread initialisation error\n";
+                hasBeenInit = true;
+                fftw_plan_with_nthreads(threads);
+            }
         }
+        // cout << "Threads: " << threads << "\n";
         fftw_complex *b = reinterpret_cast<fftw_complex *>(out);
         return fftw_plan_dft_r2c_1d(n, in, b, flag);
     }
@@ -74,9 +87,15 @@ extern "C" {
                          const int threads = 1)
     {
         if (threads > 1) {
-            fftw_init_threads();
-            fftw_plan_with_nthreads(threads);
+            if (!hasBeenInit){
+                if(fftw_init_threads() == 0)
+                    cout << "[fft.cpp:init_rfft] Thread initialisation error\n";
+                hasBeenInit = true;
+                fftw_plan_with_nthreads(threads);
+            }
         }
+        // cout << "Threads: " << threads << "\n";
+        
         fftw_complex *b = reinterpret_cast<fftw_complex *>(in);
         return fftw_plan_dft_c2r_1d(n, b, out, flag);
     }
@@ -177,8 +196,8 @@ extern "C" {
               const int threads)
     {
         if (fftSize == 0) fftSize = inSize / 2 + 1;
-
-        auto plan = find_plan(fftSize, inSize, RFFT, threads, planV);
+        // cout << "Num of threads: " << omp_get_max_threads() << "\n";
+        auto plan = find_plan(fftSize, inSize, RFFT, omp_get_max_threads(), planV);
         auto from = (double *)plan.in;
         auto to = (complex_t *)plan.out;
 
@@ -193,44 +212,41 @@ extern "C" {
         copy(to, to + (fftSize / 2 + 1), out);
     }
 
-// Parameters are like python's numpy.fft.fft
-// @in:  input data
-// @n:   number of points to use. If n < in.size() then the input is cropped
-//       if n > in.size() then input is padded with zeros
-// @out: the transformed array
-    void fft(complex_t *in, const int inSize,
-             complex_t *out, int fftSize,
-             const int threads)
+    // Inverse of rfft
+    // @in: input vector which must be the result of a rfft
+    // @out: irfft of input, always real
+    // Missing n: size of output
+    void irfft(complex_t *in, const int inSize,
+               double *out, int fftSize,
+               const int threads)
     {
-        if (fftSize == 0) fftSize = inSize;
+        if (fftSize == 0) fftSize = 2 * (inSize - 1);
 
-        auto plan = find_plan(fftSize, inSize, FFT, threads, planV);
+        auto plan = find_plan(fftSize, inSize, IRFFT, omp_get_max_threads(), planV);
         auto from = (complex_t *)plan.in;
-        auto to = (complex_t *)plan.out;
+        auto to = (double *)plan.out;
 
-        if (fftSize <= inSize)
-            copy(in, in + fftSize, from);
-        else {
-            copy(in, in + inSize, from);
-            fill(from + inSize, from + fftSize, 0.0);
-        }
+        copy(in, in + inSize, from);
+
         run_fft(plan.p);
 
-        copy(&to[0], &to[fftSize], out);
+        transform(&to[0], &to[fftSize], out,
+                  bind2nd(divides<double>(), fftSize));
     }
 
-// Parameters are like python's numpy.fft.ifft
-// @in:  input data
-// @n:   number of points to use. If n < in.size() then the input is cropped
-//       if n > in.size() then input is padded with zeros
-// @out: the inverse Fourier transform of input data
+
+    // Parameters are like python's numpy.fft.ifft
+    // @in:  input data
+    // @n:   number of points to use. If n < in.size() then the input is cropped
+    //       if n > in.size() then input is padded with zeros
+    // @out: the inverse Fourier transform of input data
     void ifft(complex_t *in, const int inSize,
               complex_t *out, int fftSize,
               const int threads)
     {
         if (fftSize == 0) fftSize = inSize;
 
-        auto plan = find_plan(fftSize, inSize, IFFT, threads, planV);
+        auto plan = find_plan(fftSize, inSize, IFFT, omp_get_max_threads(), planV);
         auto from = (complex_t *)plan.in;
         auto to = (complex_t *)plan.out;
         if (fftSize <= inSize)
@@ -246,27 +262,34 @@ extern "C" {
                   bind2nd(divides<complex_t>(), fftSize));
     }
 
-// Inverse of rfft
-// @in: input vector which must be the result of a rfft
-// @out: irfft of input, always real
-// Missing n: size of output
-    void irfft(complex_t *in, const int inSize,
-               double *out, int fftSize,
-               const int threads)
+
+// Parameters are like python's numpy.fft.fft
+// @in:  input data
+// @n:   number of points to use. If n < in.size() then the input is cropped
+//       if n > in.size() then input is padded with zeros
+// @out: the transformed array
+    void fft(complex_t *in, const int inSize,
+             complex_t *out, int fftSize,
+             const int threads)
     {
-        if (fftSize == 0) fftSize = 2 * (inSize - 1);
+        if (fftSize == 0) fftSize = inSize;
 
-        auto plan = find_plan(fftSize, inSize, IRFFT, threads, planV);
+        auto plan = find_plan(fftSize, inSize, FFT, omp_get_max_threads(), planV);
         auto from = (complex_t *)plan.in;
-        auto to = (double *)plan.out;
+        auto to = (complex_t *)plan.out;
 
-        copy(in, in + inSize, from);
-
+        if (fftSize <= inSize)
+            copy(in, in + fftSize, from);
+        else {
+            copy(in, in + inSize, from);
+            fill(from + inSize, from + fftSize, 0.0);
+        }
         run_fft(plan.p);
 
-        transform(&to[0], &to[fftSize], out,
-                  bind2nd(divides<double>(), fftSize));
+        copy(&to[0], &to[fftSize], out);
     }
+
+
 
 // Same as python's numpy.fft.rfftfreq
 // @ n: window length
@@ -294,10 +317,10 @@ extern "C" {
         rfft(signal, signalLen, z1, realSize, threads);
         rfft(kernel, kernelLen, z2, realSize, threads);
 
-        transform(z1, z1 + complexSize, z2, z1,
-                  multiplies<complex_t>());
+        // transform(z1, z1 + complexSize, z2, z1,
+        //           multiplies<complex_t>());
 
-        irfft(z1, complexSize, res, realSize, threads);
+        // irfft(z1, complexSize, res, realSize, threads);
 
         fftw_free(z1);
     }

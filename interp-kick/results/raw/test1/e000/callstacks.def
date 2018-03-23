@@ -1,0 +1,99 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      7552 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7552
+         2 |        -1 |      7592 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7552
+         3 |        54 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |      8057 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+         5 |         4 |    478361 |    0 |      1 |           __kmp_api_omp_set_num_threads | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 478352
+         6 |         5 |    525588 |    0 |      1 |          __kmp_get_global_thread_id_reg | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 525440
+         7 |         6 |    570272 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_do_serial_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 570160
+         8 |        82 |    564673 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_reg_status_name | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564653
+         9 |         8 |    680493 |    0 |      1 |                        __kmp_str_format | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 680368
+        10 |         9 |   1006984 |    0 |      1 |                         scalable_malloc | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1006816
+        11 |        84 |   1013708 |    1 |      1 |[Loop at line 2508 in rml::internal::internalPoolMalloc] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1012568
+        12 |        11 |   1016051 |    0 |      1 |        rml::internal::TLSKey::createTLS | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1016016
+        13 |        12 |   1034342 |    0 |      1 |rml::internal::BootStrapBlocks::allocate | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1034096
+        14 |        13 |   1014749 |    0 |      1 |rml::internal::MemoryPool::getEmptyBlock | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1014608
+        15 |        86 |   1039831 |    1 |      1 |[Loop at line 869 in rml::internal::Backend::genericGetBlock] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1039784
+        16 |        88 |   1040447 |    1 |      1 |[Loop at line 821 in rml::internal::Backend::IndexedBins::findBlock] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040415
+        17 |        91 |   1040947 |    1 |      1 |[Loop at line 437 in rml::internal::Backend::IndexedBins::getFromBin] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040922
+        18 |         3 |      8173 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+        19 |        58 |     10935 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+        20 |        19 |   1063792 |    0 |      1 |                std::istream::operator>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063792
+        21 |        62 |     10917 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+        22 |        21 |   1045327 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+        23 |        22 |   1045017 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        24 |        23 |   1095039 |    0 |      1 |std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094976
+        25 |        24 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        26 |        25 |    579497 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+        27 |         3 |      9566 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+        28 |        27 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+        29 |        28 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+        30 |        29 |     58714 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        31 |        30 |    112456 |    0 |      0 |                       _papi_hwi_init_os | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 112144
+        32 |        31 |    111910 |    0 |      0 |                  _linux_get_system_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 111648
+        33 |        32 |    108907 |    0 |      0 |                     _linux_get_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108784
+        34 |        65 |    108335 |    1 |      0 |    [Loop at line 82 in search_cpu_info] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108320
+        35 |        34 |    439317 |    0 |      1 |                                   fgets | /lib64/libc.so.6 | 439152
+        36 |        56 |    443667 |    1 |      1 |      [Loop@0x6c4c0 in _IO_getline_info] | /lib64/libc.so.6 | 443584
+        37 |        36 |    492909 |    0 |      1 |                       _IO_default_uflow | /lib64/libc.so.6 | 492896
+        38 |        37 |    488927 |    0 |      1 |                      _IO_file_underflow | /lib64/libc.so.6 | 488624
+        39 |        80 |   2670527 |    1 |      1 |  [Loop@0x28bf99 in tpss_read_mod1_ver0] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2670489
+        40 |        39 |    956384 |    0 |      1 |                                    read | /lib64/libc.so.6 | 956368
+        41 |        29 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        42 |        67 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+        43 |        42 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+        44 |        43 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+        45 |        44 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+        46 |        72 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+        47 |        75 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+        48 |        47 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+        49 |        78 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+        50 |        49 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+        51 |        93 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+        52 |        51 |    665380 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+        53 |        95 |    652238 |    1 |      0 |[Loop at line 298 in intel_x86_num_umasks] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652163
+        54 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        55 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        56 |        35 |    443584 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        57 |        35 |    443667 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        58 |        18 |     10488 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+        59 |        18 |     10935 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+        60 |        18 |     10488 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+        61 |        60 |     10410 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+        62 |        61 |     10410 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+        63 |        60 |     10917 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+        64 |        18 |     10917 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+        65 |        33 |    108320 |    0 |      0 |                         search_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108304
+        66 |        33 |    108335 |    0 |      0 |                         search_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108304
+        67 |        41 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        68 |        41 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        69 |        45 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        70 |        69 |    118017 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+        71 |        70 |    118344 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+        72 |        71 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+        73 |        70 |    119100 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+        74 |        45 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        75 |        46 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        76 |        46 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        77 |        48 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        78 |        77 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+        79 |        48 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        80 |        38 |   2670489 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+        81 |        38 |   2670527 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+        82 |         7 |    564653 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+        83 |         7 |    564673 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+        84 |        10 |   1012568 |    0 |      1 |       rml::internal::internalPoolMalloc | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1012464
+        85 |        10 |   1013708 |    0 |      1 |       rml::internal::internalPoolMalloc | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1012464
+        86 |        14 |   1039784 |    0 |      1 | rml::internal::Backend::genericGetBlock | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1039424
+        87 |        14 |   1039831 |    0 |      1 | rml::internal::Backend::genericGetBlock | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1039424
+        88 |        15 |   1040415 |    0 |      1 |rml::internal::Backend::IndexedBins::findBlock | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040272
+        89 |        15 |   1040447 |    0 |      1 |rml::internal::Backend::IndexedBins::findBlock | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040272
+        90 |        16 |   1040732 |    0 |      1 |rml::internal::Backend::IndexedBins::getFromBin | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040672
+        91 |        90 |   1040922 |    1 |      1 |[Loop at line 428 in rml::internal::Backend::IndexedBins::getFromBin] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040732
+        92 |        16 |   1040947 |    0 |      1 |rml::internal::Backend::IndexedBins::getFromBin | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1040672
+        93 |        50 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        94 |        50 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        95 |        52 |    652163 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+        96 |        52 |    652238 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+        97 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

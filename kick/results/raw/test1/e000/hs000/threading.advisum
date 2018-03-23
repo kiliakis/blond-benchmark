@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_common.c"
+           line_no="1170"
+           routine="pfmlib_build_event_pattrs"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.996882E-03"
+           trip_counts="13"
+           func_instance="46"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/linux-common.c"
+           line_no="82"
+           routine="search_cpu_info"
+           is_vectorized="0"
+           self_time="1.001172E-02"
+           total_time="1.001172E-02"
+           trip_counts="230"
+           func_instance="57"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/kick.cpp"
+           line_no="21"
+           routine="kick_v0$omp$parallel_for@21"
+           is_vectorized="1"
+           self_time="1.999995E-02"
+           total_time="1.999995E-02"
+           trip_counts=""
+           func_instance="327"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c"
+           line_no="1164"
+           routine="papi_load_derived_events"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.996882E-03"
+           trip_counts="1"
+           func_instance="222"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c"
+           line_no="1033"
+           routine="papi_load_derived_events"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.996882E-03"
+           trip_counts="2"
+           func_instance="229"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

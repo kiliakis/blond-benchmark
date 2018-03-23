@@ -1,0 +1,320 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      7040 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 7040
+         2 |        -1 |      7080 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 7040
+         3 |        63 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |      8505 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 7376
+         5 |         4 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+         6 |         5 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+         7 |         6 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+         8 |        47 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+         9 |         8 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+        10 |         9 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+        11 |        10 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+        12 |        51 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+        13 |        54 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+        14 |        13 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+        15 |        14 |    135061 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        16 |        15 |    617126 |    0 |      0 |               pfm_get_os_event_encoding | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 616971
+        17 |        16 |    631334 |    0 |      0 |                pfmlib_perf_event_encode | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 630890
+        18 |        17 |    616366 |    0 |      0 |                      pfmlib_parse_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 615696
+        19 |       310 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+        20 |        19 |    665380 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+        21 |       312 |    652202 |    1 |      0 |[Loop at line 298 in intel_x86_num_umasks] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652163
+        22 |        57 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+        23 |        22 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+        24 |       314 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+        25 |        24 |    665380 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+        26 |       316 |    652265 |    1 |      0 |[Loop at line 298 in intel_x86_num_umasks] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652163
+        27 |        59 |      8970 |    1 |      0 |               [Loop at line 47 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 8942
+        28 |        27 |      5981 |    0 |      0 |                          convolution_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 5808
+        29 |        28 |    378845 |    0 |      1 |                           [OpenMP fork] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 378528
+        30 |        61 |    542444 |    1 |      1 |  [Loop at line 1856 in __kmp_fork_call] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 542236
+        31 |        30 |    744130 |    0 |      1 |                  __kmp_invoke_microtask | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 743984
+        32 |        68 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        33 |        82 |      6714 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        34 |        96 |      6727 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        35 |       110 |      6734 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        36 |       124 |      6686 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        37 |       138 |      6707 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        38 |       152 |      6693 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        39 |       166 |      6772 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+        40 |       195 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        41 |       209 |      6700 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        42 |       223 |      6683 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        43 |       237 |      6741 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        44 |       251 |      6680 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        45 |       265 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+        46 |       296 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        47 |         7 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        48 |         7 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        49 |        11 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        50 |        49 |    118344 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+        51 |        50 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+        52 |        49 |    119100 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+        53 |        11 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        54 |        12 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        55 |        12 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        56 |        14 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        57 |        56 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+        58 |        14 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        59 |         3 |      8942 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 7376
+        60 |         3 |      8970 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/benches/bench1 | 7376
+        61 |        29 |    542236 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+        62 |        29 |    542444 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+        63 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        64 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        65 |        31 |      6431 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+        66 |        65 |      6672 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+        67 |        66 |      6672 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+        68 |        67 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        69 |        31 |      6720 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+        70 |        68 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        71 |        68 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        72 |        68 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        73 |        68 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        74 |        68 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        75 |        68 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        76 |        68 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        77 |        68 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        78 |        68 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        79 |        68 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        80 |        68 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        81 |        68 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        82 |        67 |      6714 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        83 |        31 |      6714 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+        84 |        82 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        85 |        82 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        86 |        82 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        87 |        82 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        88 |        82 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        89 |        82 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        90 |        82 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        91 |        82 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        92 |        82 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+        93 |        82 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        94 |        82 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+        95 |        82 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+        96 |        67 |      6727 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        97 |        31 |      6727 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+        98 |        96 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+        99 |        96 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       100 |        96 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       101 |        96 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       102 |        96 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       103 |        96 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       104 |        96 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       105 |        96 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       106 |        96 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       107 |        96 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       108 |        96 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       109 |        96 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       110 |        67 |      6734 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       111 |        31 |      6734 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       112 |       110 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       113 |       110 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       114 |       110 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       115 |       110 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       116 |       110 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       117 |       110 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       118 |       110 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       119 |       110 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       120 |       110 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       121 |       110 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       122 |       110 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       123 |       110 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       124 |        67 |      6686 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       125 |        31 |      6686 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       126 |       124 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       127 |       124 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       128 |       124 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       129 |       124 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       130 |       124 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       131 |       124 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       132 |       124 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       133 |       124 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       134 |       124 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       135 |       124 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       136 |       124 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       137 |       124 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       138 |        67 |      6707 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       139 |        31 |      6707 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       140 |       138 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       141 |       138 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       142 |       138 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       143 |       138 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       144 |       138 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       145 |       138 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       146 |       138 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       147 |       138 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       148 |       138 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       149 |       138 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       150 |       138 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       151 |       138 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       152 |        67 |      6693 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       153 |        31 |      6693 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       154 |       152 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       155 |       152 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       156 |       152 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       157 |       152 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       158 |       152 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       159 |       152 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       160 |       152 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       161 |       152 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       162 |       152 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       163 |       152 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       164 |       152 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       165 |       152 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       166 |        65 |      6772 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       167 |        31 |      6772 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       168 |       166 |      6772 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       169 |       166 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       170 |       166 |      6478 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       171 |       166 |      6491 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       172 |       166 |      6512 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       173 |       166 |      6527 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       174 |       166 |      6540 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       175 |       166 |      6551 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       176 |       166 |      6563 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       177 |       166 |      6596 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       178 |       166 |      6637 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       179 |       166 |      6643 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       180 |       166 |      6786 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       181 |       166 |      6798 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       182 |       166 |      6817 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       183 |       166 |      6916 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       184 |       166 |      6940 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       185 |       166 |      6959 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       186 |       166 |      7031 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       187 |       166 |      7037 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       188 |       166 |      7103 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       189 |       166 |      7110 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       190 |       166 |      7118 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       191 |       166 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       192 |       166 |      6672 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       193 |       166 |      6432 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       194 |       166 |      7170 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 7169
+       195 |        67 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       196 |        31 |      6672 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       197 |       195 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       198 |       195 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       199 |       195 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       200 |       195 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       201 |       195 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       202 |       195 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       203 |       195 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       204 |       195 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       205 |       195 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       206 |       195 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       207 |       195 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       208 |       195 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       209 |        67 |      6700 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       210 |        31 |      6700 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       211 |       209 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       212 |       209 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       213 |       209 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       214 |       209 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       215 |       209 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       216 |       209 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       217 |       209 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       218 |       209 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       219 |       209 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       220 |       209 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       221 |       209 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       222 |       209 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       223 |        67 |      6683 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       224 |        31 |      6683 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       225 |       223 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       226 |       223 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       227 |       223 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       228 |       223 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       229 |       223 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       230 |       223 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       231 |       223 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       232 |       223 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       233 |       223 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       234 |       223 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       235 |       223 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       236 |       223 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       237 |        67 |      6741 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       238 |        31 |      6741 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       239 |       237 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       240 |       237 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       241 |       237 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       242 |       237 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       243 |       237 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       244 |       237 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       245 |       237 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       246 |       237 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       247 |       237 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       248 |       237 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       249 |       237 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       250 |       237 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       251 |        67 |      6680 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       252 |        31 |      6680 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       253 |       251 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       254 |       251 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       255 |       251 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       256 |       251 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       257 |       251 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       258 |       251 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       259 |       251 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       260 |       251 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       261 |       251 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       262 |       251 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       263 |       251 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       264 |       251 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       265 |        65 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       266 |        31 |      6431 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       267 |       265 |      6772 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       268 |       265 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       269 |       265 |      6478 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       270 |       265 |      6491 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       271 |       265 |      6512 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       272 |       265 |      6527 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       273 |       265 |      6540 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       274 |       265 |      6551 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       275 |       265 |      6563 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       276 |       265 |      6596 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       277 |       265 |      6637 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       278 |       265 |      6643 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       279 |       265 |      6786 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       280 |       265 |      6798 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       281 |       265 |      6817 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       282 |       265 |      6916 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       283 |       265 |      6940 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       284 |       265 |      6959 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       285 |       265 |      7031 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       286 |       265 |      7037 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       287 |       265 |      7103 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       288 |       265 |      7110 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       289 |       265 |      7118 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       290 |       265 |      6431 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       291 |       265 |      6672 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       292 |       265 |      6432 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       293 |       265 |      7170 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 7169
+       294 |        65 |      6999 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       295 |       294 |      6999 |    1 |      0 |[Loop at line 18 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6431
+       296 |       295 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       297 |        31 |      7026 |    0 |      0 |      convolution_v0$omp$parallel_for@17 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6101
+       298 |       296 |      6720 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       299 |       296 |      7026 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       300 |       296 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       301 |       296 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       302 |       296 |      6999 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       303 |       296 |      6881 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       304 |       296 |      6672 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       305 |       296 |      6605 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       306 |       296 |      6606 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6605
+       307 |       296 |      6673 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6672
+       308 |       296 |      6882 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6881
+       309 |       296 |      7000 |    1 |      0 |[Loop at line 22 in convolution_v0$omp$parallel_for@17] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/convolution/src/libbase.so | 6999
+       310 |        18 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       311 |        18 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       312 |        20 |    652163 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       313 |        20 |    652202 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       314 |        23 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       315 |        23 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       316 |        25 |    652163 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       317 |        25 |    652265 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       318 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

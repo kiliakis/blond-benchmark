@@ -10,10 +10,15 @@
 // #include <PAPIProf.h>
 #include <omp.h>
 #include <algorithm>
+
+#include <ittnotify.h>
+
+
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
+
     int n_turns = 50000;
     int n_particles = 1000000;
     int n_slices = 1000;
@@ -39,7 +44,7 @@ int main(int argc, char const *argv[])
 
     voltage.resize(n_slices);
     for (int i = 0; i < n_slices; ++i) {
-        voltage[i] = d(gen);
+        voltage[i] = d(gen); 
     }
     cut_left = 1.05 * (*min_element(dt.begin(), dt.end()));
     cut_right = 0.95 * (*max_element(dt.begin(), dt.end()));
@@ -61,11 +66,13 @@ int main(int argc, char const *argv[])
     // papiprof->start_counters("interp_kick");
     auto start = chrono::high_resolution_clock::now();
     // main loop
+    __itt_resume();
     for (int i = 0; i < n_turns; ++i) {
         linear_interp_kick_v0(dt.data(), dE.data(), voltage.data(),
                               bin_centers.data(), n_slices, n_particles,
                               acc_kick);
     }
+    __itt_detach();
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");

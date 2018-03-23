@@ -1,0 +1,13 @@
+# hash file version: 1
+6	57	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	108320	108396	/home/kiliakis/Downloads/papi-5.5.1/src/linux-common.c	82	69	503ef81c02471fedfbba212db2442751	0	1	0
+7	61	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	68392	68512,68514,68508	/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c	1917	116	503ef81c02471fedfbba212db2442751	0	1	0
+8	46	/afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4	614631	614705,614764	/home/kiliakis/Downloads/papi-5.5.1/src/libpfm4/lib/pfmlib_common.c	1170	90	da273642fee2e405da944d990e87d4df	0	1	0
+9	222	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	118017	119029,118399,119120	/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c	1164	521	503ef81c02471fedfbba212db2442751	0	1	0
+10	229	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	116064	116648,116656	/home/kiliakis/Downloads/papi-5.5.1/src/papi_preset.c	1033	4731	503ef81c02471fedfbba212db2442751	0	1	0
+11	241	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	70552	71109,71169,71244,71043	/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c	2421	510	503ef81c02471fedfbba212db2442751	0	1	0
+12	248	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	135680	136512,136224,135786	/home/kiliakis/Downloads/papi-5.5.1/src/components/perf_event/pe_libpfm4_events.c	308	106	503ef81c02471fedfbba212db2442751	0	1	0
+13	251	/afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5	135590	136224,136238	/home/kiliakis/Downloads/papi-5.5.1/src/components/perf_event/pe_libpfm4_events.c	291	520	503ef81c02471fedfbba212db2442751	0	1	0
+14	4	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so	3685	3705	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/kick.cpp	21	20	40773de8490966084125afdb72548e00	0	1	0
+15	13	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so	3714	3777	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/kick.cpp	21	63	40773de8490966084125afdb72548e00	1	4	0
+16	108	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so	3809	3829	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/kick.cpp	21	20	40773de8490966084125afdb72548e00	0	1	0
+17	327	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so	3685	3705,3777,3829	/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/kick.cpp	21	103	40773de8490966084125afdb72548e00	1	1	0

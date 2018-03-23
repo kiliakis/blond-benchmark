@@ -1,0 +1,20 @@
+sep=,
+Name,Bandwidth,Type
+DP Vector Add Peak (single-threaded),7962784301,compute
+DP Vector Add Peak,222957960428,compute
+SP Vector Add Peak (single-threaded),15882541867,compute
+SP Vector Add Peak,444711172276,compute
+Scalar Add Peak (single-threaded),1990443489,compute
+Scalar Add Peak,55732417692,compute
+DP Vector FMA Peak (single-threaded),31835824290,compute
+DP Vector FMA Peak,891403080120,compute
+SP Vector FMA Peak (single-threaded),63564580289,compute
+SP Vector FMA Peak,1779808248092,compute
+L3 Bandwidth (single-threaded),21797161705,memory
+L3 Bandwidth,610320527740,memory
+L2 Bandwidth (single-threaded),53571848438,memory
+L2 Bandwidth,1500011756264,memory
+L1 Bandwidth (single-threaded),190146145622,memory
+L1 Bandwidth,5324092077416,memory
+DRAM Bandwidth (single-threaded),8596699809,memory
+DRAM Bandwidth,122340662962,memory

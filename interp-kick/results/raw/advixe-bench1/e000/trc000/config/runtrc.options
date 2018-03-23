@@ -1,0 +1,15 @@
+-r
+/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/results/raw/advixe-bench1/e000/trc000
+-quiet
+-search-dir
+src:r=./benches/
+-cs-file
+/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/results/raw/advixe-bench1/e000/callstacks.def
+--cs-mode=no-count-loops,no-count-flops
+--count-flops
+--
+benches/bench1
+500
+1000000
+1000
+1

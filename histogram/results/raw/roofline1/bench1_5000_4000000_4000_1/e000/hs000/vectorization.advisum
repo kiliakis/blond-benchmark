@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp"
+           line_no="40"
+           routine="histogram_v0._omp_fn.0"
+           is_vectorized="0"
+           self_time="9.998600E-03"
+           total_time="2.999879E-02"
+           trip_counts="4000"
+           func_instance="80"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/utils.cpp"
+           line_no="31"
+           routine="read_distribution"
+           is_vectorized="0"
+           self_time="3.105320E-01"
+           total_time="7.050002E+00"
+           trip_counts=""
+           func_instance="7"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp"
+           line_no="41"
+           routine="histogram_v0._omp_fn.0"
+           is_vectorized="0"
+           self_time="2.000019E-02"
+           total_time="2.000019E-02"
+           trip_counts="1"
+           func_instance="79"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/src/histogram.cpp"
+           line_no="32"
+           routine="histogram_v0._omp_fn.0"
+           is_vectorized="0"
+           self_time="9.493895E+01"
+           total_time="9.493895E+01"
+           trip_counts="4000000"
+           func_instance="76"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/papi_internal.c"
+           line_no="2421"
+           routine="_papi_hwi_native_name_to_code"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000180E-02"
+           trip_counts=""
+           func_instance="108"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

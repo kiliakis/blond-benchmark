@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/linux-memory.c"
+           line_no="963"
+           routine="_linux_update_shlib_info"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.002223E-02"
+           trip_counts="1"
+           func_instance="27"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/src/drift.cpp"
+           line_no="31"
+           routine="drift_v0"
+           is_vectorized="1"
+           self_time="3.529992E+00"
+           total_time="3.529992E+00"
+           trip_counts="62499; 3; 2; 2"
+           func_instance="3441"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1.cpp"
+           line_no="35"
+           routine="main"
+           is_vectorized="0"
+           self_time="1.998484E-02"
+           total_time="2.998332E-02"
+           trip_counts="1000000"
+           func_instance="43"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/Downloads/papi-5.5.1/src/linux-memory.c"
+           line_no="963"
+           routine="_linux_update_shlib_info"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.002223E-02"
+           trip_counts="1"
+           func_instance="32"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/drift/benches/bench1.cpp"
+           line_no="47"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="3.529992E+00"
+           trip_counts="1000"
+           func_instance="49"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

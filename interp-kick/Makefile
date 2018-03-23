@@ -5,9 +5,9 @@ include $(HOME)/Defines.mk
 BENCHES := $(wildcard benches/*.cpp)
 OBJS := ${BENCHES:.cpp=.o}
 PROGS := ${BENCHES:.cpp=.exe}
-LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src)
-LIBS += -l$(BASE) 
-INCDIRS += -Iinclude
+LDFLAGS += -L$(realpath src) -Wl,-rpath,$(realpath src) -L/cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/vtune_amplifier/lib64
+LIBS += -l$(BASE) -Wl,-Bstatic -littnotify
+INCDIRS += -Iinclude -I/cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/vtune_amplifier/include/
 PROGS_DIR = exe
 
 # CC=icc

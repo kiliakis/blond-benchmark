@@ -12,6 +12,9 @@
 #include <algorithm>
 using namespace std;
 
+
+#include <ittnotify.h>
+
 int main(int argc, char const *argv[])
 {
     int n_turns = 50000;
@@ -61,11 +64,14 @@ int main(int argc, char const *argv[])
     // papiprof->start_counters("interp_kick");
     auto start = chrono::high_resolution_clock::now();
     // main loop
+    __itt_resume();
     for (int i = 0; i < n_turns; ++i) {
         linear_interp_kick_v4(dt.data(), dE.data(), voltage.data(),
                               bin_centers.data(), n_slices, n_particles,
                               acc_kick);
     }
+    __itt_pause();
+    __itt_detach();
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");

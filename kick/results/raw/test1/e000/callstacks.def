@@ -1,0 +1,117 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      6161 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+         2 |        -1 |      6201 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+         3 |        92 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |      3730 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+         5 |         4 |    478361 |    0 |      1 |           __kmp_api_omp_set_num_threads | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 478352
+         6 |         5 |    525588 |    0 |      1 |          __kmp_get_global_thread_id_reg | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 525440
+         7 |         6 |    570272 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_do_serial_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 570160
+         8 |        98 |    564673 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_reg_status_name | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564653
+         9 |         8 |    680493 |    0 |      1 |                        __kmp_str_format | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 680368
+        10 |         9 |   1006991 |    0 |      1 |                         scalable_malloc | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1006816
+        11 |        10 |   1032877 |    0 |      1 |         rml::internal::doInitialization | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1032272
+        12 |        11 |   1033341 |    0 |      1 |rml::internal::MemoryPool::initDefaultPool | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 1033280
+        13 |        12 |    439317 |    0 |      1 |                                   fgets | /lib64/libc.so.6 | 439152
+        14 |        94 |    443667 |    1 |      1 |      [Loop@0x6c4c0 in _IO_getline_info] | /lib64/libc.so.6 | 443584
+        15 |        14 |    492909 |    0 |      1 |                       _IO_default_uflow | /lib64/libc.so.6 | 492896
+        16 |        15 |    488927 |    0 |      1 |                      _IO_file_underflow | /lib64/libc.so.6 | 488624
+        17 |        90 |   2670527 |    1 |      1 |  [Loop@0x28bf99 in tpss_read_mod1_ver0] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2670489
+        18 |        17 |    956384 |    0 |      1 |                                    read | /lib64/libc.so.6 | 956368
+        19 |         3 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0
+        20 |        19 |      6995 |    0 |      0 |           [Import thunk __gmon_start__] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 6992
+        21 |        96 |    563296 |    1 |      1 |         [Loop@0x89860 in __memset_sse2] | /lib64/libc.so.6 | 563296
+        22 |         3 |      4102 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+        23 |         3 |      4044 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+        24 |         3 |      4040 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+        25 |         3 |      5487 |    0 |      0 |                           func@0x400000 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/benches/bench1 | 0
+        26 |        25 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+        27 |        26 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+        28 |        27 |     58714 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        29 |        28 |    112456 |    0 |      0 |                       _papi_hwi_init_os | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 112144
+        30 |        29 |    111910 |    0 |      0 |                  _linux_get_system_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 111648
+        31 |        30 |    108907 |    0 |      0 |                     _linux_get_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108784
+        32 |       100 |    108341 |    1 |      0 |    [Loop at line 82 in search_cpu_info] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108320
+        33 |        27 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        34 |       102 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+        35 |        34 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+        36 |        35 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+        37 |        36 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+        38 |       107 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+        39 |       110 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+        40 |        39 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+        41 |       113 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+        42 |        41 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+        43 |        72 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+        44 |        43 |    665442 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+        45 |        19 |    494624 |    0 |      1 |                 __kmp_api_GOMP_parallel | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 494464
+        46 |        45 |      3385 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        47 |        45 |      3584 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        48 |        75 |      3690 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        49 |        45 |      3347 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        50 |        45 |      2303 |    0 |      0 |                              func@0x749 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 1865
+        51 |        45 |      3424 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        52 |        45 |      3305 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        53 |        45 |      3552 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        54 |        45 |      3442 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        55 |        45 |      3369 |    0 |      0 |                                 kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 2912
+        56 |        45 |      3534 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        57 |        45 |      3570 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        58 |        45 |      3887 |    0 |      0 |             kick_v0$omp$parallel_for@15 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3877
+        59 |        45 |      3579 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        60 |        45 |      3561 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        61 |        45 |      3403 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        62 |        45 |      3433 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        63 |        45 |      3853 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        64 |        45 |      3650 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        65 |        45 |      3906 |    0 |      0 |             kick_v0$omp$parallel_for@15 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3877
+        66 |        45 |      3456 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        67 |        83 |      3752 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        68 |        45 |      3407 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        69 |        45 |      3656 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        70 |        45 |      3488 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        71 |        45 |      3614 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        72 |        42 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        73 |        42 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        74 |        45 |      3685 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        75 |        74 |      3690 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        76 |        45 |      3690 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        77 |        75 |      3690 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        78 |        75 |      3752 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        79 |        75 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        80 |        75 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        81 |        75 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+        82 |        45 |      3714 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        83 |        82 |      3752 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        84 |        45 |      3752 |    0 |      0 |             kick_v0$omp$parallel_for@21 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3380
+        85 |        83 |      3690 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        86 |        83 |      3752 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        87 |        83 |      3686 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3685
+        88 |        83 |      3715 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3714
+        89 |        83 |      3810 |    1 |      0 |[Loop at line 21 in kick_v0$omp$parallel_for@21] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/kick/src/libbase.so | 3809
+        90 |        16 |   2670489 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+        91 |        16 |   2670527 |    0 |      1 |                     tpss_read_mod1_ver0 | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/advisor_2018.1.0.523188/lib64/libtpsstool.so | 2669520
+        92 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        93 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        94 |        13 |    443584 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        95 |        13 |    443667 |    0 |      1 |                        _IO_getline_info | /lib64/libc.so.6 | 443504
+        96 |        20 |    563296 |    0 |      1 |                           __memset_sse2 | /lib64/libc.so.6 | 563136
+        97 |        20 |    563296 |    0 |      1 |                           __memset_sse2 | /lib64/libc.so.6 | 563136
+        98 |         7 |    564653 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+        99 |         7 |    564673 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+       100 |        31 |    108320 |    0 |      0 |                         search_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108304
+       101 |        31 |    108341 |    0 |      0 |                         search_cpu_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 108304
+       102 |        33 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       103 |        33 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       104 |        37 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       105 |       104 |    118017 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+       106 |       105 |    118344 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       107 |       106 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+       108 |       105 |    119100 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       109 |        37 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       110 |        38 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       111 |        38 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       112 |        40 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       113 |       112 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+       114 |        40 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       115 |        -1 |         0 |    0 |      0 |                      [Outside any loop] | n/a | 0

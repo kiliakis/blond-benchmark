@@ -14,17 +14,22 @@ result_dir = result_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}/'
 csv_dir = csv_dir + 'i{}-s{}-k{}-t{}-{}-{}-{}/'
 
 configs = {
-    'bench1.py': {'sizes': [['500', '500000', '500000', str(x)]
-                            for x in [1]],
-                  'vec': ['na'],
-                  'tcm': ['na'],
-                  'cc': ['na']},
-    'bench2.exe': {'sizes': [['500', '500000', '500000', str(x)]
-                             for x in [1]],
-                   'vec': ['vec'],
-                   'tcm': ['notcm'],
-                   'cc': ['g++']},
-    'bench5.exe': {'sizes': [['500', '500000', '500000', str(x)]
+    # 'bench1.py': {'sizes': [['500', '500000', '500000', str(x)]
+    #                         for x in [1]],
+    #               'vec': ['na'],
+    #               'tcm': ['na'],
+    #               'cc': ['na']},
+    # 'bench2.exe': {'sizes': [['500', '500000', '500000', str(x)]
+    #                          for x in [1]],
+    #                'vec': ['vec'],
+    #                'tcm': ['notcm'],
+    #                'cc': ['g++']},
+    # 'bench5.exe': {'sizes': [['500', '500000', '500000', str(x)]
+    #                          for x in [1]],
+    #                'vec': ['vec'],
+    #                'tcm': ['notcm'],
+    #                'cc': ['icc']},
+    'bench4.exe': {'sizes': [['500', '500000', '500000', str(x)]
                              for x in [1]],
                    'vec': ['vec'],
                    'tcm': ['notcm'],

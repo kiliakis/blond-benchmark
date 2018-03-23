@@ -1,0 +1,99 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      9920 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 9920
+         2 |        -1 |      9960 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 9920
+         3 |        59 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |     10845 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/benches/bench6 | 10256
+         5 |         4 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+         6 |         5 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+         7 |         6 |     58714 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+         8 |         7 |    112456 |    0 |      0 |                       _papi_hwi_init_os | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 112144
+         9 |         8 |    111813 |    0 |      0 |                  _linux_get_system_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 111648
+        10 |        61 |    106360 |    1 |      0 |[Loop at line 963 in _linux_update_shlib_info] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 106145
+        11 |        10 |    425766 |    0 |      1 |                                  sscanf | /lib64/libc.so.6 | 425632
+        12 |        11 |    449350 |    0 |      1 |                               __vsscanf | /lib64/libc.so.6 | 449248
+        13 |        12 |    359571 |    0 |      1 |                             _IO_vfscanf | /lib64/libc.so.6 | 356480
+        14 |         6 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+        15 |        63 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+        16 |        15 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+        17 |        16 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+        18 |        17 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+        19 |        68 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+        20 |        71 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+        21 |        20 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+        22 |        74 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+        23 |        22 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+        24 |        93 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+        25 |        24 |    665380 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+        26 |        95 |    652222 |    1 |      0 |[Loop at line 298 in intel_x86_num_umasks] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652163
+        27 |         4 |    242135 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+        28 |        27 |    230978 |    0 |      0 |                      papi_eventset_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230882
+        29 |        28 |     64699 |    0 |      0 |               _papi_hwi_assign_eventset | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 64592
+        30 |        79 |    218252 |    0 |      0 |         tcmalloc::ThreadCache::Allocate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 218125
+        31 |        30 |    159951 |    0 |      0 |tcmalloc::ThreadCache::FetchFromCentralCache | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 159856
+        32 |        31 |    148179 |    0 |      0 |  tcmalloc::CentralFreeList::RemoveRange | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 148080
+        33 |        32 |    148039 |    0 |      0 |tcmalloc::CentralFreeList::FetchFromOneSpansSafe | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147984
+        34 |        33 |    147524 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        35 |        34 |    152962 |    0 |      0 |                 tcmalloc::PageHeap::New | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 152816
+        36 |        81 |    152197 |    0 |      0 |                            RecordGrowth | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 152131
+        37 |        36 |    211187 |    0 |      0 |                           GetStackTrace | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 211136
+        38 |        37 |    209433 |    0 |      0 |                    GetStackTrace_libgcc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 209392
+        39 |        38 |     66903 |    0 |      0 |                       _Unwind_Backtrace | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 66848
+        40 |        39 |     64639 |    0 |      0 |                       uw_init_context_1 | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 64560
+        41 |        40 |     59957 |    0 |      0 |                      uw_frame_state_for | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 59856
+        42 |        53 |     73697 |    1 |      0 |[Loop at line 1020 in _Unwind_Find_registered_FDE] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73640
+        43 |        57 |     71574 |    0 |      0 |                          start_fde_sort | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71542
+        44 |        43 |    159951 |    0 |      0 |tcmalloc::ThreadCache::FetchFromCentralCache | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 159856
+        45 |        44 |    148179 |    0 |      0 |  tcmalloc::CentralFreeList::RemoveRange | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 148080
+        46 |        45 |    148039 |    0 |      0 |tcmalloc::CentralFreeList::FetchFromOneSpansSafe | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147984
+        47 |        84 |    147783 |    0 |      0 |                          SpinLock::Lock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147475
+        48 |        86 |    208947 |    1 |      0 | [Loop at line 91 in SpinLock::SlowLock] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208896
+        49 |        88 |    209179 |    0 |      0 |                               sys_futex | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 209138
+        50 |        86 |    208955 |    1 |      0 | [Loop at line 91 in SpinLock::SlowLock] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208896
+        51 |        91 |    208828 |    1 |      0 | [Loop at line 69 in SpinLock::SpinLoop] | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208824
+        52 |        41 |     73442 |    0 |      0 |                        _Unwind_Find_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73424
+        53 |        52 |     73640 |    0 |      0 |             _Unwind_Find_registered_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73442
+        54 |        52 |     73697 |    0 |      0 |             _Unwind_Find_registered_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73442
+        55 |        41 |     73697 |    0 |      0 |                        _Unwind_Find_FDE | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 73424
+        56 |        42 |     71040 |    0 |      0 |                           search_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 70880
+        57 |        56 |     71542 |    0 |      0 |                             init_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 71040
+        58 |        42 |     71574 |    0 |      0 |                           search_object | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libgcc_s.so.1 | 70880
+        59 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        60 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+        61 |         9 |    106145 |    0 |      0 |                _linux_update_shlib_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 105872
+        62 |         9 |    106360 |    0 |      0 |                _linux_update_shlib_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 105872
+        63 |        14 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        64 |        14 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+        65 |        18 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        66 |        65 |    118017 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+        67 |        66 |    118344 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+        68 |        67 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+        69 |        66 |    119100 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+        70 |        18 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+        71 |        19 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        72 |        19 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+        73 |        21 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        74 |        73 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+        75 |        21 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+        76 |        29 |    217992 |    0 |      0 |                               tc_calloc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 217984
+        77 |        76 |    218027 |    0 |      0 |                               do_calloc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 217992
+        78 |        77 |    218027 |    0 |      0 |                  do_malloc_or_cpp_alloc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 218027
+        79 |        78 |    218125 |    0 |      0 |                               do_malloc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 218027
+        80 |        29 |    218252 |    0 |      0 |                               tc_calloc | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 217984
+        81 |        35 |    152131 |    0 |      0 |            tcmalloc::PageHeap::GrowHeap | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 151984
+        82 |        35 |    152197 |    0 |      0 |            tcmalloc::PageHeap::GrowHeap | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 151984
+        83 |        46 |    147475 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        84 |        83 |    147475 |    0 |      0 |        _ZN14SpinLockHolderC4EP8SpinLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147475
+        85 |        46 |    147783 |    0 |      0 |     tcmalloc::CentralFreeList::Populate | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 147440
+        86 |        47 |    208896 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        87 |        47 |    208947 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        88 |        48 |    209138 |    0 |      0 |           base::internal::SpinLockDelay | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208992
+        89 |        48 |    209179 |    0 |      0 |           base::internal::SpinLockDelay | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208992
+        90 |        47 |    208955 |    0 |      0 |                      SpinLock::SlowLock | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208864
+        91 |        50 |    208824 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        92 |        50 |    208828 |    0 |      0 |                      SpinLock::SpinLoop | /afs/cern.ch/work/k/kiliakis/install/lib/libtcmalloc.so.4 | 208800
+        93 |        23 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        94 |        23 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+        95 |        25 |    652163 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+        96 |        25 |    652222 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+        97 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

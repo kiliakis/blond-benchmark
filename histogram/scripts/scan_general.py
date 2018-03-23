@@ -4,13 +4,15 @@ from functools import reduce
 from operator import mul
 
 
-# home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/'
-home = '/home/kiliakis/git/blond-benchmark/histogram/'
-result_dir = home + 'results/raw/histo2/{}/'
+home = '/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/'
+# home = '/home/kiliakis/git/blond-benchmark/histogram/'
+result_dir = home + 'results/raw/histo3/{}/'
 exe_form = home + 'benches/{}'
 cuexe_form = home + 'exe_cuda/{}'
+intelpy = '/cvmfs/projects.cern.ch/intelsw/python/linux/intelpython3/bin/python'
+normalpy = '/afs/cern.ch/work/k/kiliakis/install/anaconda3/bin/python'
 
-out_file_name = result_dir + 'i{}-p{}-s{}-t{}.txt'
+out_file_name = result_dir + 'i{}-p{}-s{}-t{}-{}-{}-{}.txt'
 configs = {
     # To use as basis
     # 'bench0': [['1000', str(500000*x), str(100*x), str(x)]
@@ -39,23 +41,29 @@ configs = {
     # 'bench6_tcm': [['1000', str(500000*x), str(100*x), str(x)]
     #                for x in [1, 2, 4, 8, 14]],
 
-    'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14]],
+    # 'bench7.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench8.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    # 'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
+    #                             for x in [1, 2, 4, 8, 14]],
+    #                   'vec': ['na'],
+    #                   'tcm': ['na'],
+    #                   'cc': ['nvcc']
+    #                   },
+    'bench10.py': {'sizes': [['1000', str(500000*x), str(100*x), str(x)]
+                                for x in [1]],
                       'vec': ['na'],
                       'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
-    'bench8.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
-                      },
-    'bench9.cu.exe': {'sizes': [['1000', str(500000*x), str(100*x), '512', '1024']
-                                for x in [1, 2, 4, 8, 14]],
-                      'vec': ['na'],
-                      'tcm': ['na'],
-                      'cc': ['nvcc']
+                      'cc': ['intel', 'normal']
                       }
 
 
@@ -90,18 +98,28 @@ for app, config in configs.items():
                     vec_value = 0
                 else:
                     vec_value = 1
+                if tcm == 'tcm':
+                    tcm_value = 1
+                else:
+                    tcm_value = 0
                 if 'cu' in app:
                     make_string = 'make cuda CUDEBUG='
                 else:
                     make_string = 'make -k CC={} TCM={} NOVEC={} PROGS_DIR=exe_{}_{}_{}'.format(
                         cc, tcm_value, vec_value, cc, vec, tcm)
-                subprocess.call(make_string, shell=True)
+                if '.py' not in app:
+                    subprocess.call(make_string, shell=True)
+                else:
+                    if cc == 'intel':
+                        py = intelpy
+                    else:
+                        py = normalpy
                 for size in configs[app]['sizes']:
                     results = result_dir.format(app)
                     if not os.path.exists(results):
                         os.makedirs(results)
 
-                    if 'cu' in app:
+                    if '.cu' in app:
                         stdout = open(out_file_name.format(
                             app, size[0], size[1], size[2],
                             '{}X{}'.format(size[3], size[4]),
@@ -112,8 +130,10 @@ for app, config in configs.items():
                             app, size[0], size[1], size[2], size[3],
                             cc, vec, tcm), 'w')
                         exe = exe_form.format(cc, vec, tcm, app)
-
-                    exe_list = [exe] + size
+                    if '.py' in app:
+                        exe_list = [py, 'benches/'+app] + size
+                    else:
+                        exe_list = [exe] + size
                     for i in range(repeats):
                         print(cc, vec, app, size, i)
                         subprocess.call(exe_list, stdout=stdout,

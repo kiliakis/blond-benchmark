@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/build/pmendez-sftnight/build-530abi4/x86_64-unknown-linux-gnu/libgcc/../../../gcc-5.3.0/libgcc/unwind-dw2-fde.c"
+           line_no="1020"
+           routine="_Unwind_Find_registered_FDE"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.200000E-01"
+           trip_counts=""
+           func_instance="11"
+           priority="0"/>
+  <hotspot filename="/afs/cern.ch/work/k/kiliakis/git/blond-benchmark/histogram/include/utils.h"
+           line_no="24"
+           routine="read_distribution&lt;double&gt;"
+           is_vectorized="0"
+           self_time="9.991365E-03"
+           total_time="1.700000E-01"
+           trip_counts=""
+           func_instance="9"
+           priority="0"/>
+  <hotspot filename="/build/pmendez-sftnight/build-530abi4/x86_64-unknown-linux-gnu/libgcc/../../../gcc-5.3.0/libgcc/unwind-dw2-fde.c"
+           line_no="534"
+           routine="frame_heapsort"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="24"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/work/git/gperftools-master/src/base/spinlock.cc"
+           line_no="91"
+           routine="SpinLock::SlowLock"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.100000E-01"
+           trip_counts=""
+           func_instance="46"
+           priority="0"/>
+  <hotspot filename="/home/kiliakis/work/git/gperftools-master/src/base/spinlock.cc"
+           line_no="78"
+           routine="SpinLock::SpinLoop"
+           is_vectorized="0"
+           self_time="2.000000E-02"
+           total_time="6.000000E-02"
+           trip_counts=""
+           func_instance="48"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

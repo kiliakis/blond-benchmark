@@ -6,6 +6,7 @@
 #include <random>
 #include <chrono>
 // #include <PAPIProf.h>
+#include <ittnotify.h>
 #include <omp.h>
 #include <algorithm>
 
@@ -45,14 +46,21 @@ int main(int argc, char const *argv[])
     const char *solver = alpha_order > 0 ? "full" : "simple";
     // auto papiprof = new PAPIProf();
     // papiprof->start_counters("drift");
-    auto start = chrono::high_resolution_clock::now();
     // main loop
+    auto start = chrono::high_resolution_clock::now();
+    __itt_domain* domain = __itt_domain_create("total");
+    __itt_string_handle* shMyTask = __itt_string_handle_create("total");
+    __itt_resume();
     for (int i = 0; i < n_turns; ++i) {
+        __itt_task_begin(domain, __itt_null, __itt_null, shMyTask);
         drift_v0(dt.data(), dE.data(), solver,
                  T0, length_ratio, alpha_order, eta0,
                  eta1, eta2, beta, energy,
                  n_particles);
+        __itt_task_end(domain);
     }
+    __itt_pause();
+    __itt_detach();
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
     printf("function\tcounter\taverage_value\tstd(%%)\tcalls\n");

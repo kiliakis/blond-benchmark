@@ -1,0 +1,983 @@
+# callstacks file version: 2
+#    rowid |    parent |       rva | loop | system |                                function | binary | instance rva
+         1 |        -1 |      7552 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7552
+         2 |        -1 |      7592 |    0 |      0 |                                  _start | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7552
+         3 |       473 |    138244 |    1 |      1 |     [Loop@0x21b49 in __libc_start_main] | /lib64/libc.so.6 | 138057
+         4 |         3 |      8057 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+         5 |         4 |    478361 |    0 |      1 |           __kmp_api_omp_set_num_threads | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 478352
+         6 |         5 |    525588 |    0 |      1 |          __kmp_get_global_thread_id_reg | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 525440
+         7 |         6 |    570272 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_do_serial_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 570160
+         8 |         7 |    564684 |    0 |      1 |          __kmp_register_library_startup | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 564640
+         9 |       965 |    779371 |    1 |      1 |[Loop at line 2219 in __kmp_initialize_system_tick] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 779371
+        10 |         3 |      8173 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+        11 |       500 |     10935 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+        12 |       310 |   1063615 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+        13 |        12 |   1144570 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+        14 |        13 |    736605 |    0 |      1 |             std::__convert_to_v<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 736576
+        15 |        14 |    253632 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+        16 |       475 |    250007 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+        17 |       500 |     10951 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+        18 |       312 |   1063615 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+        19 |        18 |   1144570 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+        20 |        19 |    736605 |    0 |      1 |             std::__convert_to_v<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 736576
+        21 |        20 |    252778 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+        22 |       506 |     10748 |    0 |      0 |                   std::istream::istream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10417
+        23 |        22 |   1045327 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+        24 |        23 |   1045017 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        25 |        24 |   1095039 |    0 |      1 |std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094976
+        26 |       314 |    570504 |    0 |      1 |_ZN10__cxxabiv117__class_type_info16__dyncast_resultC4Ei | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570488
+        27 |        23 |   1044963 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        28 |        27 |   1094639 |    0 |      1 |        std::has_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094576
+        29 |        28 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        30 |        29 |    581853 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+        31 |       511 |     10823 |    0 |      0 |std::basic_streambuf<char, std::char_traits<char>>::basic_streambuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10756
+        32 |        31 |    674878 |    0 |      1 |                     std::locale::locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 674736
+        33 |       477 |    257145 |    1 |      1 | [Loop@0x3ec70 in ____strtod_l_internal] | /lib64/libc.so.6 | 257136
+        34 |        29 |    582643 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+        35 |       475 |    250023 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+        36 |        22 |   1045312 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+        37 |        36 |    664150 |    0 |      1 |                  std::ios_base::_M_init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 664096
+        38 |       316 |    667317 |    0 |      1 | std::locale::_Impl::_M_remove_reference | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667308
+        39 |        18 |   1144518 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+        40 |        39 |   1107888 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+        41 |       318 |   1107981 |    0 |      1 |std::operator==<char, std::char_traits<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107955
+        42 |       321 |    909061 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909049
+        43 |        20 |    251861 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+        44 |        43 |    552130 |    0 |      1 |                             __GI_strlen | /lib64/libc.so.6 | 551968
+        45 |       480 |    253519 |    1 |      1 | [Loop@0x3ddf0 in ____strtod_l_internal] | /lib64/libc.so.6 | 253424
+        46 |        45 |    284570 |    0 |      1 |                               __mpn_mul | /lib64/libc.so.6 | 284544
+        47 |       324 |   1144671 |    0 |      1 |           std::string::_Rep::_M_dispose | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144626
+        48 |        47 |    508344 |    0 |      1 |                               _int_free | /lib64/libc.so.6 | 508192
+        49 |       327 |   1108097 |    0 |      1 |                 std::string::operator+= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108091
+        50 |        12 |   1144518 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+        51 |       335 |   1108156 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sgetc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+        52 |       338 |   1108122 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator++ | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108108
+        53 |       341 |   1108935 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator* | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108927
+        54 |        53 |    909304 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909296
+        55 |       514 |     10551 |    0 |      0 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10496
+        56 |       344 |    701806 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+        57 |       347 |    860839 |    0 |      1 |            std::char_traits<char>::copy | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860832
+        58 |        57 |   1350992 |    0 |      1 |                         __memmove_ssse3 | /lib64/libc.so.6 | 1343824
+        59 |       518 |     10608 |    0 |      0 |std::basic_ios<char, std::char_traits<char>>::basic_ios | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10595
+        60 |        59 |    674739 |    0 |      1 |                     std::locale::locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 674736
+        61 |        37 |    667280 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+        62 |       524 |     11619 |    0 |      0 |std::basic_ios<char, std::char_traits<char>>::~basic_ios | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11607
+        63 |        62 |    765512 |    0 |      1 |                std::ios_base::~ios_base | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 765488
+        64 |        63 |    765304 |    0 |      1 |        std::ios_base::_M_call_callbacks | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 765296
+        65 |       350 |   1108298 |    0 |      1 |           std::string::_Rep::_M_dispose | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108283
+        66 |        23 |   1045002 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        67 |        66 |   1090650 |    0 |      1 |std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1090592
+        68 |        67 |    570531 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        69 |       335 |   1108160 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sgetc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+        70 |       354 |   1108834 |    0 |      1 |                 std::string::operator+= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108827
+        71 |       357 |    861412 |    0 |      1 |          std::char_traits<char>::assign | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861412
+        72 |       359 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_find<char> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+        73 |        14 |    252512 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+        74 |       362 |   1108834 |    0 |      1 |                 std::string::operator+= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108827
+        75 |       366 |    861416 |    0 |      1 |                    std::string::_M_data | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+        76 |       369 |    701781 |    0 |      1 |            std::char_traits<char>::find | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701560
+        77 |        76 |    560845 |    0 |      1 |                                  memchr | /lib64/libc.so.6 | 560624
+        78 |        59 |    674878 |    0 |      1 |                     std::locale::locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 674736
+        79 |       372 |   1108935 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator* | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108927
+        80 |        79 |    909296 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909296
+        81 |       475 |    249978 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+        82 |       505 |     10917 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+        83 |        82 |   1045327 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+        84 |        83 |   1045029 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        85 |        84 |   1090730 |    0 |      1 |std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1090672
+        86 |        85 |    570606 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        87 |        37 |    667361 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+        88 |        23 |   1045029 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+        89 |        88 |   1090730 |    0 |      1 |std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1090672
+        90 |        89 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+        91 |        90 |    579497 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+        92 |        36 |    664158 |    0 |      1 |                  std::ios_base::_M_init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 664096
+        93 |       375 |    667415 |    0 |      1 | std::locale::_Impl::_M_remove_reference | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+        94 |       509 |     10868 |    0 |      0 |std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::basic_stringbuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10431
+        95 |       378 |    863034 |    0 |      1 |std::string::_S_construct_aux<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 863021
+        96 |       382 |    856813 |    0 |      1 |            std::char_traits<char>::copy | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856724
+        97 |        96 |   1343846 |    0 |      1 |                         __memmove_ssse3 | /lib64/libc.so.6 | 1343824
+        98 |        14 |    253244 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+        99 |        20 |    251867 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       100 |        20 |    256606 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       101 |       483 |    249978 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+       102 |        83 |   1044963 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       103 |       102 |   1094591 |    0 |      1 |        std::has_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094576
+       104 |       103 |    668010 |    0 |      1 |                  std::locale::id::_M_id | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667968
+       105 |        67 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       106 |       105 |    579497 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+       107 |       384 |   1108779 |    0 |      1 |std::operator!=<char, std::char_traits<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108767
+       108 |       390 |    909114 |    0 |      1 |     std::char_traits<char>::to_int_type | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909114
+       109 |        20 |    254711 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       110 |       100 |    250222 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       111 |       394 |   1108152 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::gbump | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108136
+       112 |       397 |   1109197 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       113 |       500 |     11482 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       114 |        47 |   1078340 |    0 |      1 |           std::string::_Rep::_M_dispose | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1078320
+       115 |        83 |   1044990 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       116 |       115 |   1094959 |    0 |      1 |std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094896
+       117 |       116 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       118 |       117 |    579376 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+       119 |       485 |    251912 |    1 |      1 | [Loop@0x3d800 in ____strtod_l_internal] | /lib64/libc.so.6 | 251904
+       120 |        12 |   1144488 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       121 |       120 |    860163 |    0 |      1 |                    std::string::reserve | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860112
+       122 |       121 |    859994 |    0 |      1 |             std::string::_Rep::_M_clone | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 859968
+       123 |       399 |    856440 |    0 |      1 |__gnu_cxx::new_allocator<char>::allocate | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856436
+       124 |       401 |    578279 |    1 |      1 |       [Loop at line 50 in operator new] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 578272
+       125 |       124 |    524555 |    0 |      1 |                           __libc_malloc | /lib64/libc.so.6 | 524480
+       126 |       125 |    512656 |    0 |      1 |                             _int_malloc | /lib64/libc.so.6 | 512544
+       127 |        83 |   1044975 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       128 |       127 |   1087498 |    0 |      1 |        std::use_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1087440
+       129 |       128 |    570471 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       130 |       100 |    250179 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       131 |       312 |   1063589 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+       132 |       392 |   1108108 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator++ | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108108
+       133 |        82 |   1045312 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+       134 |       133 |    664150 |    0 |      1 |                  std::ios_base::_M_init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 664096
+       135 |       134 |    667305 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       136 |       407 |    909272 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909069
+       137 |        23 |   1044990 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       138 |       137 |   1094959 |    0 |      1 |std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094896
+       139 |       138 |    570597 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       140 |        24 |   1094991 |    0 |      1 |std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094976
+       141 |       140 |    554264 |    0 |      1 |   [Import thunk std::locale::id::_M_id] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 554264
+       142 |       409 |   1108101 |    0 |      1 |                 std::string::operator+= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108091
+       143 |       142 |    861456 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       144 |        20 |    257616 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       145 |        29 |    581870 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       146 |        12 |   1144416 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       147 |       487 |    258080 |    1 |      1 | [Loop@0x3eff8 in ____strtod_l_internal] | /lib64/libc.so.6 | 258040
+       148 |        23 |   1044975 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       149 |       148 |   1087498 |    0 |      1 |        std::use_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1087440
+       150 |       149 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       151 |       150 |    582597 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       152 |       117 |    579369 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+       153 |        11 |   1063550 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       154 |       153 |   1054500 |    0 |      1 |            std::istream::sentry::sentry | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1054464
+       155 |       412 |    582554 |    0 |      1 |              std::type_info::operator== | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 582529
+       156 |       155 |   1269166 |    0 |      1 |                          __strcmp_sse42 | /lib64/libc.so.6 | 1265696
+       157 |       102 |   1094639 |    0 |      1 |        std::has_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094576
+       158 |       157 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       159 |       158 |    582622 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       160 |        76 |    560841 |    0 |      1 |                                  memchr | /lib64/libc.so.6 | 560624
+       161 |       415 |   1108178 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108169
+       162 |        37 |    667305 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       163 |       312 |   1063616 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+       164 |       392 |   1108122 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator++ | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108108
+       165 |       115 |   1094911 |    0 |      1 |std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094896
+       166 |       165 |    667968 |    0 |      1 |                  std::locale::id::_M_id | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667968
+       167 |       344 |    701757 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+       168 |       489 |    258099 |    1 |      1 | [Loop@0x3eff8 in ____strtod_l_internal] | /lib64/libc.so.6 | 258040
+       169 |       155 |   1265742 |    0 |      1 |                          __strcmp_sse42 | /lib64/libc.so.6 | 1265696
+       170 |       541 |     11341 |    0 |      0 |std::__copy_move<(bool)1, (bool)1, std::random_access_iterator_tag>::__copy_m<double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       171 |       469 |     53348 |    1 |      0 |[Loop@0x40d04f in __intel_ssse3_rep_memmove] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 53327
+       172 |        53 |    909312 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909296
+       173 |        24 |   1094992 |    0 |      1 |std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094976
+       174 |        20 |    252482 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       175 |        14 |    251861 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       176 |       175 |    552123 |    0 |      1 |                             __GI_strlen | /lib64/libc.so.6 | 551968
+       177 |       423 |   1108298 |    0 |      1 |           std::string::_Rep::_M_dispose | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108283
+       178 |       426 |    861416 |    0 |      1 |                    std::string::_M_data | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+       179 |       480 |    253446 |    1 |      1 | [Loop@0x3ddf0 in ____strtod_l_internal] | /lib64/libc.so.6 | 253424
+       180 |       310 |   1063589 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063586
+       181 |        18 |   1144488 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       182 |       181 |    860163 |    0 |      1 |                    std::string::reserve | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860112
+       183 |       430 |    860086 |    0 |      1 |      std::string::_Rep::_M_set_sharable | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860086
+       184 |        18 |   1144559 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       185 |       544 |     11558 |    0 |      0 |                  std::istream::~istream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11526
+       186 |        20 |    256888 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       187 |        14 |    253056 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       188 |        82 |   1045323 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1045296
+       189 |       397 |   1108807 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       190 |       483 |    250007 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+       191 |        14 |    253676 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       192 |       191 |    283981 |    0 |      1 |                            __mpn_lshift | /lib64/libc.so.6 | 283920
+       193 |        83 |   1045017 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       194 |       193 |   1095039 |    0 |      1 |std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094976
+       195 |       194 |    570560 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       196 |        20 |    256907 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       197 |       433 |    667317 |    0 |      1 | std::locale::_Impl::_M_remove_reference | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667308
+       198 |        59 |    764697 |    0 |      1 |                 std::ios_base::ios_base | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 764560
+       199 |        20 |    257723 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       200 |       199 |    250792 |    0 |      1 |                        round_and_return | /lib64/libc.so.6 | 250560
+       201 |       142 |    861455 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       202 |       439 |   1109429 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sgetc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       203 |       202 |    820824 |    0 |      1 |std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::underflow | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 820768
+       204 |        53 |    909296 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909296
+       205 |       142 |    861360 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       206 |       133 |    664113 |    0 |      1 |                  std::ios_base::_M_init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 664096
+       207 |       148 |   1087440 |    0 |      1 |        std::use_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1087440
+       208 |       102 |   1094606 |    0 |      1 |        std::has_facet<std::ctype<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094576
+       209 |        14 |    254115 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       210 |       209 |    251221 |    0 |      1 |                        round_and_return | /lib64/libc.so.6 | 250560
+       211 |       210 |    289091 |    0 |      1 |                  __mpn_construct_double | /lib64/libc.so.6 | 289040
+       212 |       150 |    581844 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       213 |       138 |    570575 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       214 |       122 |    856441 |    0 |      1 |            std::string::_Rep::_S_create | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856352
+       215 |       443 |   1144656 |    0 |      1 |           std::string::_Rep::_M_dispose | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144626
+       216 |        53 |    909307 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909296
+       217 |       493 |    252182 |    1 |      1 | [Loop@0x3d916 in ____strtod_l_internal] | /lib64/libc.so.6 | 252182
+       218 |       495 |    251134 |    1 |      1 |      [Loop@0x3d30c in round_and_return] | /lib64/libc.so.6 | 250636
+       219 |       445 |   1108166 |    0 |      1 |     std::char_traits<char>::to_int_type | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108166
+       220 |        14 |    252280 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       221 |       133 |    664158 |    0 |      1 |                  std::ios_base::_M_init | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 664096
+       222 |       448 |    667415 |    0 |      1 | std::locale::_Impl::_M_remove_reference | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       223 |       115 |   1094926 |    0 |      1 |std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1094896
+       224 |       549 |     11525 |    0 |      0 |std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11512
+       225 |       450 |    667415 |    0 |      1 | std::locale::_Impl::_M_remove_reference | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       226 |       105 |    579485 |    0 |      1 |__cxxabiv1::__si_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 579360
+       227 |       327 |   1108101 |    0 |      1 |                 std::string::operator+= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108091
+       228 |       455 |    861416 |    0 |      1 |                    std::string::_M_data | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+       229 |        83 |   1045002 |    0 |      1 |std::basic_ios<char, std::char_traits<char>>::_M_cache_locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1044944
+       230 |       229 |   1090650 |    0 |      1 |std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1090592
+       231 |       230 |    570560 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       232 |        13 |    736672 |    0 |      1 |             std::__convert_to_v<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 736576
+       233 |       457 |    856776 |    0 |      1 |std::string::_Rep::_M_set_length_and_sharable | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856729
+       234 |       480 |    253478 |    1 |      1 | [Loop@0x3ddf0 in ____strtod_l_internal] | /lib64/libc.so.6 | 253424
+       235 |        47 |    508482 |    0 |      1 |                               _int_free | /lib64/libc.so.6 | 508192
+       236 |       459 |   1109216 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       237 |       438 |   1109430 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       238 |       463 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_find<char> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       239 |        39 |   1109910 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       240 |       239 |    563768 |    0 |      1 |std::istreambuf_iteratorXX<char, std::char_traits<char>>::operator++ | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 563728
+       241 |       412 |    582547 |    0 |      1 |              std::type_info::operator== | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 582529
+       242 |       487 |    258103 |    1 |      1 | [Loop@0x3eff8 in ____strtod_l_internal] | /lib64/libc.so.6 | 258040
+       243 |       483 |    250023 |    1 |      1 |     [Loop@0x3d070 in str_to_mpn.isra.0] | /lib64/libc.so.6 | 249968
+       244 |       467 |   1107981 |    0 |      1 |std::operator==<char, std::char_traits<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107955
+       245 |       244 |    909089 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       246 |        31 |    674754 |    0 |      1 |                     std::locale::locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 674736
+       247 |       246 |    674706 |    0 |      1 |              std::locale::_S_initialize | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 674656
+       248 |       128 |    570600 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       249 |       248 |    582652 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       250 |         3 |      9080 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+       251 |       250 |      9119 |    0 |      0 |                                linspace | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 8960
+       252 |       251 |    378845 |    0 |      1 |                           [OpenMP fork] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 378528
+       253 |       252 |    550123 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       254 |       968 |    565969 |    0 |      1 |_INTERNAL_25_______src_kmp_runtime_cpp_7e558fa4::__kmp_do_middle_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 565932
+       255 |       254 |    169317 |    0 |      1 |               __kmp_affinity_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 169232
+       256 |       255 |    171359 |    0 |      1 |_INTERNAL_26_______src_kmp_affinity_cpp_fbd1eedd::__kmp_aux_affinity_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 169344
+       257 |       971 |    214783 |    1 |      1 |[Loop at line 1595 in _INTERNAL_26_______src_kmp_affinity_cpp_fbd1eedd::__kmp_affinity_create_x2apicid_map] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 214736
+       258 |       257 |    783253 |    0 |      1 |              __kmp_affinity_bind_thread | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 783152
+       259 |       258 |    244527 |    0 |      1 |KMPNativeAffinity::Mask::set_system_affinity | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 244448
+       260 |       259 |    993273 |    0 |      1 |                                 syscall | /lib64/libc.so.6 | 993248
+       261 |         3 |      9566 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+       262 |       261 |    242116 |    0 |      0 |                      PAPIProf::PAPIProf | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 241996
+       263 |       262 |    230750 |    0 |      0 |                  papi_singlethread_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapiprof.so | 230733
+       264 |       263 |     58788 |    0 |      0 |                       PAPI_library_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 58560
+       265 |       952 |     68436 |    1 |      0 |[Loop at line 1917 in _papi_hwi_init_global] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68392
+       266 |       265 |    127835 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+       267 |       266 |     42996 |    0 |      0 |                      _papi_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 42832
+       268 |       267 |    612305 |    0 |      0 |                          pfm_initialize | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 612265
+       269 |       975 |    611550 |    1 |      0 |  [Loop at line 781 in pfmlib_init_pmus] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 611441
+       270 |       269 |    667427 |    0 |      0 |               pfm_intel_x86_arch_detect | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 667380
+       271 |       270 |    667310 |    0 |      0 |                          check_arch_pmu | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 667249
+       272 |       271 |    666820 |    0 |      0 |                                   cpuid | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 666820
+       273 |       265 |    127868 |    0 |      0 |                      _pe_init_component | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 126976
+       274 |       273 |    139506 |    0 |      0 |                        _pe_libpfm4_init | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 138992
+       275 |       274 |    121813 |    0 |      0 |                 _papi_load_preset_table | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 121792
+       276 |       957 |    119100 |    0 |      0 |                     check_native_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 119085
+       277 |       960 |     70867 |    1 |      0 |[Loop at line 2421 in _papi_hwi_native_name_to_code] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70552
+       278 |       277 |    136791 |    0 |      0 |            _pe_libpfm4_ntv_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 136704
+       279 |       963 |    135738 |    1 |      0 |[Loop at line 308 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135680
+       280 |       279 |    621064 |    0 |      0 |                 pfm_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 620755
+       281 |       977 |    614695 |    1 |      0 |[Loop at line 1170 in pfmlib_build_event_pattrs] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614631
+       282 |       281 |    665380 |    0 |      0 |       pfm_intel_x86_get_event_attr_info | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 665318
+       283 |       979 |    652202 |    1 |      0 |[Loop at line 298 in intel_x86_num_umasks] | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652163
+       284 |       471 |     10058 |    1 |      0 |               [Loop at line 63 in main] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 10010
+       285 |       284 |     14970 |    0 |      0 |                   linear_interp_kick_v0 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 14736
+       286 |       285 |    378845 |    0 |      1 |                           [OpenMP fork] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 378528
+       287 |       973 |    542444 |    1 |      1 |  [Loop at line 1856 in __kmp_fork_call] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 542236
+       288 |       287 |    744130 |    0 |      1 |                  __kmp_invoke_microtask | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 743984
+       289 |       553 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       290 |       572 |     15752 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       291 |       591 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       292 |       610 |     15737 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       293 |       629 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       294 |       648 |     15743 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       295 |       667 |     15692 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       296 |       686 |     15633 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       297 |       705 |     15721 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       298 |       724 |     15678 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       299 |       743 |     15781 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       300 |       762 |     15696 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       301 |       781 |     15729 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       302 |       800 |     15707 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       303 |       819 |     15775 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       304 |       838 |     15672 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       305 |       857 |     15649 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       306 |       876 |     15747 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       307 |       895 |     15756 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       308 |       914 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       309 |       933 |     15663 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       310 |        11 |   1063586 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       311 |        11 |   1063615 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       312 |        17 |   1063586 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       313 |        17 |   1063615 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       314 |        25 |    570488 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       315 |        25 |    570504 |    0 |      1 |                          __dynamic_cast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 570464
+       316 |        37 |    667308 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       317 |        37 |    667317 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       318 |        39 |   1107955 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       319 |        39 |   1107981 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       320 |        41 |    909049 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       321 |       320 |    909049 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909049
+       322 |        41 |    909061 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       323 |        18 |   1144610 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       324 |       323 |   1144626 |    0 |      1 |                    std::string::~string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144610
+       325 |        18 |   1144671 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       326 |        39 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       327 |       326 |   1108091 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       328 |       326 |   1108097 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       329 |        39 |   1108097 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       330 |        50 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       331 |       330 |   1108156 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       332 |       331 |   1108156 |    0 |      1 |std::operator!=<char, std::char_traits<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       333 |       332 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       334 |       333 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       335 |       334 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       336 |       330 |   1108156 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       337 |        50 |   1108156 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       338 |       330 |   1108108 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       339 |       330 |   1108122 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       340 |        50 |   1108122 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       341 |       330 |   1108927 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       342 |       330 |   1108935 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       343 |        50 |   1108935 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       344 |        55 |    701584 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+       345 |        55 |    701806 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+       346 |        56 |    860799 |    0 |      1 |                     std::string::append | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860704
+       347 |       346 |    860832 |    0 |      1 |                    std::string::_M_copy | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860799
+       348 |        56 |    860839 |    0 |      1 |                     std::string::append | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860704
+       349 |        39 |   1108279 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       350 |       349 |   1108283 |    0 |      1 |                    std::string::~string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108279
+       351 |        39 |   1108298 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       352 |       330 |   1108160 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       353 |        50 |   1108160 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       354 |       330 |   1108827 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       355 |       330 |   1108834 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       356 |        50 |   1108834 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       357 |        70 |    861412 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       358 |        70 |    861412 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       359 |       326 |   1108080 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       360 |       326 |   1108080 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       361 |        39 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       362 |       326 |   1108827 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       363 |       326 |   1108834 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       364 |        39 |   1108834 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       365 |        74 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       366 |       365 |    861416 |    0 |      1 |                     std::string::_M_rep | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+       367 |        74 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       368 |        55 |    701584 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+       369 |       368 |    701560 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+       370 |       368 |    701781 |    1 |      1 |[Loop at line 149 in std::getline<char, std::char_traits<char>, std::allocator<char>>] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701584
+       371 |        55 |    701781 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+       372 |       326 |   1108927 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       373 |       326 |   1108935 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       374 |        39 |   1108935 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       375 |        92 |    667392 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       376 |        92 |    667415 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       377 |        94 |    863021 |    0 |      1 |                     std::string::string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 863008
+       378 |       377 |    863021 |    0 |      1 |  std::string::_S_construct<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 863021
+       379 |        94 |    863034 |    0 |      1 |                     std::string::string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 863008
+       380 |        95 |    856711 |    0 |      1 |  std::string::_S_construct<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856688
+       381 |       380 |    856711 |    0 |      1 |              std::string::_S_copy_chars | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856711
+       382 |       381 |    856724 |    0 |      1 |                    std::string::_M_copy | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856711
+       383 |        95 |    856813 |    0 |      1 |  std::string::_S_construct<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856688
+       384 |       326 |   1108767 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       385 |       326 |   1108779 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       386 |        39 |   1108779 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       387 |       107 |    909049 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       388 |       387 |    909049 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909049
+       389 |       388 |    909108 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909049
+       390 |       389 |    909114 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sgetc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909108
+       391 |       107 |    909114 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       392 |       326 |   1108108 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       393 |       392 |   1108126 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::operator++ | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108108
+       394 |       393 |   1108136 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sbumpc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108126
+       395 |       326 |   1108152 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       396 |        39 |   1108152 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       397 |        50 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       398 |        50 |   1109197 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       399 |       122 |    856436 |    0 |      1 |            std::string::_Rep::_S_create | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856352
+       400 |       122 |    856440 |    0 |      1 |            std::string::_Rep::_S_create | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856352
+       401 |       123 |    578272 |    0 |      1 |                            operator new | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 578256
+       402 |       123 |    578279 |    0 |      1 |                            operator new | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 578256
+       403 |        17 |   1063589 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       404 |       326 |   1108108 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       405 |        39 |   1108108 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       406 |       107 |    909069 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       407 |       406 |    909069 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909069
+       408 |       107 |    909272 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 909040
+       409 |       330 |   1108091 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       410 |       330 |   1108101 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       411 |        50 |   1108101 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       412 |       150 |    582529 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       413 |       150 |    582554 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       414 |       332 |   1108169 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       415 |       414 |   1108169 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108169
+       416 |       330 |   1108178 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       417 |        50 |   1108178 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       418 |        17 |   1063616 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       419 |       326 |   1108122 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       420 |        39 |   1108122 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       421 |        55 |    701757 |    0 |      1 |std::getline<char, std::char_traits<char>, std::allocator<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 701392
+       422 |        50 |   1108279 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       423 |       422 |   1108283 |    0 |      1 |                    std::string::~string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108279
+       424 |        50 |   1108298 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       425 |       142 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       426 |       425 |    861416 |    0 |      1 |                     std::string::_M_rep | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+       427 |       142 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       428 |        11 |   1063589 |    0 |      1 |        std::istream::_M_extract<double> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1063520
+       429 |       182 |    860040 |    0 |      1 |             std::string::_Rep::_M_clone | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 859968
+       430 |       429 |    860086 |    0 |      1 |std::string::_Rep::_M_set_length_and_sharable | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 860040
+       431 |       182 |    860086 |    0 |      1 |             std::string::_Rep::_M_clone | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 859968
+       432 |        50 |   1108807 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       433 |       134 |    667308 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       434 |       134 |    667317 |    0 |      1 |                  std::locale::operator= | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667280
+       435 |       326 |   1108156 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       436 |       435 |   1108156 |    0 |      1 |std::operator!=<char, std::char_traits<char>> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       437 |       436 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::equal | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       438 |       437 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_at_eof | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       439 |       438 |   1108156 |    0 |      1 |std::istreambuf_iterator<char, std::char_traits<char>>::_M_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       440 |       326 |   1109429 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       441 |        39 |   1109429 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       442 |        12 |   1144610 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       443 |       442 |   1144626 |    0 |      1 |                    std::string::~string | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144610
+       444 |        12 |   1144656 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::do_get | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1144416
+       445 |       335 |   1108166 |    0 |      1 |std::basic_streambuf<char, std::char_traits<char>>::sgetc | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108156
+       446 |       330 |   1108166 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       447 |        50 |   1108166 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       448 |       221 |    667392 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       449 |       221 |    667415 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       450 |       224 |    667392 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       451 |       224 |    667415 |    0 |      1 |                    std::locale::~locale | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 667392
+       452 |       326 |   1108101 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       453 |        39 |   1108101 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       454 |       227 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       455 |       454 |    861416 |    0 |      1 |                     std::string::_M_rep | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861416
+       456 |       227 |    861416 |    0 |      1 |                  std::string::push_back | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 861360
+       457 |        95 |    856729 |    0 |      1 |  std::string::_S_construct<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856688
+       458 |        95 |    856776 |    0 |      1 |  std::string::_S_construct<char const*> | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 856688
+       459 |        39 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       460 |        39 |   1109216 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       461 |       326 |   1109430 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       462 |        39 |   1109430 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       463 |       330 |   1108080 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       464 |       330 |   1108080 |    1 |      1 |[Loop at line 303 in std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float] | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1108080
+       465 |        50 |   1108080 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       466 |       150 |    582547 |    0 |      1 |__cxxabiv1::__vmi_class_type_info::__do_dyncast | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 581840
+       467 |        50 |   1107955 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       468 |        50 |   1107981 |    0 |      1 |std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::_M_extract_float | /afs/cern.ch/sw/lcg/contrib/gcc/5.3/x86_64-slc6/lib64/libstdc++.so.6 | 1107888
+       469 |       170 |     53327 |    0 |      0 |               __intel_ssse3_rep_memmove | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 46304
+       470 |       170 |     53348 |    0 |      0 |               __intel_ssse3_rep_memmove | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 46304
+       471 |         3 |     10010 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+       472 |         3 |     10058 |    0 |      0 |                                    main | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/benches/bench1 | 7888
+       473 |         2 |    138057 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+       474 |         2 |    138244 |    0 |      1 |                       __libc_start_main | /lib64/libc.so.6 | 138000
+       475 |        15 |    249968 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       476 |        15 |    250007 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       477 |        14 |    257136 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       478 |        14 |    257145 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       479 |        15 |    250023 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       480 |        14 |    253424 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       481 |        14 |    253519 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       482 |        15 |    249978 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       483 |       100 |    249968 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       484 |       100 |    249978 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       485 |        20 |    251904 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       486 |        20 |    251912 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       487 |        14 |    258040 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       488 |        14 |    258080 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       489 |        20 |    258040 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       490 |        20 |    258099 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       491 |        14 |    253446 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       492 |       100 |    250007 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       493 |        14 |    252182 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       494 |        14 |    252182 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       495 |       199 |    250636 |    0 |      1 |                        round_and_return | /lib64/libc.so.6 | 250560
+       496 |       199 |    251134 |    0 |      1 |                        round_and_return | /lib64/libc.so.6 | 250560
+       497 |        14 |    253478 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       498 |        14 |    258103 |    0 |      1 |                   ____strtod_l_internal | /lib64/libc.so.6 | 251792
+       499 |       100 |    250023 |    0 |      1 |                       str_to_mpn.isra.0 | /lib64/libc.so.6 | 249920
+       500 |        10 |     10488 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       501 |        10 |     10935 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       502 |        10 |     10951 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       503 |        10 |     10488 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       504 |       503 |     10410 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       505 |       504 |     10410 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+       506 |       505 |     10417 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+       507 |       503 |     10748 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       508 |        10 |     10748 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       509 |       505 |     10431 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+       510 |       509 |     10756 |    0 |      0 |std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::basic_stringbuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10431
+       511 |       510 |     10756 |    0 |      0 |std::basic_streambuf<char, std::char_traits<char>>::basic_streambuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10756
+       512 |       503 |     10823 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       513 |        10 |     10823 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       514 |       503 |     10496 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       515 |       503 |     10551 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       516 |        10 |     10551 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       517 |       505 |     10595 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10410
+       518 |       517 |     10595 |    0 |      0 |std::basic_ios<char, std::char_traits<char>>::basic_ios | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10595
+       519 |       503 |     10608 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       520 |        10 |     10608 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       521 |       503 |     11451 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       522 |       521 |     11451 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11451
+       523 |       522 |     11607 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11451
+       524 |       523 |     11607 |    0 |      0 |std::basic_ios<char, std::char_traits<char>>::~basic_ios | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11607
+       525 |       503 |     11619 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       526 |        10 |     11619 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       527 |       503 |     10917 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       528 |        10 |     10917 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       529 |       503 |     10868 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       530 |        10 |     10868 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       531 |        10 |     11482 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       532 |       503 |     11189 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       533 |       532 |     11203 |    0 |      0 |std::vector<double, std::allocator<double>>::push_back | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11189
+       534 |       533 |     11313 |    0 |      0 |_ZNSt6vectorIdSaIdEE19_M_emplace_back_auxIJRKdEEEvDpOT_ | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11203
+       535 |       534 |     11313 |    0 |      0 |std::__uninitialized_move_if_noexcept_a<double*, double*, std::allocator<double>> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       536 |       535 |     11313 |    0 |      0 |std::__uninitialized_copy_a<std::move_iterator<double*>, double*, double> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       537 |       536 |     11313 |    0 |      0 |std::uninitialized_copy<std::move_iterator<double*>, double*> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       538 |       537 |     11313 |    0 |      0 |std::__uninitialized_copy<(bool)1>::__uninit_copy<std::move_iterator<double*>, double*> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       539 |       538 |     11313 |    0 |      0 |std::copy<std::move_iterator<double*>, double*> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       540 |       539 |     11313 |    0 |      0 |std::__copy_move_a2<(bool)1, double*, double*> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       541 |       540 |     11313 |    0 |      0 |std::__copy_move_a<(bool)1, double*, double*> | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11313
+       542 |       503 |     11341 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       543 |        10 |     11341 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       544 |       522 |     11526 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11451
+       545 |       503 |     11558 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       546 |        10 |     11558 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       547 |       522 |     11487 |    0 |      0 |std::basic_istringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_istringstream | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11451
+       548 |       547 |     11512 |    0 |      0 |std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::~basic_stringbuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11487
+       549 |       548 |     11512 |    0 |      0 |std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 11512
+       550 |       503 |     11525 |    1 |      0 |  [Loop at line 31 in read_distribution] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 10488
+       551 |        10 |     11525 |    0 |      0 |                       read_distribution | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 9856
+       552 |       288 |     15622 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       553 |       552 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       554 |       288 |     15702 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       555 |       553 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       556 |       553 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       557 |       553 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       558 |       553 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       559 |       553 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       560 |       553 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       561 |       553 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       562 |       553 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       563 |       553 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       564 |       553 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       565 |       553 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       566 |       553 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       567 |       553 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       568 |       553 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       569 |       553 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       570 |       553 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       571 |       553 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       572 |       552 |     15752 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       573 |       288 |     15752 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       574 |       572 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       575 |       572 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       576 |       572 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       577 |       572 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       578 |       572 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       579 |       572 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       580 |       572 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       581 |       572 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       582 |       572 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       583 |       572 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       584 |       572 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       585 |       572 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       586 |       572 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       587 |       572 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       588 |       572 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       589 |       572 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       590 |       572 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       591 |       552 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       592 |       288 |     15771 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       593 |       591 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       594 |       591 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       595 |       591 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       596 |       591 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       597 |       591 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       598 |       591 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       599 |       591 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       600 |       591 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       601 |       591 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       602 |       591 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       603 |       591 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       604 |       591 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       605 |       591 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       606 |       591 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       607 |       591 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       608 |       591 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       609 |       591 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       610 |       552 |     15737 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       611 |       288 |     15737 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       612 |       610 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       613 |       610 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       614 |       610 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       615 |       610 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       616 |       610 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       617 |       610 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       618 |       610 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       619 |       610 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       620 |       610 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       621 |       610 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       622 |       610 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       623 |       610 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       624 |       610 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       625 |       610 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       626 |       610 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       627 |       610 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       628 |       610 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       629 |       552 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       630 |       288 |     15658 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       631 |       629 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       632 |       629 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       633 |       629 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       634 |       629 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       635 |       629 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       636 |       629 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       637 |       629 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       638 |       629 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       639 |       629 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       640 |       629 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       641 |       629 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       642 |       629 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       643 |       629 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       644 |       629 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       645 |       629 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       646 |       629 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       647 |       629 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       648 |       552 |     15743 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       649 |       288 |     15743 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       650 |       648 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       651 |       648 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       652 |       648 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       653 |       648 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       654 |       648 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       655 |       648 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       656 |       648 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       657 |       648 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       658 |       648 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       659 |       648 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       660 |       648 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       661 |       648 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       662 |       648 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       663 |       648 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       664 |       648 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       665 |       648 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       666 |       648 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       667 |       552 |     15692 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       668 |       288 |     15692 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       669 |       667 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       670 |       667 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       671 |       667 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       672 |       667 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       673 |       667 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       674 |       667 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       675 |       667 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       676 |       667 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       677 |       667 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       678 |       667 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       679 |       667 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       680 |       667 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       681 |       667 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       682 |       667 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       683 |       667 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       684 |       667 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       685 |       667 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       686 |       552 |     15633 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       687 |       288 |     15633 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       688 |       686 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       689 |       686 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       690 |       686 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       691 |       686 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       692 |       686 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       693 |       686 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       694 |       686 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       695 |       686 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       696 |       686 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       697 |       686 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       698 |       686 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       699 |       686 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       700 |       686 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       701 |       686 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       702 |       686 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       703 |       686 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       704 |       686 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       705 |       552 |     15721 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       706 |       288 |     15721 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       707 |       705 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       708 |       705 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       709 |       705 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       710 |       705 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       711 |       705 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       712 |       705 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       713 |       705 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       714 |       705 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       715 |       705 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       716 |       705 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       717 |       705 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       718 |       705 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       719 |       705 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       720 |       705 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       721 |       705 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       722 |       705 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       723 |       705 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       724 |       552 |     15678 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       725 |       288 |     15678 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       726 |       724 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       727 |       724 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       728 |       724 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       729 |       724 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       730 |       724 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       731 |       724 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       732 |       724 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       733 |       724 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       734 |       724 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       735 |       724 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       736 |       724 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       737 |       724 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       738 |       724 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       739 |       724 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       740 |       724 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       741 |       724 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       742 |       724 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       743 |       552 |     15781 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       744 |       288 |     15781 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       745 |       743 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       746 |       743 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       747 |       743 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       748 |       743 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       749 |       743 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       750 |       743 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       751 |       743 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       752 |       743 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       753 |       743 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       754 |       743 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       755 |       743 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       756 |       743 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       757 |       743 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       758 |       743 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       759 |       743 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       760 |       743 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       761 |       743 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       762 |       552 |     15696 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       763 |       288 |     15696 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       764 |       762 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       765 |       762 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       766 |       762 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       767 |       762 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       768 |       762 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       769 |       762 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       770 |       762 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       771 |       762 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       772 |       762 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       773 |       762 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       774 |       762 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       775 |       762 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       776 |       762 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       777 |       762 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       778 |       762 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       779 |       762 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       780 |       762 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       781 |       552 |     15729 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       782 |       288 |     15729 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       783 |       781 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       784 |       781 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       785 |       781 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       786 |       781 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       787 |       781 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       788 |       781 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       789 |       781 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       790 |       781 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       791 |       781 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       792 |       781 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       793 |       781 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       794 |       781 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       795 |       781 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       796 |       781 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       797 |       781 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       798 |       781 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       799 |       781 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       800 |       552 |     15707 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       801 |       288 |     15707 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       802 |       800 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       803 |       800 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       804 |       800 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       805 |       800 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       806 |       800 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       807 |       800 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       808 |       800 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       809 |       800 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       810 |       800 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       811 |       800 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       812 |       800 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       813 |       800 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       814 |       800 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       815 |       800 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       816 |       800 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       817 |       800 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       818 |       800 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       819 |       552 |     15775 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       820 |       288 |     15775 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       821 |       819 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       822 |       819 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       823 |       819 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       824 |       819 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       825 |       819 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       826 |       819 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       827 |       819 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       828 |       819 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       829 |       819 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       830 |       819 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       831 |       819 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       832 |       819 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       833 |       819 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       834 |       819 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       835 |       819 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       836 |       819 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       837 |       819 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       838 |       552 |     15672 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       839 |       288 |     15672 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       840 |       838 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       841 |       838 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       842 |       838 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       843 |       838 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       844 |       838 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       845 |       838 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       846 |       838 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       847 |       838 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       848 |       838 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       849 |       838 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       850 |       838 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       851 |       838 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       852 |       838 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       853 |       838 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       854 |       838 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       855 |       838 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       856 |       838 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       857 |       552 |     15649 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       858 |       288 |     15649 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       859 |       857 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       860 |       857 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       861 |       857 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       862 |       857 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       863 |       857 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       864 |       857 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       865 |       857 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       866 |       857 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       867 |       857 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       868 |       857 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       869 |       857 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       870 |       857 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       871 |       857 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       872 |       857 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       873 |       857 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       874 |       857 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       875 |       857 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       876 |       552 |     15747 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       877 |       288 |     15747 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       878 |       876 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       879 |       876 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       880 |       876 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       881 |       876 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       882 |       876 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       883 |       876 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       884 |       876 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       885 |       876 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       886 |       876 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       887 |       876 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       888 |       876 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       889 |       876 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       890 |       876 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       891 |       876 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       892 |       876 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       893 |       876 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       894 |       876 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       895 |       552 |     15756 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       896 |       288 |     15756 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       897 |       895 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       898 |       895 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       899 |       895 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       900 |       895 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       901 |       895 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       902 |       895 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       903 |       895 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       904 |       895 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       905 |       895 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       906 |       895 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       907 |       895 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       908 |       895 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       909 |       895 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       910 |       895 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       911 |       895 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       912 |       895 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       913 |       895 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       914 |       552 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       915 |       288 |     15622 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       916 |       914 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       917 |       914 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       918 |       914 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       919 |       914 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       920 |       914 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       921 |       914 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       922 |       914 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       923 |       914 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       924 |       914 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       925 |       914 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       926 |       914 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       927 |       914 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       928 |       914 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       929 |       914 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       930 |       914 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       931 |       914 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       932 |       914 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       933 |       552 |     15663 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       934 |       288 |     15663 |    0 |      0 |linear_interp_kick_v0$omp$parallel_for@23 | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15101
+       935 |       933 |     15702 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       936 |       933 |     15771 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       937 |       933 |     15658 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       938 |       933 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       939 |       933 |     15485 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       940 |       933 |     15500 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       941 |       933 |     15552 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       942 |       933 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       943 |       933 |     15846 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       944 |       933 |     15861 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       945 |       933 |     15915 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       946 |       933 |     15622 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       947 |       933 |     15834 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       948 |       933 |     15474 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       949 |       933 |     15475 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15474
+       950 |       933 |     15623 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15622
+       951 |       933 |     15835 |    1 |      0 |[Loop at line 23 in linear_interp_kick_v0$omp$parallel_for@23] | /afs/cern.ch/work/k/kiliakis/git/blond-benchmark/interp-kick/src/libbase.so | 15834
+       952 |       264 |     68392 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       953 |       264 |     68436 |    0 |      0 |                   _papi_hwi_init_global | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 68336
+       954 |       275 |    116064 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       955 |       954 |    118017 |    1 |      0 |[Loop at line 1033 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 116064
+       956 |       955 |    118344 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       957 |       956 |    119085 |    0 |      0 |                                is_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118344
+       958 |       955 |    119100 |    1 |      0 |[Loop at line 1164 in papi_load_derived_events] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 118017
+       959 |       275 |    119100 |    0 |      0 |                papi_load_derived_events | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 115584
+       960 |       276 |     70552 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       961 |       276 |     70867 |    0 |      0 |           _papi_hwi_native_name_to_code | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 70416
+       962 |       278 |    135590 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       963 |       962 |    135680 |    1 |      0 |[Loop at line 291 in allocate_native_event] | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 135590
+       964 |       278 |    135738 |    0 |      0 |                   allocate_native_event | /afs/cern.ch/work/k/kiliakis/install/lib/libpapi.so.5 | 134816
+       965 |         8 |    779371 |    0 |      1 |            __kmp_initialize_system_tick | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 779328
+       966 |         8 |    779371 |    0 |      1 |            __kmp_initialize_system_tick | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 779328
+       967 |       253 |    565629 |    0 |      1 |               __kmp_parallel_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 565552
+       968 |       967 |    565932 |    1 |      1 |[Loop at line 6987 in __kmp_parallel_initialize] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 565629
+       969 |       967 |    565969 |    1 |      1 |[Loop at line 6987 in __kmp_parallel_initialize] | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 565629
+       970 |       253 |    565969 |    0 |      1 |               __kmp_parallel_initialize | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 565552
+       971 |       256 |    214736 |    0 |      1 |_INTERNAL_26_______src_kmp_affinity_cpp_fbd1eedd::__kmp_affinity_create_x2apicid_map | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 213008
+       972 |       256 |    214783 |    0 |      1 |_INTERNAL_26_______src_kmp_affinity_cpp_fbd1eedd::__kmp_affinity_create_x2apicid_map | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 213008
+       973 |       286 |    542236 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       974 |       286 |    542444 |    0 |      1 |                         __kmp_fork_call | /cvmfs/projects.cern.ch/intelsw/psxe/linux/x86_64/2018/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64/libiomp5.so | 541664
+       975 |       268 |    611441 |    0 |      0 |                        pfmlib_init_pmus | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 611414
+       976 |       268 |    611550 |    0 |      0 |                        pfmlib_init_pmus | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 611414
+       977 |       280 |    614631 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       978 |       280 |    614695 |    0 |      0 |               pfmlib_build_event_pattrs | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 614352
+       979 |       282 |    652163 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       980 |       282 |    652202 |    0 |      0 |                    intel_x86_num_umasks | /afs/cern.ch/work/k/kiliakis/install/lib/libpfm.so.4 | 652116
+       981 |        -1 |         0 |    0 |      0 |                [Unknown stack frame(s)] | n/a | 0

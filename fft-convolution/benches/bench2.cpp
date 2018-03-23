@@ -53,20 +53,21 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < n_kernel; ++i) {
         kernel[i] = d(gen);
     }
-
-    fft_convolution(signal.data(), n_signal,
-                    kernel.data(), n_kernel,
-                    result.data(), n_threads);
+    complex_t *z1 =  new complex_t[n_signal/2 +1];
+    // fft_convolution(signal.data(), n_signal,
+    //                 kernel.data(), n_kernel,
+    //                 result.data(), n_threads);
 
     // auto papiprof = new PAPIProf();
     // // main loop
     // papiprof->start_counters("fft_convolution");
     auto start = chrono::high_resolution_clock::now();
-
+    cout << "Starting\n";
     for (int i = 0; i < n_turns; ++i) {
-        fft_convolution(signal.data(), n_signal,
-                        kernel.data(), n_kernel,
-                        result.data(), n_threads);
+        rfft(signal.data(), n_signal, z1);
+        // fft_convolution(signal.data(), n_signal,
+        //                 kernel.data(), n_kernel,
+        //                 result.data(), n_threads);
     }
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();

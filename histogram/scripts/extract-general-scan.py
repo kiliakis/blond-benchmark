@@ -5,13 +5,14 @@ import sys
 import numpy as np
 from extract.extract_utilities import *
 
+application = 'histogram'
+header = ['version', 'cc', 'vec', 'tcm', 'turns', 'points', 
+          'slices', 'threads','time(ms)', 'std(%)']
 
 def extract_results(input, outfile):
     outdir = os.path.dirname(outfile)
     if not os.path.exists(outdir):
         os.makedirs(outdir)
-    header = ['version', 'turns', 'points', 'slices', 'threads',
-              'time(ms)', 'std(%)']
     records = []
     for dirs, subdirs, files in os.walk(input):
         for file in files:
@@ -22,22 +23,25 @@ def extract_results(input, outfile):
             turns = string_between(file, 'i', '-')
             points = string_between(file, 'p', '-')
             slices = string_between(file, 's', '-')
-            threads = string_between(file, 't', '.')
+            threads = string_between(file, 't', '-')
+            cc = file.split('-')[4]
+            vec = file.split('-')[5]
+            tcm = file.split('-')[6].split('.txt')[0]
             for line in open(os.path.join(dirs, file), 'r'):
-                line = get_line_matching(line, ['histogram'])
+                line = get_line_matching(line, [application])
                 if not line:
                     continue
                 line = line.split('\t')
-                app = line[0]
+                app = line[0].split('_')[1]
                 time = line[2]
                 times.append(float(time))
             if times:
-                records.append([app, turns, points, slices, threads,
-                                '%.2lf' % np.mean(times),
-                                '%.2lf' % (100 * np.std(times) / np.mean(times))])
+                records.append([app, cc, vec, tcm, turns, points, slices, threads,
+                                '%.1lf' % np.mean(times),
+                                '%.1lf' % (100 * np.std(times) / np.mean(times))])
     # print(records)
-    records.sort(key=lambda a: (a[0], int(a[1]),
-                                int(a[2]), int(a[3]), (a[4])))
+    records.sort(key=lambda a: (a[0], a[1], a[2], a[3],
+                                int(a[4]), int(a[5]), int(a[6])))
     out = open(outfile, 'w')
     writer = csv.writer(out, delimiter='\t')
     writer.writerow(header)
