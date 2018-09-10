@@ -28,8 +28,12 @@ ifeq ($(TCM),1)
 	CFLAGS += -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free
 endif
 
+ifeq ($(DEBUG),1)
+	CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME)
+else
+	CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
+endif
 
-CFLAGS = -std=c++11 -g -fopenmp -DHOME=$(HOME) $(OPTFLAGS)
 LDFLAGS = -L$(INSTALL)/lib
 INCDIRS = -I$(INSTALL)/include
 

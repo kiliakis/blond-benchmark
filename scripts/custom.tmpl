@@ -7,7 +7,8 @@
 # source <advisor_install_dir>/advixe_vars.sh
 # advixe-cl --report custom --report-template <path_to_your_template_file> --project-dir <path_to_advisor_project_with_collected_results>
 import sys
-import advixe_discmodels_python2 as advisor
+# import advixe_discmodels_python2 as advisor
+import advixe_discpythonapi1 as advisor
 import disccli2 as common
 
 # select top 5 loops by self-time
@@ -17,11 +18,26 @@ def select_top5(rows):
     # import numpy as np
     if not rows:
         return []
+    to_print = ['call_count', 'dynamic', 'loop_name', 'self_elapsed_time', 'self_memory_gb', 'self_time', 'module']
     keys = ['self_time', 'self_gflop', 'self_memory_gb']
     data = [['total_time', 'total_gflop',
              'total_memory_gb', 'total_gflops', 'total_ai']]
     sums = [0.]*len(keys)
-    for row in rows:
+    # print(rows)
+    # print(rows[0])
+    flag = True
+    # top = 6
+    for row,_ in zip(rows, range(0,6)):
+        # print(row)
+        # if flag == True:
+        for k in row:
+            if sum([t in k for t in to_print]) > 0:
+                if row[k] != '' and row[k] != '0':
+                    print(k, row[k])
+                
+            flag = False
+        print('-------------------')
+
         for i in range(len(keys)):
             if row[keys[i]]:
                 sums[i] += float(row[keys[i]])
@@ -48,6 +64,7 @@ project = advisor.open_project(data_input, _progress, _messenger)
 survey = project.load(advisor.ModelType.SURVEY)
 if survey:
     table = select_top5(survey.get_bottomup_rows())
+    # print(table)
     common.draw_table(table, format, delim, element_name='summary')
     # draw_table(table, format, delim)
 

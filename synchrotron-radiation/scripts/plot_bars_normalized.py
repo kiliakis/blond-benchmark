@@ -25,7 +25,7 @@ plots_config = {
               'y_name': 'time(ms)',
               'y_err_name': 'std(%)',
               'xlabel': 'Macro-particles',
-              'ylabel': 'Normalized time',
+              'ylabel': 'Normalized\ntime',
               'title': '',
               'width': 0.25,
               'step1': 0.27,
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         print(plots_dir)
         print(normalize)
 
-        plt.figure(figsize=(5,2.))
+        plt.figure(figsize=(5.8,1.6))
         # plt.grid('on')
         plt.grid(True, which='major', axis='y', alpha=0.7)
 
@@ -96,7 +96,7 @@ if __name__ == '__main__':
             plt.gca().get_lines()
             for p in plt.gca().get_lines()[::3]:
                 annotate(plt.gca(), p.get_xdata(), p.get_ydata())
-        plt.legend(loc='upper left', fancybox=True, framealpha=0.4, ncol=1, fontsize=10)
+        plt.legend(loc='upper left', fancybox=True, framealpha=0.7, ncol=3, fontsize=10)
         plt.tight_layout()
         plt.savefig(config['image_name'], dpi=300, bbox_inches='tight')
         import subprocess
