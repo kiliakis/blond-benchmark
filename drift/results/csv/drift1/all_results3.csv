@@ -1,5 +1,0 @@
-version	cc	vec	tcm	turns	points	alpha	threads	time(ms)	std(%)
-v5	intel	na	na	1000	500000	0	1	1023.2	0.5
-v5	intel	na	na	1000	500000	1	1	6898.4	3.4
-v5	normal	na	na	1000	500000	0	1	984.0	1.2
-v5	normal	na	na	1000	500000	1	1	4250.2	0.1

@@ -1,3 +1,0 @@
-version	cc	vec	turns	points	n_rf	threads	time(ms)	std(%)
-v9	intel	na	500	1000000	1	1	6967.6	6.9
-v9	normal	na	500	1000000	1	1	14406.8	5.0

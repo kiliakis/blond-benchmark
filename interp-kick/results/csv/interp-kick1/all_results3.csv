@@ -1,3 +1,0 @@
-version	cc	vec	tcm	turns	points	slices	threads	time(ms)	std(%)
-v11	intel	na	na	1000	500000	100	1	31247.0	2.1
-v11	normal	na	na	1000	500000	100	1	31991.0	2.5

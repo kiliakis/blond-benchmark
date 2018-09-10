@@ -1,3 +1,0 @@
-version	cc	vec	tcm	turns	signalLen	kernelLen	threads	time(ms)	std(%)
-v11	intel	na	na	500	4000	4000	1	2502.2	0.2
-v11	normal	na	na	500	4000	4000	1	2621.8	0.4
