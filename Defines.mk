@@ -10,9 +10,9 @@ BENCH_DIRS := interp-kick \
 			  fft-convolution \
 			  synchrotron-radiation
 
-#CC = g++
+CC = g++
 CUCC = nvcc
-CC = icc
+# CC = icc
 ifeq ($(NOVEC),1)
 	ifeq ($(CC),icc)
 		OPTFLAGS = -O2 -no-vec

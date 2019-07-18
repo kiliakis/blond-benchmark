@@ -2,11 +2,14 @@
 # import ctypes
 import os
 import numpy as np
-from pyprof.timing import report, start_timing, stop_timing
-from include.fft_convolution import *
-# from pyprof.papiprof import PAPIProf
-# papiprof = PAPIProf(metrics=['IPC', 'RESOURCE_STALLS_COST'])
+import pyprof.timing as timing
+# from pyprof.timing import report, start_timing, stop_timing
+# from include.fft_convolution import *
+from scipy.signal import fftconvolve
+from pyprof.papiprof import PAPIProf
+papiprof = PAPIProf(metrics=['IPC'])
 
+timing.mode = 'timing'
 
 if __name__ == "__main__":
     n_turns = 5000
@@ -29,11 +32,15 @@ if __name__ == "__main__":
     kernel = np.random.randn(n_kernel)
 
     result = np.zeros(len(signal) + len(kernel) - 1)
-    result = convolution_v0(signal, kernel)
+    result = fftconvolve(signal, kernel)
 
-    start_timing('convolution_v1')
+    timing.start_timing('convolution_v1')
+    papiprof.start_counters()
     for i in range(n_turns):
-        result = convolution_v0(signal, kernel)
-    stop_timing()
+        result = fftconvolve(signal, kernel)
+    papiprof.stop_counters()
+    timing.stop_timing()
 
-    report()
+    timing.report()
+    papiprof.report_counters()
+    papiprof.report_metrics()

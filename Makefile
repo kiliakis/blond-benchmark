@@ -11,7 +11,7 @@ all: benches
 benches:
 	@$(foreach BENCH, $(BENCH_DIRS), \
 		$(MAKE) -C $(BENCH) --no-print-directory;)
- 
+
 clean:
 	@$(foreach BENCH, $(BENCH_DIRS), \
 		$(MAKE) -C $(BENCH) clean --no-print-directory;)
